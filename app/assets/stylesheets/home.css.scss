@@ -1,0 +1,55 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	padding: 0;
+	margin: 0;
+
+
+}
+.header{
+	background-color: white;
+	height: 75px;
+	padding-right: 5%;
+}
+
+.header .registration{
+	/*background-color: blue;*/
+	position: relative;
+	float:right;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+
+}
+.header .registration a{
+	color: red;
+	border: 1px solid red;
+	padding: 20px;
+	text-decoration: none;
+	margin-left: 10px;
+
+
+}
+.header .registration a:hover{
+	background-color: pink;
+}
+.newsfeed{
+	background-color: red;
+	height: 500px;
+
+}
+.newsfeed .frame{
+	position: relative;
+	left: 5%;
+	
+	/*margin-right: 5px;*/
+	/*margin-left: 5px;*/
+	float: left;
+	width: 30%;
+	background-color: black;
+	border: 1px solid white;
+	height: 100%;
+	
+}
