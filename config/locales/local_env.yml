@@ -1,4 +1,4 @@
 
-GMAIL_DOMAIN = 'gmail.com'
-GMAIL_USERNAME = 'scuss169'
-GMAIL_PASSWORD = 'cs169scuss'
+GMAIL_DOMAIN=gmail.com
+GMAIL_USERNAME=scuss169
+GMAIL_PASSWORD=cs169scuss
