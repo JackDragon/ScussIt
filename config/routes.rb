@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
 
-  root to: 'channel#index'
+  root to: 'home#index'
 
 end
