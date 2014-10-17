@@ -19,7 +19,9 @@ class HomeController < ApplicationController
 	end
 	
 	def series
-		data = HomeHelper.get('http://thetvdb.com/data/series/'+params['id']+'/')
+		# endpoint = "http://services.tvrage.com/feeds/showinfo.php?sid="
+		endpoint = "http://thetvdb.com/data/series/"
+		data = HomeHelper.get(endpoint+params['id']+'/')
 		json = Hash.from_xml(data).to_json
 		render :json => json
 	end

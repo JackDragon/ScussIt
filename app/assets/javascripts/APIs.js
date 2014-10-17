@@ -88,6 +88,7 @@ function requestTVdb(tvdb_id, id){
 	})
 	.done(function(data) {
 		processTVdb(data,id)
+		// processTVRage(data,id)
 		console.log("success");
 	})
 	.fail(function() {

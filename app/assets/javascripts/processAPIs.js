@@ -46,12 +46,13 @@ function appendImageToAiringToday(url,id){
 }
 
 /**
- * Process json data for external IDs, specifically retreiving id for thetvdb API
+ * Process json data for external IDs, specifically retrieving id for thetvdb API
  * @param  {json} data
  * @return {void}
  */
 function processExternalID(data){
 	var tvdb_id = data["tvdb_id"]
+	// var tvdb_id = data["tvrage_id"]
 	var id = data["id"]
 
 	if(tvdb_id != null){
@@ -73,6 +74,13 @@ function processTVdb(data,id){
 	name = series["SeriesName"]
 	appendTVdb(name, airs_time, network, id)
 	
+}
+function processTVRage(data,id){
+	showinfo = data["Showinfo"]
+	name = showinfo["showname"]
+	airs_time = showinfo["airtime"]
+	network = showinfo["network"]
+	appendTVdb(name, airs_time, network, id)
 }
 function appendTVdb(name, airs_time, network, id){
 	$("#"+id).append("<li><ul><h2>" + name + "</h2></ul><ul>"+ airs_time + "</ul><ul>"+ network + "</ul></li>")

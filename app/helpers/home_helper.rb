@@ -26,6 +26,7 @@ module HomeHelper
 	
 	# Make a GET http request
 	def self.get(endpoint, parameters=nil)
+		puts endpoint
 		body = RestClient.get endpoint, {:params => parameters}
 		return body
 	end
