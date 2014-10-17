@@ -39,32 +39,13 @@ function requestAiringToday(page){
 	});
 }
 
-function requestExternalID(id){
-	$.ajax({
-		url: themoviedb['endpoint']+themoviedb['tv']+id+themoviedb['external_ids'],
-		type: 'GET',
-		dataType: 'json',
-		cache: false,
-		data: {"api_key": themoviedb['api_key']},
-	})
-	.done(function(data) {
-		processExternalID(data,id)
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
-}
-
 // function requestExternalID(id){
 // 	$.ajax({
-// 		url: "/home/externalids",
+// 		url: themoviedb['endpoint']+themoviedb['tv']+id+themoviedb['external_ids'],
 // 		type: 'GET',
 // 		dataType: 'json',
-// 		data: {"id": id},
+// 		cache: false,
+// 		data: {"api_key": themoviedb['api_key']},
 // 	})
 // 	.done(function(data) {
 // 		processExternalID(data,id)
@@ -77,6 +58,25 @@ function requestExternalID(id){
 // 	});
 	
 // }
+
+function requestExternalID(id){
+	$.ajax({
+		url: "/home/externalids",
+		type: 'GET',
+		dataType: 'json',
+		data: {"id": id},
+	})
+	.done(function(data) {
+		processExternalID(data,id)
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+}
 
 
 function requestTVdb(tvdb_id, id){
