@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get '/home/getseries', to: 'home#getseries', as: :home_getseries
+  get '/home/series', to: 'home#series', as: :home_series
+  get '/home/airingtoday', to: 'home#airingtoday', as: :home_airingtoday
+  get '/home/externalids', to: 'home#externalids', as: :home_externalids
   resources :home
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

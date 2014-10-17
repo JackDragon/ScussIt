@@ -19,17 +19,17 @@ jQuery(document).ready(function($) {
 	
 });
 
+
 function requestAiringToday(page){
 	$.ajax({
-		url: themoviedb['endpoint']+themoviedb['airing_today'],
+		url: "/home/airingtoday",
 		type: 'GET',
 		dataType: 'json',
 		cache: false,
-		data: {"api_key": themoviedb['api_key'], "page": page},
+		data: {"page": page},
 	})
 	.done(function(data) {
 		processAiringToday(data, page)
-		// console.log("success");
 	})
 	.fail(function() {
 		console.log("error");
@@ -48,9 +48,7 @@ function requestExternalID(id){
 		data: {"api_key": themoviedb['api_key']},
 	})
 	.done(function(data) {
-
 		processExternalID(data,id)
-		// console.log("success");
 	})
 	.fail(function() {
 		console.log("error");
@@ -61,9 +59,29 @@ function requestExternalID(id){
 	
 }
 
+// function requestExternalID(id){
+// 	$.ajax({
+// 		url: "/home/externalids",
+// 		type: 'GET',
+// 		dataType: 'json',
+// 		data: {"id": id},
+// 	})
+// 	.done(function(data) {
+// 		processExternalID(data,id)
+// 	})
+// 	.fail(function() {
+// 		console.log("error");
+// 	})
+// 	.always(function() {
+// 		console.log("complete");
+// 	});
+	
+// }
+
+
 function requestTVdb(tvdb_id, id){
 	$.ajax({
-		url: "/home/getseries",
+		url: "/home/series",
 		type: 'GET',
 		dataType: 'json',
 		data: {"id": tvdb_id},

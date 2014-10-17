@@ -39,4 +39,5 @@ gem 'tzinfo-data'
 # gem 'debugger', group: [:development, :test]
 
 gem 'json'
+gem 'rest-client'
 
