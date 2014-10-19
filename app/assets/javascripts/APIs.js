@@ -14,11 +14,6 @@ var thetvdb={
 
 console.log(themoviedb['endpoint']+themoviedb['airing_today']+"?api_key="+themoviedb['api_key'])
 
-jQuery(document).ready(function($) {
-	requestAiringToday(1)
-	
-});
-
 
 function requestAiringToday(page){
 	$.ajax({
