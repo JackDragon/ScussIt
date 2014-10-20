@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :messages
+  has_many :favorites
+  has_many :channels, through: :favorites
 
 end

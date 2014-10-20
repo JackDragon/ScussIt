@@ -3,6 +3,7 @@ class ChannelController < ApplicationController
   end
 
   def mychannels
+    @
   end
 
   def browse
