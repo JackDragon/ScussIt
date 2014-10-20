@@ -28,17 +28,13 @@ ActiveRecord::Schema.define(version: 20141019235632) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "user_type"
     t.integer  "channel_id"
-    t.string   "channel_type"
   end
 
   create_table "user_channels", force: true do |t|
     t.datetime "timeout"
     t.integer  "user_id"
-    t.string   "user_type"
     t.integer  "channel_id"
-    t.string   "channel_type"
   end
 
   create_table "users", force: true do |t|
