@@ -1,3 +1,1 @@
-jQuery(document).ready(function($) {
-	requestAiringToday(1)
-});
+//= require_tree ./home
