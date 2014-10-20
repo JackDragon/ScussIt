@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012232455) do
+ActiveRecord::Schema.define(version: 20141019235632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20141012232455) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "body"
+    t.datetime "creation_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.integer  "channel_id"
+    t.string   "channel_type"
+  end
+
+  create_table "user_channels", force: true do |t|
+    t.datetime "timeout"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.integer  "channel_id"
+    t.string   "channel_type"
   end
 
   create_table "users", force: true do |t|
