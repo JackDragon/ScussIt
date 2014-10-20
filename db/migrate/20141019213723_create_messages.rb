@@ -6,5 +6,7 @@ class CreateMessages < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_belongs_to :messages, :user
+    add_belongs_to :messages, :channel
   end
 end
