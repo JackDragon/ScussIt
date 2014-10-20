@@ -19,4 +19,5 @@ class Channel < ActiveRecord::Base
   def cleanup_users
     #TODO: REMOVE INACTIVE USERS
   end
+
 end
