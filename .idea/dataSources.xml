@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3536953664">
+  <component name="DataSourceManagerImpl" format="xml" hash="1803806401">
     <data-source source="LOCAL" name="Rails Scuss: development" uuid="2dd5d048-f5bb-41e7-b416-047b77e8e38a">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Sites\Scuss\db\development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/scuss_development</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Scuss: test" uuid="d8d95241-a222-4b80-92fe-127de6698f25">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/scuss_test</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Scuss: production" uuid="c77842d6-cc62-40e7-8009-5e1ba7f22803">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/scuss_production</jdbc-url>
+      <user-name>postgres</user-name>
       <libraries />
     </data-source>
   </component>

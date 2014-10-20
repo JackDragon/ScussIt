@@ -3,4 +3,10 @@
   <data-source source="LOCAL" name="Rails Scuss: development" uuid="2dd5d048-f5bb-41e7-b416-047b77e8e38a">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails Scuss: test" uuid="d8d95241-a222-4b80-92fe-127de6698f25">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails Scuss: production" uuid="c77842d6-cc62-40e7-8009-5e1ba7f22803">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
