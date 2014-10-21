@@ -5,6 +5,9 @@
   <title></title>
 </head>
 <body>
+<div>
+    This is room <% @room.id %>
+</div>
 <table>
   <% @messages.each do |message| %>
       <tr>
@@ -13,5 +16,6 @@
       </tr>
   <% end %>
 </table>
+<%= button_to "Follow", channel_follow_path, :class => "button", :method => :get  %>
 </body>
 </html>
