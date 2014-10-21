@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :channels, through: :favorites
 
+  def follow(uid, cid)
+    # :user = User.find(uid)
+    @already = User.favorites.where("user_id = ? and channel_id = ?", uid, cid)
+    if !@already.any?
+      User.favorites.create(user_id: uid, channel_id: cid)
+    end
+  end
 end

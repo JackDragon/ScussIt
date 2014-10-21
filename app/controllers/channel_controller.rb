@@ -12,7 +12,7 @@ class ChannelController < ApplicationController
 
   def room
     if params.has_key?(:id)
-      id = params(:id).to_i
+      id = params[:id].to_i
       @room = Room.find(id)
       render index
     end
