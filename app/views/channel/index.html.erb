@@ -6,12 +6,20 @@
 </head>
 <body>
 <table>
+  <div>MESSAGES:</div>
   <% @messages.each do |message| %>
       <tr>
         <td><%= message.body %></td>
-        <td><%= message.uid %></td>
       </tr>
   <% end %>
+
 </table>
+  <div>---</div>
+  <%= form_for Message.new, url: '/test/post' do |f| %>
+      <%= f.text_field :body %>
+      <%= f.submit "Send" %>
+  <% end %>
+
+
 </body>
 </html>

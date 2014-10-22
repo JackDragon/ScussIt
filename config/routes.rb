@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     get "logout", to: "devise/sessions#destroy"
   end
 
+  get '/test', to: 'channel#index', as: :test
+  post '/test/post',to: 'channel#submit', as: :messages
+
 end
