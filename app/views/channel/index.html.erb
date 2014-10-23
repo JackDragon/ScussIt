@@ -2,7 +2,7 @@
 <script type="text/javascript">
 
 $(document).ready(function (){
-  new get_messages(<% @channel.id %>);
+  new get_messages(<%= @channel.id %>);
 });
 
 function get_messages(cid) {
