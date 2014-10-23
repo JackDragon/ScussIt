@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022234429) do
+ActiveRecord::Schema.define(version: 20141023035558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20141022234429) do
     t.string   "network"
     t.string   "api_id"
   end
+
+  add_index "channels", ["api_id"], name: "index_channels_on_api_id", unique: true, using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer "user_id"

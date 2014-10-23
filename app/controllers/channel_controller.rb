@@ -52,11 +52,18 @@ class ChannelController < ApplicationController
     redirect_to channel_room_path
   end
 
+  def create
+    Channel.create(channel_params)
+  end
+
 private
 
   def message_params
     params.require(:message).permit(:body, :channel_id)
   end
 
+  def channel_params
+    params.require(:api_id).permit(:name,:image_url, :network)
+  end
 end
 
