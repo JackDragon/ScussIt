@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
-
-
-
-
 <!-- Javascript -->
 <script type="text/javascript">
+
 $(document).ready(function (){
-    $("#b1").click(function(){        
-        $.ajaxSetup({ cache: false });
-        $.getJSON("data.json", function(data){ 
-            var html = [];
-
-            $.each(data["messages"], function(index, d){            
-                html.push("Manufacturer : ", d.Manufacturer, ", ",
-                          "Sold : ", d.Sold, ", ", 
-                          "Month : ", d.Month, "<br>");
-            });
-
-
-            $("#p1").html(html.join('')).css("background-color", "orange");
-        }).error(function(jqXHR, textStatus, errorThrown){
-            alert("error occurred!");
-        });
-    });
+  new get_messages(<% @channel.id %>);
 });
+
+function get_messages(cid) {
+  var messages = $.ajax({
+    dataType: "json",
+    type: "GET",
+    // channel_id should be dynamic
+    url: "/channel/" + cid + "/messages.json",
+    async: false
+  }).success(function(){
+      setTimeout(function(){get_messages(cid);}, 10000);
+  }).responseText;
+  $('#p1').html(messages);
+}
+
 </script>
 
 <!-- HTML -->
@@ -60,7 +38,7 @@ $(document).ready(function (){
 </div>
 
 
-
+<!--
 Returns the latest MAX_MESSAGE_NUMBER messages.
 {“messages”: [
 	{“user”:”username1”, “time”:”datetime”, “message”: “messageandstuffhere”},
@@ -69,4 +47,6 @@ Returns the latest MAX_MESSAGE_NUMBER messages.
 	{“user”:”username4”, “time”:”datetime”, “message”: “messageandstuffhere”},
 	{“user”:”username5”, “time”:”datetime”, “message”: “messageandstuffhere”},
 ]}
+-->
+
 

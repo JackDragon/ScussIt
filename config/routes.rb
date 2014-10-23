@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/home/externalids', to: 'home#externalids', as: :home_externalids
   get '/mychannels', to: 'channel#mychannels', as: :mychannels
   get '/browse', to: 'channel#browse', as: :browse
+  get '/channel/index', to: 'channel#index', as: :channel_index
   resources :home
   devise_for :users
   devise_scope :user do
