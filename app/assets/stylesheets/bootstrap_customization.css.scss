@@ -17,3 +17,8 @@ $brand-primary:                     #c0392b;
 .navbar-brand {
      font-weight: bold;
 }
+
+.form-inline .form-group input {
+    width:500px;
+    height:50px;
+}
