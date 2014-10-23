@@ -6,14 +6,12 @@ body{
 	padding: 0;
 	margin: 0;
 	min-width: 1024px;
-	background-color: #8CA3B2;
+	//background-color: #8CA3B2;
 
 }
 .header{
 	/*background-color: #8CA3B2;*/
-	height: 50px;
-
-	
+	height: 50px;	
 }
 
 .header .registration{
@@ -77,16 +75,18 @@ body{
 	overflow-x: scroll;
     white-space: nowrap;
 }
+
 .airing-today-wrapper h1{
 	color: white;
 
 
 }
+
 .airing-today-wrapper .airing-today-frames{
 	width: auto;
 	height: 350px;
-
 }
+
 .airing-today-wrapper .airing-today-frames .frame{
 	position: relative;
 	display: inline-block;
