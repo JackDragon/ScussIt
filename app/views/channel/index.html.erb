@@ -9,14 +9,19 @@
   <div>MESSAGES:</div>
   <% @messages.each do |message| %>
       <tr>
-        <td><%= message.body %></td>
+        <% if message.user %>
+            <td><%= message.user.username %>: </td><td><%= message.body %></td>
+        <% else %>
+            <td>Anon:</td><td><%= message.body %></td>
+        <% end %>
       </tr>
   <% end %>
 
 </table>
   <div>---</div>
-  <%= form_for Message.new, url: '/test/post' do |f| %>
+  <%= form_for Message.new, url: channel_post_path do |f| %>
       <%= f.text_field :body %>
+      <%= hidden_field_tag(:channel_id, @channel.id) %>
       <%= f.submit "Send" %>
   <% end %>
 

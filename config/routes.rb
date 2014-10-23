@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/browse', to: 'channel#browse', as: :browse
   get '/channel/:id', to: 'channel#room', as: :channel_room
   get '/channel/:id/follow', to: 'channel#follow', as: :channel_follow
+  post '/channel/:id/post', to: 'channel#post', as: :channel_post
+
   resources :home
   devise_for :users
   devise_scope :user do

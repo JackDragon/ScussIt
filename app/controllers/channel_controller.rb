@@ -12,17 +12,21 @@ class ChannelController < ApplicationController
   end
 
 
-  def submit
-    p params
-    @message = Message.create!(message_params)
-    redirect_to '/test'
+  def post
+    if user_signed_in?
+      @message = current_user.messages.create!(message_params)
+    else
+      @message = Message.create!(message_params)
+    end
+    redirect_to channel_room_path
   end
 
   def room
     if params.has_key?(:id)
       id = params[:id].to_i
-      @room = Room.find(id)
-      render index
+      @channel = Channel.find(id)
+      @messages = @channel.get_messages
+      render :index
     end
   end
 
@@ -32,7 +36,7 @@ class ChannelController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :cid)
   end
 
 end

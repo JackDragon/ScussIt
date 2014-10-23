@@ -4,7 +4,7 @@ class Channel < ActiveRecord::Base
   has_many :users, through: :user_channel
 
   def get_messages
-    self.messages.order(:creation_time).first(20)
+    self.messages.all
   end
 
   def get_users
