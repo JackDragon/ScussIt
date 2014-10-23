@@ -1,8 +1,4 @@
 
-var end = 0;
-var end_count = 0;
-
-
 /**
  * Process json data for tv shows airing today
  * @param  {json} data
@@ -84,19 +80,4 @@ function processTVRage(data,id){
 }
 function appendTVdb(name, airs_time, network, id){
 	$("#"+id).append("<li><ul><h2>" + name + "</h2></ul><ul>"+ airs_time + "</ul><ul>"+ network + "</ul></li>")
-}
-function animateAiringToday(){
-	console.log(end)
-	console.log(end_count)
-	count = end_count*3000
-	// console.log("end",end)
-	// count =end_count;
-	console.log(count)
-	// end = $(".airing-today-frames").width()
-	$(".airing-today-wrapper").animate({
-		scrollLeft: end},
-		count, function() {
-			
-		/* stuff to do after animation is complete */
-	});
 }
