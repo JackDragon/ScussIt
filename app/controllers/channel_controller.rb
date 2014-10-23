@@ -56,6 +56,11 @@ class ChannelController < ApplicationController
     Channel.create(channel_params)
   end
 
+  def messages
+    m = Message.where(:channel_id => params[:id])
+    render json: {messages: m}
+  end
+
 private
 
   def message_params
