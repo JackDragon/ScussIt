@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/channel/find/', to: 'channel#find', as: :channel_find
 
   resources :home
+  
   devise_for :users
   devise_scope :user do
     get "signup", to: "devise/registrations#new"

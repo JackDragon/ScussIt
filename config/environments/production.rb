@@ -78,4 +78,5 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = false
   config.assets.precompile += %w( home.js )
   config.assets.precompile += %w( chatroom.js )
+  config.assets.precompile += %w( channel.js )
 end

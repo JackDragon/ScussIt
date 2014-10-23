@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<div>
-    This is room <%  %>
+
+<div class="browse_wrapper">
+
+<% @on_the_air['results'].each do |show| %>
+	
+	<%= @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['poster_path'] %>
+	<img src=<%= @backdrop_path %> alt="">
+	
+<% end %>
+	
 </div>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
+
