@@ -1,66 +1,16 @@
 <!-- Javascript -->
+<%= javascript_include_tag 'chatroom' %>  
+
 <script type="text/javascript">
-
-$(document).ready(function (){
-  // alert(1)
-  id = <%= @channel.id %>
-  get_messages(id);
-});
-
-function get_messages(cid) {
-
-  console.log("/channel/" + cid + "/messages");
-  data = $.ajax({
-    dataType: "json",
-    type: "GET",
-    // channel_id should be dynamic
-    url: "/channel/" + cid + "/messages",
-    async: false
-  }).success(function(data){      
-  }).responseText;
-
-  data = JSON.parse(data)
-  total = ""
-  for (var i = 0; i < data['messages'].length; i++) {
-      
-      message = data['messages'][i]
-      username = message['userID']
-      body = "<p>"+message['body']+"</p>"
-      total+=body
-      
-  };
-  $('#chatbox').html(total);
-  // setTimeout(function(){get_messages(cid);}, 720); 
-}
-
-function post_message(cid,message){
-
-   $.ajax({
-    url: '/channel/'+cid+'/post',
-    type: 'POST',
-    data: {'channel_id': 'cid', 'body': 'message'},
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
+  jQuery(document).ready(function($) {
+     id = <%= @channel.id %>
+    get_messages(id);
   });
-}
-function click_send(){
-  alert("hi")
-  message = $("#message_input").val()
-  post_message(id, message)
-}
-
-
 </script>
 
 <!-- HTML -->
 <table>
+
   <div>MESSAGES:</div>
   <p id="chatbox">
     <% @messages.each do |message| %>
@@ -77,6 +27,14 @@ function click_send(){
 <div>---</div>
 <input id="message_input"></input> 
 <button onclick="click_send()">send</button>
+
+<%= form_for Message.new, url: channel_post_path do |f| %>
+    <%= f.text_field :body %>
+    <!--<%= @channel.id %>-->
+    <%= f.hidden_field :channel_id, :value => @channel.id %>
+    <%= f.submit "Send" %>
+<% end %>
+
 
 <% if !current_user.nil? %>
   <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>

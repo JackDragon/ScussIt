@@ -13,12 +13,14 @@ class ChannelController < ApplicationController
 
 
   def post
+  	p "---"*80
+  	p params
     if user_signed_in?
       @message = current_user.messages.create!(message_params)
     else
       @message = Message.create!(message_params)
     end
-    
+    render :json => {success: 1}
     
   end
 
@@ -65,7 +67,7 @@ class ChannelController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(:body, :channel_id)
+    params.permit(:body, :channel_id)
   end
 
   def channel_params

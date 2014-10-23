@@ -77,4 +77,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.initialize_on_precompile = false
   config.assets.precompile += %w( home.js )
+  config.assets.precompile += %w( chatroom.js )
 end
