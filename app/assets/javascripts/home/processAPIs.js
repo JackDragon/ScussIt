@@ -20,8 +20,7 @@ function processAiringToday(data, pageIndex){
 		if (poster != null){
 			appendImageToAiringToday(url,id)
 			requestExternalID(id)
-			// end+=240			
-			// end_count++
+			
 		}
 	}
 	if(pageIndex < page){
