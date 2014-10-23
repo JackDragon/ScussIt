@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/mychannels', to: 'channel#mychannels', as: :mychannels
   get '/browse', to: 'channel#browse', as: :browse
   get '/channel/:id', to: 'channel#room', as: :channel_room
-  get '/channel/:id/follow', to: 'channel#follow', as: :channel_follow
+  post '/channel/:id/follow', to: 'channel#follow', as: :channel_follow
+  post '/channel/:id/unfollow', to: 'channel#unfollow', as: :channel_unfollow
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
 
   resources :home
