@@ -27,65 +27,72 @@ describe User do
     # before :each do
     # end
 
-    context "with no e-mail" do
+    context "presence tests" do
 
-    	before do
-    		@user = User.new(password: "abcdefgh")
-    	end
+	    context "with no e-mail" do
 
-    	it "has only password with confirmation" do
-    		@user.skip_confirmation!
-    		expect(@user.save).to be(false)
-    	end
+	    	before do
+	    		@user = User.new(password: "abcdefgh")
+	    	end
 
-    	it "has username and password with confirmation" do
-    		@user.username = "test"
-    		@user.skip_confirmation!
-    		expect(@user.save).to be(false)
-    	end
+	    	it "has only password with confirmation" do
+	    		@user.skip_confirmation!
+	    		expect(@user.save).to be(false)
+	    	end
 
-    	it "has username and password without confirmation" do
-    		@user.username = "test"
-    		expect(@user.save).to be(false)
-    	end
-    end
+	    	it "has username and password with confirmation" do
+	    		@user.username = "test"
+	    		@user.skip_confirmation!
+	    		expect(@user.save).to be(false)
+	    	end
 
-    context "with e-mail" do
+	    	it "has username and password without confirmation" do
+	    		@user.username = "test"
+	    		expect(@user.save).to be(false)
+	    	end
+	    end
 
-    	before do
-    		@user = User.new(email: "rspec@test.com")
-    	end
+	    context "with e-mail" do
 
-    	it "only" do
-    		expect(@user.save).to be(false)
-    	end
+	    	before do
+	    		@user = User.new(email: "rspec@test.com")
+	    	end
 
-    	it ", username, and password with confirmation" do
-    		@user.username = "test"
-    		@user.password = "!!!!!!!!"
-    		@user.skip_confirmation!
-    		expect(@user.save).to be(true)
-    	end
+	    	it "only" do
+	    		expect(@user.save).to be(false)
+	    	end
 
-    	it ", username, and password with confirmation" do
-    		@user.username = "test"
-    		@user.password = "!!!!!!!!"
-    		@user.skip_confirmation!
-    		expect(@user.save).to be(true)
-    	end
+	    	it ", username, and password with confirmation" do
+	    		@user.username = "test"
+	    		@user.password = "!!!!!!!!"
+	    		@user.skip_confirmation!
+	    		expect(@user.save).to be(true)
+	    	end
 
-    	it "and password with confirmation" do
-    		@user.password = "!!!!!!!!"
-    		@user.skip_confirmation!
-    		expect(@user.save).to be(true)
-    	end
+	    	it ", username, and password with confirmation" do
+	    		@user.username = "test"
+	    		@user.password = "!!!!!!!!"
+	    		@user.skip_confirmation!
+	    		expect(@user.save).to be(true)
+	    	end
 
-    	# it "and password no confirmation" do
-    	# 	@user.password = "!!!!!!!!"
-    	# 	expect(@user.save).to be(false)
-    	# end
+	    	it "and password with confirmation" do
+	    		@user.password = "!!!!!!!!"
+	    		@user.skip_confirmation!
+	    		expect(@user.save).to be(true)
+	    	end
 
-    end
+	    	# it "and password no confirmation" do
+	    	# 	@user.password = "!!!!!!!!"
+	    	# 	expect(@user.save).to be(false)
+	    	# end
+
+	    end
+	end
+
+    # context "length tests" do
+
+    # end
  	#    describe "follow channel" do
 	#     context "User rspec@test.com" do
 	#     	before do
