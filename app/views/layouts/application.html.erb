@@ -5,35 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= content_for :header %>   
+  <%= content_for :header %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="header">
-    <div class="logo">
-      <a href=""><img src="../assets/logo.png" alt=""></a>
-    </div>
-    <div class="menu">
-      <a href="/home">Home</a>
-      <a href="/browse">Browse</a>
-      <a href="">My channels</a>
-    </div>
-    <div class="registration">
-      <!-- <a href="" id="login">Login</a> -->
-      <!-- <a href="" id="register">Register</a> -->
-      <div id="user_nav">
-        <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-            <%= link_to "Register", new_user_registration_path, :class => 'navbar-link', :id =>'login'  %> 
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link', :id => 'register'  %>
-        <% end %>
-      </div>
 
-    </div>
-  </div>
-<%= yield %>
+  <%= render 'layouts/header' %>
+  <%= yield %>
+
 
 </body>
 </html>
