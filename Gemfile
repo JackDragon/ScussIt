@@ -17,3 +17,4 @@ gem 'json'
 gem 'rest-client'
 gem 'bootstrap-sass'
 gem 'simplecov', :require => false, :group => :test
+# gem 'capybara'

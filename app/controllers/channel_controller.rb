@@ -39,18 +39,30 @@ class ChannelController < ApplicationController
       if !current_user.favorites.exists?(:channel_id => params[:cid])
         current_user.favorites.create(:channel_id => params[:cid])
       end
+    elsif params.has_key?(:api_id)
+      if !Channel.find_by(api_id: params[:api_id]).exists?
+        Channel.create(channel_params)
+      end
+      cid = (Channel.find_by api_id: params[:api_id]).id
+      if !current_user.favorites.exists?(:channel_id => cid)
+        current_user.favorites.create(:channel_id => cid)
+      end
     end
     redirect_to channel_room_path
   end
 
   def unfollow
+    cid = nil
     if params.has_key?(:cid)
-      if current_user.favorites.exists?(:channel_id => params[:cid])
-        # to_delete = current_user.favorites.where(:channel_id => params[:cid])
-        to_delete = Favorite.where(:channel_id => params[:cid], :user_id => current_user.id)[0]
-        Favorite.destroy(to_delete.id)
-        # render json: {errCode: to_delete}
-      end
+      cid = params[:cid]
+    elsif params.has_key(:api_id)
+      cid = (Channel.find_by api_id: params[:api_id]).id
+    end
+    if current_user.favorites.exists?(:channel_id => cid)
+      # to_delete = current_user.favorites.where(:channel_id => params[:cid])
+      to_delete = Favorite.where(:channel_id => cid, :user_id => current_user.id)[0]
+      Favorite.destroy(to_delete.id)
+      # render json: {errCode: to_delete}
     end
     redirect_to channel_room_path
   end

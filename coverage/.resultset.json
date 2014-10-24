@@ -1,11 +1,22 @@
 {
   "RSpec": {
     "coverage": {
-      "c:/Sites/Scuss/spec/models/message_spec.rb": [
+      "c:/Sites/Scuss/spec/models/channel_spec.rb": [
+        1,
         1,
         null,
         1,
+        null,
+        null,
         1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "c:/Sites/Scuss/spec/rails_helper.rb": [
@@ -574,6 +585,38 @@
         null,
         null
       ],
+      "c:/Sites/Scuss/app/models/channel.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "c:/Sites/Scuss/spec/models/message_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
       "c:/Sites/Scuss/app/models/message.rb": [
         1,
         1,
@@ -594,9 +637,25 @@
         1,
         1,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1414121778
+    "timestamp": 1414125426
   }
 }
