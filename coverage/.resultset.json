@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jlo/workspace/Scuss/spec/controllers/channel_controller_spec.rb": [
+      "c:/Sites/Scuss/spec/controllers/channel_controller_spec.rb": [
         1,
         1,
         null,
@@ -28,7 +28,7 @@
         1,
         1,
         null,
-        1,
+        0,
         0,
         null,
         null,
@@ -37,25 +37,25 @@
         1,
         1,
         1,
-        1,
+        0,
+        null,
+        null,
+        0,
         null,
         null,
         1,
-        null,
-        null,
         1,
         1,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
         0,
         0,
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/spec/rails_helper.rb": [
+      "c:/Sites/Scuss/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -111,14 +111,14 @@
         1,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/environment.rb": [
+      "c:/Sites/Scuss/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/jlo/workspace/Scuss/config/application.rb": [
+      "c:/Sites/Scuss/config/application.rb": [
         1,
         null,
         1,
@@ -143,13 +143,13 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/boot.rb": [
+      "c:/Sites/Scuss/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/jlo/workspace/Scuss/config/environments/test.rb": [
+      "c:/Sites/Scuss/config/environments/test.rb": [
         1,
         null,
         null,
@@ -190,7 +190,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/assets.rb": [
+      "c:/Sites/Scuss/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -205,7 +205,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/backtrace_silencers.rb": [
+      "c:/Sites/Scuss/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -214,12 +214,12 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/cookies_serializer.rb": [
+      "c:/Sites/Scuss/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/devise.rb": [
+      "c:/Sites/Scuss/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -480,13 +480,13 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/filter_parameter_logging.rb": [
+      "c:/Sites/Scuss/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/inflections.rb": [
+      "c:/Sites/Scuss/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -504,18 +504,18 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/mime_types.rb": [
+      "c:/Sites/Scuss/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/session_store.rb": [
+      "c:/Sites/Scuss/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/jlo/workspace/Scuss/config/initializers/wrap_parameters.rb": [
+      "c:/Sites/Scuss/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -531,7 +531,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/config/routes.rb": [
+      "c:/Sites/Scuss/config/routes.rb": [
         1,
         null,
         1,
@@ -562,7 +562,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/models/user.rb": [
+      "c:/Sites/Scuss/app/models/user.rb": [
         null,
         null,
         null,
@@ -606,7 +606,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/helpers/application_helper.rb": [
+      "c:/Sites/Scuss/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -642,7 +642,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/helpers/channel_helper.rb": [
+      "c:/Sites/Scuss/app/helpers/channel_helper.rb": [
         1,
         null,
         1,
@@ -651,12 +651,12 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/helpers/home_helper.rb": [
+      "c:/Sites/Scuss/app/helpers/home_helper.rb": [
         1,
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/controllers/channel_controller.rb": [
+      "c:/Sites/Scuss/app/controllers/channel_controller.rb": [
         1,
         1,
         1,
@@ -675,21 +675,11 @@
         null,
         null,
         1,
-        1,
         0,
-        null,
-        1,
+        0,
         null,
         0,
         null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         null,
         null,
@@ -698,17 +688,10 @@
         0,
         0,
         0,
-        null,
-        null,
-        0,
-        0,
-        null,
         0,
         0,
         0,
         null,
-        null,
-        0,
         null,
         null,
         1,
@@ -716,10 +699,11 @@
         0,
         0,
         null,
+        null,
+        0,
         0,
         null,
         0,
-        null,
         0,
         0,
         null,
@@ -729,6 +713,22 @@
         null,
         1,
         0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -751,7 +751,7 @@
         1,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
@@ -762,7 +762,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/controllers/application_controller.rb": [
+      "c:/Sites/Scuss/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -775,47 +775,6 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/jlo/workspace/Scuss/spec/controllers/home_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/jlo/workspace/Scuss/app/controllers/home_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        0,
         0,
         0,
         0,
@@ -823,30 +782,9 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/spec/helpers/application_spec.rb": [
+      "c:/Sites/Scuss/spec/controllers/home_spec.rb": [
         1,
         null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/jlo/workspace/Scuss/spec/models/channel_spec.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
         1,
         1,
         1,
@@ -854,7 +792,69 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/models/channel.rb": [
+      "c:/Sites/Scuss/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "c:/Sites/Scuss/spec/helpers/application_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "c:/Sites/Scuss/spec/models/channel_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "c:/Sites/Scuss/app/models/channel.rb": [
         null,
         null,
         null,
@@ -892,7 +892,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/spec/models/message_spec.rb": [
+      "c:/Sites/Scuss/spec/models/message_spec.rb": [
         1,
         null,
         null,
@@ -914,8 +914,8 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
@@ -923,8 +923,8 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
@@ -932,8 +932,8 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
@@ -941,13 +941,36 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
         1,
         1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "c:/Sites/Scuss/app/models/message.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         1,
         1,
@@ -957,30 +980,7 @@
         null,
         null
       ],
-      "/Users/jlo/workspace/Scuss/app/models/message.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/jlo/workspace/Scuss/spec/models/user_spec.rb": [
+      "c:/Sites/Scuss/spec/models/user_spec.rb": [
         null,
         null,
         null,
@@ -1136,13 +1136,8 @@
         null,
         null,
         null
-      ],
-      "/Users/jlo/workspace/Scuss/app/models/favorite.rb": [
-        1,
-        null,
-        null
       ]
     },
-    "timestamp": 1414181692
+    "timestamp": 1414188306
   }
 }

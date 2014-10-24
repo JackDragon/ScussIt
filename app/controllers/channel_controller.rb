@@ -79,6 +79,14 @@ class ChannelController < ApplicationController
     render nothing: true
   end
 
+  def check_follow
+    if params.has_key?(:id)
+      following = Favorite.find_by api_id => params[:id] != nil
+      return following
+    end
+    return false
+  end
+
   def create
     Channel.create(channel_params)
   end

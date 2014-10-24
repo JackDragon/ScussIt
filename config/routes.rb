@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   post '/channel/unfollow', to: 'channel#unfollow', as: :channel_unfollow
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
-  
   get '/find/', to: 'channel#find', as: :channel_find
+  get '/channel/check_following/:id', to: 'channel#check_following', as: :channel_check_following
 
   resources :home
   
