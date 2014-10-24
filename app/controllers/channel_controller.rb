@@ -46,7 +46,7 @@ class ChannelController < ApplicationController
         current_user.favorites.create(:channel_id => cid)
       end
     end
-    redirect_to channel_room_path
+    render nothing: true
   end
 
   def unfollow
@@ -62,7 +62,7 @@ class ChannelController < ApplicationController
       Favorite.destroy(to_delete.id)
       # render json: {errCode: to_delete}
     end
-    redirect_to channel_room_path
+    render nothing: true
   end
 
   def create
