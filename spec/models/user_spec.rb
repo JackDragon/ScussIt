@@ -90,9 +90,19 @@ describe User do
 	    end
 	end
 
-    # context "length tests" do
+    context "length tests" do
 
-    # end
+    	it "password <= 128" do
+    		@user = User.new(email: "rspec@test.com", password: "`1234567890-=qwertyuiop[]|asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb1112131415161718190")
+	    	@user.skip_confirmation!
+	    	expect(@user.save).to be(false)
+	    end
+
+	    # it "username maxlength?" do
+	    # 	expect(@user.save).to be(false)
+	    # end
+    end
+
  	#    describe "follow channel" do
 	#     context "User rspec@test.com" do
 	#     	before do
