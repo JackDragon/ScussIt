@@ -10,9 +10,11 @@
 </head>
 <body>
 
+
   <% if flash[:alert] %>
     <%=flash[:alert]%>
     <%end%>
+
   <%= render 'layouts/header' %>
   <%= yield %>
 
