@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post '/channel/:id/unfollow', to: 'channel#unfollow', as: :channel_unfollow
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
+  
+  get '/channel/find/', to: 'channel#find', as: :channel_find
+
   resources :home
   devise_for :users
   devise_scope :user do

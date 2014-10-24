@@ -25,8 +25,8 @@ user = User.new :username => 'qqq', :email => 'q@q.q', :password => 'qqqqqqqq', 
 user.skip_confirmation!
 user.save
 
-channel = Channel.create! :name => 'whee'
-channel = Channel.create! :name => 'bee'
-channel = Channel.create! :name => 'teehee?'
+channel = Channel.create! :name => 'whee', :api_id => 34
+channel = Channel.create! :name => 'bee', :api_id => 35
+channel = Channel.create! :name => 'teehee?', :api_id => 31
 
 message = Message.create! body: 'huh, does this work?', user_id: 1, channel_id: 1
