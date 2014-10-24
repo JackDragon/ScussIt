@@ -64,6 +64,18 @@ class ChannelController < ApplicationController
     render json: {messages: m}
   end
 
+  def find
+    if params.has_key?(:api_id)
+      if Channel.find_by(api_id: params[:api_id]).exists?
+        channel = Channel.find_by api_id: params[:api_id]
+      else
+        channel = Channel.create(channel_params)
+        flash[:notice] = "New Channel Created!"
+      end
+      redirect_to channel_room_path, id: channel.id
+    end
+  end
+
 private
 
   def message_params
