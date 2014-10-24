@@ -4,44 +4,56 @@
 <script type="text/javascript">
   jQuery(document).ready(function($) {
      id = <%= @channel.id %>
-    get_messages(id);
+     get_messages(id);
   });
 </script>
 
-<!-- HTML -->
-<table>
 
-  <div>MESSAGES:</div>
-  <p id="chatbox">
-<!--     <% @messages.each do |message| %>
-        <tr>
-          <% if message[:user] %>
-              <td><%= message[:user] %>: </td><td><%= message[:body] %></td>
-          <% else %>
-              <td>Anon:</td><td><%= message.body %></td>
-          <% end %>
-        </tr>
-    <% end %> -->
-  </p>
-</table>
-<div>---</div>
-<input id="message_input"></input> 
-<button onclick="click_send()">send</button>
+<div class="panel-heading">
+  <ul class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#">Main</a></li>
+    <li><a href="#">Breaking Bad</a></li>
+    <li><a href="#">Lie To Me</a></li>
+  </ul>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <!--chatbox content-->
+      <div class="chat">
+        <p id="chatbox">
+        </p>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="topic">
+        <h5>Topics are coming at iteration#2.</h5>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_for Message.new, url: channel_post_path do |f| %>
-    <%= f.text_field :body %>
-    <!--<%= @channel.id %>-->
-    <%= f.hidden_field :channel_id, :value => @channel.id %>
-    <%= f.submit "Send" %>
-<% end %>
-
-
-<% if !current_user.nil? %>
-  <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
-    <%= button_to "Follow", {:controller => "channel", :action => "follow", :cid => @channel.id }  %>
-  <% else %>
-    <%= button_to "Unfollow", {:controller => "channel", :action => "unfollow", :cid => @channel.id } %>
+<div class="container">
+  <input id="message_input" type="text" style="width: 500px; height: 35px" placeholder="Enter your message here...">
+  <button onclick="click_send()" class="btn btn-primary">Send</button>
+  <br>
+  <br>
+  <% if !current_user.nil? %>
+    <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
+      <%= button_to "Follow", {:controller => "channel", :action => "follow", :cid => @channel.id }, class: "btn btn-primary"%>
+    <% else %>
+      <%= button_to "Unfollow", {:controller => "channel", :action => "unfollow", :cid => @channel.id }, class: "btn btn-primary" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<br>
+<br>
+<br>
+
+
+
+
+<!-- HTML -->
 
 
