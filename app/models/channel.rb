@@ -16,8 +16,12 @@ class Channel < ActiveRecord::Base
   validates :api_id, uniqueness: true
   validates :name, presence: true
 
-  def get_messages
-    self.messages.all
+  def self.get_messages(id)
+    h = []
+    Message.where(channel_id: id).each do |c|
+      h+= [{user: c.user.username, body: c.body}]
+    end
+    return h
   end
 
   def get_users

@@ -29,7 +29,7 @@ class ChannelController < ApplicationController
     if params.has_key?(:id)
       id = params[:id].to_i
       @channel = Channel.find(id)
-      @messages = @channel.get_messages
+      @messages = Channel.get_messages(params[:id])
       @user = current_user
       render :index
     end
@@ -73,19 +73,26 @@ class ChannelController < ApplicationController
   end
 
   def messages
-    m = Message.where(:channel_id => params[:id])
-    render json: {messages: m}
+    # m = Message.where(:channel_id => params[:id])
+    # render json: {messages: m}
+    render json: {messages: Channel.get_messages(params[:id])}
   end
 
   def find
     if params.has_key?(:api_id)
-      if Channel.find_by(api_id: params[:api_id]).exists?
-        channel = Channel.find_by api_id: params[:api_id]
-      else
-        channel = Channel.create(channel_params)
-        flash[:notice] = "New Channel Created!"
+      # if Channel.exists?(api_id: params[:api_id])
+      #   channel = Channel.find_by api_id: params[:api_id]
+      # else
+      #   channel = Channel.create!(channel_params)
+      #   flash[:notice] = "New Channel Created!"
+      # end
+      channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
+        c.name = params[:name]
+        c.image_url = params[:image_url]
+        c.network = params[:network]
       end
-      redirect_to channel_room_path, id: channel.id
+
+      redirect_to channel_room_path(channel.id)#, id: channel.id
     end
   end
 
@@ -96,7 +103,7 @@ private
   end
 
   def channel_params
-    params.require(:channel).permit(:api_id, :name,:image_url, :network)
+    params.permit(:api_id, :name, :image_url, :network)
   end
 
   

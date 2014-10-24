@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
   
-  get '/channel/find/', to: 'channel#find', as: :channel_find
+  get '/find/', to: 'channel#find', as: :channel_find
 
   resources :home
   

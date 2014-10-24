@@ -13,15 +13,15 @@
 
   <div>MESSAGES:</div>
   <p id="chatbox">
-    <% @messages.each do |message| %>
+<!--     <% @messages.each do |message| %>
         <tr>
-          <% if message.user %>
-              <td><%= message.user.username %>: </td><td><%= message.body %></td>
+          <% if message[:user] %>
+              <td><%= message[:user] %>: </td><td><%= message[:body] %></td>
           <% else %>
               <td>Anon:</td><td><%= message.body %></td>
           <% end %>
         </tr>
-    <% end %>
+    <% end %> -->
   </p>
 </table>
 <div>---</div>
