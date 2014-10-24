@@ -91,9 +91,19 @@ describe User do
 	end
 
     context "length tests" do
+    	it "password must be <= 128 chars" do
+    		@user = User.new(email: "rspec@test.com", password: "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb1112131415161718190")
+	    	@user.skip_confirmation!
+	    	expect(@user.save).to be(false)
+	    end
 
-    	it "password <= 128" do
-    		@user = User.new(email: "rspec@test.com", password: "`1234567890-=qwertyuiop[]|asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb1112131415161718190")
+    	# it "e-mail must be < 256 chars" do
+    	# 	@user = User.new(email: "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb1112131415161718190`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb111213141516171812", password: "password")
+	    # 	@user.skip_confirmation!
+	    # 	expect{ @user.save }.to raise_error
+	    # end
+    	it "e-mail must be < 256 chars" do
+    		@user = User.new(email: "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb1112131415161718190`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?qzomxwniceubrvyb111213141516171812", password: "password")
 	    	@user.skip_confirmation!
 	    	expect(@user.save).to be(false)
 	    end

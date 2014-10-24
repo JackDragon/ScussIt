@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :channels, through: :favorites
 
+  validates :email, length: {maximum: 255}
+  
   def follow(uid, cid)
     # :user = User.find(uid)
     @already = User.favorites.where("user_id = ? and channel_id = ?", uid, cid)
