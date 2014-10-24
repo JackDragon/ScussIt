@@ -7,6 +7,7 @@ class ChannelController < ApplicationController
     @favorites = User.find(params[:user]).channels.first(20)
   end
 
+  # Get all shows from MovieDB
   def browse
     themoviedb = ApplicationHelper::themoviedb
     paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> 1}
@@ -14,6 +15,15 @@ class ChannelController < ApplicationController
     @on_the_air = JSON.parse data
   end
 
+  # Get details of a show from MovieDB
+  def details
+    themoviedb = ApplicationHelper::themoviedb
+    paramaters = {'api_key'=> themoviedb[:api_key]}
+    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:tv]+params["id"],paramaters)
+    show = JSON.parse data
+    new_json = Channel.parse_detail(show)
+    render :json => new_json
+  end
 
   def post
   	p "---"*80
