@@ -16,5 +16,4 @@
 /tmp
 
 /.idea/*
-app/views/.DS_Store
-app/views/channel/.DS_Store
+*.DS_Store
