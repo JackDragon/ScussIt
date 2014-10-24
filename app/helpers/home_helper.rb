@@ -1,10 +1,3 @@
 module HomeHelper
 
-
-	
-	
-	
-
-	
-
 end
