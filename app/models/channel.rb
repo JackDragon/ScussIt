@@ -37,4 +37,27 @@ class Channel < ActiveRecord::Base
     #TODO: REMOVE INACTIVE USERS
   end
 
+  # extract values from detail json
+  def self.parse_detail(show)
+    overview = show['overview']
+    homepage = show['homepage']
+    name = show['name']
+    networks = show['networks']
+
+    new_json = {
+      overview: overview,
+      homepage: homepage,
+      name: name,
+      network: nil,
+    }
+    
+    if networks.size > 0
+      network_name = networks[0]['name']
+      p network_name
+      new_json[:network] = network_name
+    end
+    
+    return new_json
+  end
+
 end
