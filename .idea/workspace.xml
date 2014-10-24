@@ -2,309 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64fc551c-aa69-45ab-b352-f2f053d38c68" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/Lato-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/Lato-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/Lato-LightItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/Lato-LightItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/Lato-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/Lato-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/Lato-RegularItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/Lato-RegularItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/SourceCodePro-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/SourceCodePro-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts/SourceCodePro-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts/SourceCodePro-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/arrow_up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/arrow_up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/brick.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/brick.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/brick_link.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/brick_link.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/bug.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/bug.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/bullet_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/bullet_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/bullet_toggle_minus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/bullet_toggle_minus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/bullet_toggle_plus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/bullet_toggle_plus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/date.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/date.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/find.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/find.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/loadingAnimation.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/loadingAnimation.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/macFFBgHack.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/macFFBgHack.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/package.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/package.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/page_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/page_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/page_white_text.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/page_white_text.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/page_white_width.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/page_white_width.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/plugin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/plugin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/ruby.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/ruby.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/tag_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/tag_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/tag_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/tag_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/transparent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/transparent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/wrench.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/wrench.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/wrench_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/wrench_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/images/zoom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/images/zoom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/public/404_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/public/404_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/public/422_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/public/422_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/public/500_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/public/500_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/home/APIs_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ActiveRecord.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ActiveRecord_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ActiveSupport.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ActiveSupport_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/AddConfirmableToDevise.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/AddConfirmableToDevise_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/AddUsernameToUsers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/AddUsernameToUsers_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Scuss/Application.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ApplicationController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/ApplicationController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ApplicationController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/ApplicationController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/ApplicationController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ApplicationHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/ApplicationHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ApplicationHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/ApplicationHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/ApplicationHelper_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Scuss/Application_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChangeChannelUniqueApiId.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChangeChannelUniqueApiId_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Channel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Channel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/ChannelController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelControllerTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelControllerTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/ChannelController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/ChannelController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/ChannelHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelHelperTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelHelperTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/ChannelHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/ChannelHelper_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelPictureUpdate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelPictureUpdate_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ChannelTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ChannelTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Channel_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Channel_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Channel_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/ConfirmationsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/ConfirmationsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/ConfirmationsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/ConfirmationsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/ConfirmationsController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/CreateChannels.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/CreateChannels_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/CreateFavoritesTable.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/CreateFavoritesTable_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/CreateMessages.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/CreateMessages_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/CreateUserChannel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/CreateUserChannel_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/DeviseCreateUsers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/DeviseCreateUsers_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Favorite.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Favorite.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Favorite_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Favorite_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Favorite_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/File.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/File_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Gemfile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Gemfile_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Gemfile_lock.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Gemfile_lock_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/HomeController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/HomeController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/HomeControllerTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/HomeControllerTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/HomeController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/HomeController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/HomeController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/HomeHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/HomeHelper.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/HomeHelperTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/HomeHelperTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/HomeHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/HomeHelper_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/HomeHelper_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Logger.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Logger_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Message.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Message.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Message_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Message_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Message_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Object.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Object_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/OmniauthCallbacksController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/OmniauthCallbacksController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/OmniauthCallbacksController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/OmniauthCallbacksController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/OmniauthCallbacksController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/PasswordsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/PasswordsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/PasswordsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/PasswordsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/PasswordsController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/README_rdoc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/README_rdoc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/README_rdoc_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/README_rdoc_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/README_rdoc_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Rakefile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Rakefile_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/RegistrationsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/RegistrationsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/RegistrationsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/RegistrationsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/RegistrationsController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Scuss.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Scuss_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/SessionsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/SessionsController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/SessionsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/SessionsController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/SessionsController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/ActiveSupport/TestCase.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/ActiveSupport/TestCase_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users/UnlocksController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users/UnlocksController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users/UnlocksController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users/UnlocksController_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users/UnlocksController_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/User.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/User.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/UserTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/UserTest_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/User_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/User_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/User_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Users.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/Users.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/Users_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/Users_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/Users_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/coverage/assets/0_8_0/application_css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/stylesheets/application_css_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/coverage/assets/0_8_0/application_css_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/coverage/assets/0_8_0/application_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/application_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/coverage/assets/0_8_0/application_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/stylesheets/bootstrap_customization_css_scss_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/stylesheets/channel_css_scss_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/global/channel_js_coffee_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/chatroom/chat_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/chatroom_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/config_ru.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/config_ru_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/created.rid" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/created.rid" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/darkfish.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/darkfish.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/darkfish_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/darkfish_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/darkfish_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/log/development_log.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/log/development_log_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/public/favicon_ico.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/public/favicon_ico_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/fonts.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/fonts.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/fonts_css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/fonts_css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/fonts_css_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/stylesheets/home_css_scss_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/home_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/coverage/index_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/index_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/index_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/coverage/index_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/index_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/home/init_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/jquery_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/jquery_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/jquery_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/navigation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/navigation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/navigation_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/navigation_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/navigation_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/javascripts/home/processAPIs_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/rdoc.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/rdoc.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/rdoc_css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/rdoc_css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/rdoc_css_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/public/robots_txt.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/public/robots_txt_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/search_index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/search_index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/search_index_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/search_index_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/search_index_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/search_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/search_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/search_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/js/searcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/js/searcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/js/searcher_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/js/searcher_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/js/searcher_js_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/app/assets/stylesheets/style_css_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/table_of_contents.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/app/table_of_contents.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/table_of_contents_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc_backup/app/table_of_contents_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/doc_backup/app/table_of_contents_html_html.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/log/test_log.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/doc/log/test_log_html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.rdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/channel.rb" afterPath="$PROJECT_DIR$/app/models/channel.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/channel_test.rb" afterPath="$PROJECT_DIR$/test/models/channel_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/channels.yml" afterPath="$PROJECT_DIR$/test/fixtures/channels.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/devise.rb" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/message.rb" afterPath="$PROJECT_DIR$/app/models/message.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.last_run.json" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/channel_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/channel_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/channel_spec.rb" afterPath="$PROJECT_DIR$/spec/models/channel_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/message_spec.rb" afterPath="$PROJECT_DIR$/spec/models/message_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/user_test.rb" afterPath="$PROJECT_DIR$/test/models/user_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/users.yml" afterPath="$PROJECT_DIR$/test/fixtures/users.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scuss.iws" />
@@ -328,26 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="spec_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="channel_controller_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
@@ -368,21 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="channel.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/channel.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="714">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="16" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="channel_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/channel_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1819">
-              <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -391,18 +65,38 @@
       <file leaf-file-name="message_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/message_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49224406" vertical-offset="0" max-vertical-offset="2380">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2380">
+              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="channel_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/channel_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="devise.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4409044" vertical-offset="2070" max-vertical-offset="4505">
+              <caret line="147" column="2" selection-start-line="147" selection-start-column="2" selection-end-line="147" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -418,11 +112,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="channel_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/models/channel_spec.rb">
+      <file leaf-file-name="channel.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/channel.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <caret line="22" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -442,7 +146,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/db/migrate/20141012232455_add_confirmable_to_devise.rb" />
-        <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/channel/browse.html.erb" />
@@ -452,25 +155,26 @@
         <option value="$PROJECT_DIR$/db/migrate/20141023035558_change_channel_unique_api_id.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/channel_controller.rb" />
-        <option value="$PROJECT_DIR$/spec/models/channel_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/channel.rb" />
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/rails_helper.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/channels_controller_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/spec/models/message_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/channel_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/message_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/channel_controller.rb" />
+        <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1932" />
-    <option name="height" value="1092" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -577,25 +281,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scuss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scuss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -612,22 +298,8 @@
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Scuss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scuss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="initializers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -646,10 +318,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="channel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -873,7 +541,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1932" height="1092" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -882,7 +550,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964823" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11912226" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1110,13 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="4505">
-          <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20141020005759_create_favorites_table.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="886">
@@ -1137,13 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/channel/browse.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30517423" vertical-offset="0" max-vertical-offset="947">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1178,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="1343">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
@@ -1202,74 +848,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/favorite.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/channel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="714">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="16" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/channel_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="22" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
           <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/rails_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1282,26 +864,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/channel/browse.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30517423" vertical-offset="0" max-vertical-offset="947">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/favorite.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29701954" vertical-offset="0" max-vertical-offset="973">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/rails_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/channel_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1819">
-          <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="1343">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/channel.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/message_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49224406" vertical-offset="0" max-vertical-offset="2380">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2380">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/channel_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4409044" vertical-offset="2070" max-vertical-offset="4505">
+          <caret line="147" column="2" selection-start-line="147" selection-start-column="2" selection-end-line="147" selection-end-column="2" />
           <folding />
         </state>
       </provider>

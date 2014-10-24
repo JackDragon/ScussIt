@@ -2,8 +2,6 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe Channel do
-    # before :each do
-    # end
   it "should make channel" do
     c = Channel.new(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     expect(c.save).to be(true)

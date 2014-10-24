@@ -13,8 +13,6 @@ class ChannelController < ApplicationController
 
 
   def post
-  	p "---"*80
-  	p params
     if user_signed_in?
       @message = current_user.messages.create!(message_params)
     else
