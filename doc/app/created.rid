@@ -1,0 +1,18 @@
+Thu, 23 Oct 2014 22:31:54 -0700
+README.rdoc	Thu, 23 Oct 2014 22:31:07 -0700
+app/controllers/application_controller.rb	Thu, 23 Oct 2014 20:09:09 -0700
+app/controllers/channel_controller.rb	Thu, 23 Oct 2014 21:39:38 -0700
+app/controllers/home_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/confirmations_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/omniauth_callbacks_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/passwords_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/registrations_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/sessions_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/controllers/users/unlocks_controller.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/helpers/application_helper.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/helpers/channel_helper.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/helpers/home_helper.rb	Sun, 19 Oct 2014 18:03:29 -0700
+app/models/channel.rb	Thu, 23 Oct 2014 20:44:12 -0700
+app/models/favorite.rb	Thu, 23 Oct 2014 20:09:09 -0700
+app/models/message.rb	Thu, 23 Oct 2014 20:44:12 -0700
+app/models/user.rb	Thu, 23 Oct 2014 20:44:12 -0700
