@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="browse_wrapper">
 
@@ -10,3 +11,26 @@
 	
 </div>
 
+=======
+<%= javascript_include_tag 'channel' %>  
+
+
+<% @results = @on_the_air['results'] %>
+<div class="browse_wrapper">	
+	<% @results.each do |show| %>
+		<% @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['poster_path']
+			@name = show["name"]
+			@id = show["id"]
+		 %>
+		 <div class='browse_frame' id=<%= @id %>>
+			<img class="browse_poster" src=<%= @backdrop_path %> alt="">
+			<li><ul><h2> <%= @name %> </h2></ul></li>
+		</div>
+	<% end %>
+</div>
+
+<div class="sidebar">
+	<button>Follow</button>
+
+</div>
+>>>>>>> add css to browse page

@@ -88,5 +88,7 @@ private
   def channel_params
     params.require(:channel).permit(:api_id, :name,:image_url, :network)
   end
+
+  
 end
 
