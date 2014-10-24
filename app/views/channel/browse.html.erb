@@ -1,15 +1,15 @@
 
 <%= javascript_include_tag 'channel' %>  
-
-
 <% @results = @on_the_air['results'] %>
+
 <div class="browse_wrapper">	
 	<% @results.each do |show| %>
 		<% @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['poster_path']
 			@name = show["name"]
 			@id = show["id"]
 		 %>
-		 <div class='browse_frame' id=<%= @id %>>
+		 
+		 <div class='browse_frame' id=<%= @id %> >
 			<img class="browse_poster" src=<%= @backdrop_path %> alt="">
 			<li><ul><h2> <%= @name %> </h2></ul></li>
 		</div>
@@ -17,14 +17,15 @@
 </div>
 
 <div class="sidebar">
-
+	<div><%= @overview %></div>
 	<div class="content">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quibusdam incidunt, quidem porro delectus dolore, dolores, maxime enim culpa consequatur, maiores rerum. Recusandae, velit corporis eveniet ipsam soluta eum expedita.
 
+		<h1><%= @results[0]["name"] %></h1>
+		<button class="btn btn-primary follow" value=<%= @results[0]["id"] %>>Follow</button>	
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quibusdam incidunt, quidem porro delectus dolore, dolores, maxime enim culpa consequatur, maiores rerum. Recusandae, velit corporis eveniet ipsam soluta eum expedita.</p>
 	</div>
-	<div class="follow_wrapper">
-		<button class="btn btn-primary follow">Follow</button>	
-	</div>
+
+
 	
 
 </div>

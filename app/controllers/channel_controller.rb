@@ -7,6 +7,7 @@ class ChannelController < ApplicationController
     @favorites = User.find(params[:user]).channels.first(20)
   end
 
+  # Get all shows from MovieDB
   def browse
     themoviedb = ApplicationHelper::themoviedb
     paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> 1}
@@ -14,6 +15,15 @@ class ChannelController < ApplicationController
     @on_the_air = JSON.parse data
   end
 
+  # Get details of a show from MovieDB
+  def details
+    themoviedb = ApplicationHelper::themoviedb
+    paramaters = {'api_key'=> themoviedb[:api_key]}
+    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:tv]+params["id"],paramaters)
+    show = JSON.parse data
+    new_json = Channel.parse_detail(show)
+    render :json => new_json
+  end
 
   def post
     if user_signed_in?
@@ -41,7 +51,8 @@ class ChannelController < ApplicationController
         current_user.favorites.create(:channel_id => params[:cid])
       end
     elsif params.has_key?(:api_id)
-      if !Channel.find_by(api_id: params[:api_id]).exists?
+
+      if Channel.find_by(api_id: params[:api_id]) == nil
         Channel.create(channel_params)
       end
       cid = (Channel.find_by api_id: params[:api_id]).id
@@ -66,6 +77,14 @@ class ChannelController < ApplicationController
       # render json: {errCode: to_delete}
     end
     render nothing: true
+  end
+
+  def check_follow
+    if params.has_key?(:id)
+      following = Favorite.find_by api_id => params[:id] != nil
+      return following
+    end
+    return false
   end
 
   def create
