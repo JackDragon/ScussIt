@@ -1,72 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
-
-
-
-
 <!-- Javascript -->
+<%= javascript_include_tag 'chatroom' %>  
+
 <script type="text/javascript">
-$(document).ready(function (){
-    $("#b1").click(function(){        
-        $.ajaxSetup({ cache: false });
-        $.getJSON("data.json", function(data){ 
-            var html = [];
-
-            $.each(data["messages"], function(index, d){            
-                html.push("Manufacturer : ", d.Manufacturer, ", ",
-                          "Sold : ", d.Sold, ", ", 
-                          "Month : ", d.Month, "<br>");
-            });
-
-
-            $("#p1").html(html.join('')).css("background-color", "orange");
-        }).error(function(jqXHR, textStatus, errorThrown){
-            alert("error occurred!");
-        });
-    });
-});
+  jQuery(document).ready(function($) {
+     id = <%= @channel.id %>
+    get_messages(id);
+  });
 </script>
 
 <!-- HTML -->
-<div class="container">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<p id="#p1">
-				All the messages will be displayed here...
-			</p>
-		</div>
-	</div>
-	<form class="form-inline" role="form">
-	  <div class="form-group">
-	    <input type="message" class="form-control" placeholder="Enter your message here...">
-	  </div>
-	  <button type="submit" id="#b1" class="btn btn-primary">Send</button>
-	</form>
-</div>
+<table>
+
+  <div>MESSAGES:</div>
+  <p id="chatbox">
+    <% @messages.each do |message| %>
+        <tr>
+          <% if message.user %>
+              <td><%= message.user.username %>: </td><td><%= message.body %></td>
+          <% else %>
+              <td>Anon:</td><td><%= message.body %></td>
+          <% end %>
+        </tr>
+    <% end %>
+  </p>
+</table>
+<div>---</div>
+<input id="message_input"></input> 
+<button onclick="click_send()">send</button>
+
+<%= form_for Message.new, url: channel_post_path do |f| %>
+    <%= f.text_field :body %>
+    <!--<%= @channel.id %>-->
+    <%= f.hidden_field :channel_id, :value => @channel.id %>
+    <%= f.submit "Send" %>
+<% end %>
 
 
+<% if !current_user.nil? %>
+  <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
+    <%= button_to "Follow", {:controller => "channel", :action => "follow", :cid => @channel.id }  %>
+  <% else %>
+    <%= button_to "Unfollow", {:controller => "channel", :action => "unfollow", :cid => @channel.id } %>
+  <% end %>
+<% end %>
 
-Returns the latest MAX_MESSAGE_NUMBER messages.
-{“messages”: [
-	{“user”:”username1”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username2”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username3”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username4”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username5”, “time”:”datetime”, “message”: “messageandstuffhere”},
-]}
 
