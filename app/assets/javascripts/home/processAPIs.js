@@ -56,7 +56,7 @@ function processExternalID(data){
 	var id = data["id"]
 
 	if(tvdb_id != null){
-		requestTVdb(tvdb_id, id)
+		// requestTVdb(tvdb_id, id)
 	}
 
 }

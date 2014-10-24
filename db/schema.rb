@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020014550) do
+ActiveRecord::Schema.define(version: 20141023035558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20141020014550) do
     t.string   "image_url"
     t.string   "network"
     t.string   "api_id"
+  end
+
+  add_index "channels", ["api_id"], name: "index_channels_on_api_id", unique: true, using: :btree
+
+  create_table "favorites", force: true do |t|
+    t.integer "user_id"
+    t.integer "channel_id"
   end
 
   create_table "messages", force: true do |t|
@@ -56,6 +63,7 @@ ActiveRecord::Schema.define(version: 20141020014550) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

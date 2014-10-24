@@ -1,72 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
-
-
-
-
 <!-- Javascript -->
+<%= javascript_include_tag 'chatroom' %>  
+
 <script type="text/javascript">
-$(document).ready(function (){
-    $("#b1").click(function(){        
-        $.ajaxSetup({ cache: false });
-        $.getJSON("data.json", function(data){ 
-            var html = [];
 
-            $.each(data["messages"], function(index, d){            
-                html.push("Manufacturer : ", d.Manufacturer, ", ",
-                          "Sold : ", d.Sold, ", ", 
-                          "Month : ", d.Month, "<br>");
-            });
-
-
-            $("#p1").html(html.join('')).css("background-color", "orange");
-        }).error(function(jqXHR, textStatus, errorThrown){
-            alert("error occurred!");
-        });
-    });
-});
+  jQuery(document).ready(function($) {
+     id = <%= @channel.id %>
+     get_messages(id);
+  });
 </script>
 
-<!-- HTML -->
-<div class="container">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<p id="#p1">
-				All the messages will be displayed here...
-			</p>
-		</div>
-	</div>
-	<form class="form-inline" role="form">
-	  <div class="form-group">
-	    <input type="message" class="form-control" placeholder="Enter your message here...">
-	  </div>
-	  <button type="submit" id="#b1" class="btn btn-primary">Send</button>
-	</form>
+
+<div class="panel-heading">
+  <ul class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#">Main</a></li>
+    <li><a href="#">Breaking Bad</a></li>
+    <li><a href="#">Lie To Me</a></li>
+  </ul>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <!--chatbox content-->
+      <div class="chat">
+        <p id="chatbox">
+        </p>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="topic">
+        <h5>Topics are coming at iteration#2.</h5>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <input id="message_input" type="text" style="width: 500px; height: 35px" placeholder="Enter your message here...">
+  <button onclick="click_send()" class="btn btn-primary">Send</button>
+  <br>
+  <br>
+  <% if !current_user.nil? %>
+    <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
+      <%= button_to "Follow", {:controller => "channel", :action => "follow", :cid => @channel.id }, class: "btn btn-primary"%>
+    <% else %>
+      <%= button_to "Unfollow", {:controller => "channel", :action => "unfollow", :cid => @channel.id }, class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+<br>
+<br>
 
 
-Returns the latest MAX_MESSAGE_NUMBER messages.
-{“messages”: [
-	{“user”:”username1”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username2”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username3”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username4”, “time”:”datetime”, “message”: “messageandstuffhere”},
-	{“user”:”username5”, “time”:”datetime”, “message”: “messageandstuffhere”},
-]}
+
+
+<!-- HTML -->
+
 
