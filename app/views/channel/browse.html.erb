@@ -1,20 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<div>
-    This is room <%  %>
+
+<%= javascript_include_tag 'channel' %>  
+
+
+<% @results = @on_the_air['results'] %>
+<div class="browse_wrapper">	
+	<% @results.each do |show| %>
+		<% @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['poster_path']
+			@name = show["name"]
+			@id = show["id"]
+		 %>
+		 <div class='browse_frame' id=<%= @id %>>
+			<img class="browse_poster" src=<%= @backdrop_path %> alt="">
+			<li><ul><h2> <%= @name %> </h2></ul></li>
+		</div>
+	<% end %>
 </div>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
+
+<div class="sidebar">
+
+	<div class="content">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quibusdam incidunt, quidem porro delectus dolore, dolores, maxime enim culpa consequatur, maiores rerum. Recusandae, velit corporis eveniet ipsam soluta eum expedita.
+
+	</div>
+	<div class="follow_wrapper">
+		<button class="btn btn-primary follow">Follow</button>	
+	</div>
+	
+
+</div>
