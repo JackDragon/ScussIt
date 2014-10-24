@@ -51,7 +51,8 @@ class ChannelController < ApplicationController
         current_user.favorites.create(:channel_id => params[:cid])
       end
     elsif params.has_key?(:api_id)
-      if !Channel.find_by(api_id: params[:api_id]).exists?
+
+      if Channel.find_by(api_id: params[:api_id]) == nil
         Channel.create(channel_params)
       end
       cid = (Channel.find_by api_id: params[:api_id]).id
