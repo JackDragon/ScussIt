@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
   
-  get '/channel/find/:api_id', to: 'channel#find', as: :channel_find
+  get '/channel/find/', to: 'channel#find', as: :channel_find
 
   resources :home
   devise_for :users
