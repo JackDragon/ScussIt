@@ -43,11 +43,14 @@ class Channel < ActiveRecord::Base
     homepage = show['homepage']
     name = show['name']
     networks = show['networks']
-
+    poster_path = show['poster_path']
+    id = show['id']
     new_json = {
+      id:id,  
       overview: overview,
       homepage: homepage,
       name: name,
+      poster_path: poster_path,
       network: nil,
     }
     

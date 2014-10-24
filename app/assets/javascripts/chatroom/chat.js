@@ -1,4 +1,4 @@
-$(document).ready(function (){
+  $(document).ready(function (){
   console.log("hi")
   id= 2
   // id = <%= @channel.id %>
