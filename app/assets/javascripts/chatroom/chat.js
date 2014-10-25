@@ -14,7 +14,6 @@ $(document).ready(function (){
   
 });
 
-
 function follow_from_channel(id){
   $.ajax({
     url: '/channel/follow',
@@ -34,6 +33,8 @@ function follow_from_channel(id){
 }
 
 function get_messages(cid) {
+
+  var old_height = $('#chatbox').prop('scrollHeight');
 
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
@@ -56,10 +57,17 @@ function get_messages(cid) {
       
   };
   $('#chatbox').html(total);
+
   if(document.URL.indexOf('channel/'+cid) > -1)
     content = setTimeout(function(){get_messages(cid);}, 720); 
   else
     clearTimeout(content)
+
+  var new_height = $('#chatbox').prop('scrollHeight');
+  if(new_height > old_height){
+    $("#chatbox").animate({ scrollTop: new_height }, 'normal');
+  }
+  setTimeout(function(){get_messages(cid);}, 720); 
 }
 
 function post_message(cid,message){
@@ -82,5 +90,6 @@ function post_message(cid,message){
 
 function click_send(){
   message = $("#message_input").val()
+  document.getElementById("message_input").value = "";
   post_message(id, message)
 }

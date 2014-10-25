@@ -3,26 +3,36 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
-     id = <%= @channel.id %>
-     get_messages(id);
+
+    // Binding the ENTER KEY
+    $(document).bind('keypress', function(element) {
+        if(element.keyCode==13){
+             $('#send_button').trigger('click');
+         }
+    });
+
+    id = <%= @channel.id %>
+    get_messages(id);
   });
 </script>
-
+<!-- <div class="container" style="float: right">
+  <h1><%= Channel.find(@channel.id).name %></h1>
+</div> -->
 
 <div class="panel-heading">
   <ul class="nav nav-pills" role="tablist">
-    <li class="active"><a href="#">Main</a></li>
-    <li><a href="#">Breaking Bad</a></li>
-    <li><a href="#">Lie To Me</a></li>
+    <li class="active"><a href="#">Main: <%= Channel.find(@channel.id).name %></a></li>
+    <!-- <li><a href="#">Breaking Bad</a></li> -->
+    <!-- <li><a href="#">Lie To Me</a></li> -->
   </ul>
 </div>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span9">
       <!--chatbox content-->
-      <div class="chat">
-        <p id="chatbox">
-        </p>
+      <div class="chat" id="chatbox">
+
       </div>
     </div>
     <div class="span3">
@@ -34,8 +44,8 @@
 </div>
 
 <div class="container">
-  <input id="message_input" type="text" style="width: 500px; height: 35px" placeholder="Enter your message here...">
-  <button onclick="click_send()" class="btn btn-primary">Send</button>
+  <input id="message_input" type="text" maxlength="255" style="width: 500px; height: 35px" placeholder="Enter your message here...">
+  <button id="send_button" onclick="click_send()" class="btn btn-primary">Send</button>
   <br>
   <br>
   <% if !current_user.nil? %>
