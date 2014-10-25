@@ -106,7 +106,7 @@ class ChannelController < ApplicationController
         c.image_url = params[:image_url]
         c.network = params[:network]
       end
-      url = "'/channel/"+channel.id.to_s+"'"
+      url = "'/channel/"+@channel.id.to_s+"'"
       p url
       render :js => "window.location ="+url
       # redirect_to channel_room_path(channel.id)#, id: channel.id
