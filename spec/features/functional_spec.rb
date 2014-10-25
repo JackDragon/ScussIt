@@ -39,7 +39,7 @@ describe ChannelController do
     expect(page).to have_content 'Seinfeld'
   end
 
-  it "goes to a chatroom" do
+  it "posts a message in the chat" do
     c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     visit(channel_room_path(c))
     fill_in 'message_input', with: 'HIII WORLD'
