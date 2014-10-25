@@ -58,5 +58,6 @@ function post_message(cid,message){
 
 function click_send(){
   message = $("#message_input").val()
+  document.getElementById("message_input").value = "";
   post_message(id, message)
 }
