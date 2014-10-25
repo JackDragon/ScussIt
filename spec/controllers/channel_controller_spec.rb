@@ -1,8 +1,6 @@
 # Bryant Chang
 # Renjie Long
 # Jonathan Lo
-
->>>>>>> 317c80cd791e230d62832e472d62aa7c82a1e151
 require 'spec_helper'
 require 'rails_helper'
 
