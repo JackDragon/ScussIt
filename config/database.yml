@@ -1,8 +1,7 @@
 # Run 'rake db:create db:migrate'
 default: &default
   adapter: postgresql
-  encoding: unicode
-  username: postgres
+  encoding: unicode 
   pool: 5
   timeout: 5000
 
