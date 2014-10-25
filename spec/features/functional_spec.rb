@@ -54,7 +54,7 @@ describe ChannelController do
     click_button "#{c.api_id}"
     # page.find('btn.btn-primary.follow').click
     # expect(page).to have_content 'Unfollow'
-    expect(page.has_content?('Unfollow')).to be_true
+    expect(find())
   end
 
   it "visits the browse page" do
