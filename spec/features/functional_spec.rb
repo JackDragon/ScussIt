@@ -36,14 +36,14 @@ describe ChannelController do
   it "goes to a chatroom" do
     c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     visit(channel_room_path(c))
-    expect(page).to have_content 'Main'
+    expect(page).to have_content 'Seinfeld'
   end
 
   it "goes to a chatroom" do
     c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     visit(channel_room_path(c))
     fill_in 'message_input', with: 'HIII WORLD'
-    click_button 'btn.btn-primary'
+    click_button 'btn'
     reload_page
     expect(page).to have_content 'HIII WORLD'
   end
