@@ -4,11 +4,10 @@
     <list default="true" id="64fc551c-aa69-45ab-b352-f2f053d38c68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.last_run.json" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Scuss.iml" afterPath="$PROJECT_DIR$/.idea/Scuss.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/channel_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/channel_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/channel_controller_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/features/functional_spec.rb" afterPath="$PROJECT_DIR$/spec/features/functional_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scuss.iws" />
@@ -95,8 +94,8 @@
       <file leaf-file-name="functional_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/features/functional_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89516956" vertical-offset="897" max-vertical-offset="1972">
-              <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.77286744" vertical-offset="574" max-vertical-offset="1547">
+              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -982,8 +981,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/functional_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89516956" vertical-offset="897" max-vertical-offset="1972">
-          <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.77286744" vertical-offset="574" max-vertical-offset="1547">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding />
         </state>
       </provider>
