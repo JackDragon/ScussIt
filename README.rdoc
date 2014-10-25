@@ -1,7 +1,6 @@
-==[Di]Scuss - Live chat for live shows
+:title:[Di]Scuss - Live chat for live shows
 
-Getting started
---------------- 
+==Getting started
 
 Run on your local machine: 
 
@@ -15,8 +14,7 @@ Run on your local machine:
 
 Or visit Heroku: http://intense-beach-4692.herokuapp.com/
 
-Registration Instructions
--------------------------
+==Registration Instructions
 * Click Register[http://intense-beach-4692.herokuapp.com/users/sign_up]
 * Enter a unique e-mail less than 256 characters.
 * Enter a password between 8 and 128 characters.
@@ -24,14 +22,8 @@ Registration Instructions
 * Click <tt>Sign up</tt>
 * Check your e-mail to confirm your registration (please check your spam folder just in case!)
 
-
-Running Tests
--------------
+==Running Tests
 * Run <tt>rspec</tt>
 
-Miscellaneous
--------------
+==Miscellaneous
 * Ruby version: 2.1.3
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
