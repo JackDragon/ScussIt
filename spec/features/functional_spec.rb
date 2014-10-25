@@ -42,36 +42,11 @@ describe ChannelController do
   it "posts a message in the chat" do
     c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     visit(channel_room_path(c))
-    fill_in 'message_input', with: 'HIII WORLD'
+    fill_in 'message_input', with: 'Scuss'
     click_button 'send_button'
-    visit(channel_room_path(c))
-    expect(page).to have_content 'HIII WORLD'
+    expect(page).to have_content 'Scuss'
   end
 
-  it "tries to follow a channel" do
-    c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
-    visit(channel_room_path(c))
-    click_button "#{c.api_id}"
-    # page.find('btn.btn-primary.follow').click
-    # expect(page).to have_content 'Unfollow'
-    expect(find())
-  end
-
-  it "visits the browse page" do
-    visit('/browse')
-    expect(page).to have_css('div.browse_wrapper')
-  end
-
-  it "tries to click on a page on the front page" do
-    visit('/')
-
-  end
-
-  it "tries to click on a page on the browse page" do
-  end
-
-  it "tries to follow a page from the browse page" do
-  end
 
   it "tries to log out" do
   end
