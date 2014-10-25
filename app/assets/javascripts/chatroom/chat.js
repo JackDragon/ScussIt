@@ -52,9 +52,8 @@ function get_messages(cid) {
       
       message = data['messages'][i]
       username = message['user']
-      body = "<p>"+ "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
+      body = "<p id=\"message"+ i.toString + "\">" + "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
       total+=body
-      
   };
   $('#chatbox').html(total);
   var new_height = $('#chatbox').prop('scrollHeight');
