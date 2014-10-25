@@ -1,3 +1,4 @@
+# Jonathan Lo
 # == Schema Information
 #
 # Table name: users

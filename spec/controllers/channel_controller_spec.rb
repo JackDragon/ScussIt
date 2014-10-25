@@ -1,3 +1,6 @@
+# Channel functional tests
+# Jonathan Lo
+
 require 'spec_helper'
 require 'rails_helper'
 
