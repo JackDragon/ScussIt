@@ -1,7 +1,5 @@
 ==[Di]Scuss - Live chat for live shows
 
-Ruby version: 2.1.3
-
 Getting started
 --------------- 
 
@@ -15,17 +13,25 @@ Run on your local machine:
 
 * Start server with <tt>rails s</tt>
 
-Or view on Heroku:
+Or visit Heroku: http://intense-beach-4692.herokuapp.com/
 
-http://serene-harbor-8342.herokuapp.com
+Registration Instructions
+-------------------------
+* Click Register[http://intense-beach-4692.herokuapp.com/users/sign_up]
+* Enter a unique e-mail less than 256 characters.
+* Enter a password between 8 and 128 characters.
+* Confirm your password by entering it again.
+* Click <tt>Sign up</tt>
+* Check your e-mail to confirm your registration (please check your spam folder just in case!)
 
-Usage
------
 
 Running Tests
 -------------
 * Run <tt>rspec</tt>
 
+Miscellaneous
+-------------
+* Ruby version: 2.1.3
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
