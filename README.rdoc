@@ -1,4 +1,8 @@
-:title:[Di]Scuss - Live chat for live shows
+=[Di]Scuss - Live chat for live shows
+Scuss is a platform for viewers of tv shows to discuss their thoughts live. A live chat is the perfect medium for users to proclaim their excitements and express their disappointments, right as the events happen before their eyes. Discussions will be available the day the show is airing, to ensure the maximum possible participation. Users will be able to follow their favorite shows and be informed when they're live!
+
+==Preview
+<img src=app/assets/images/home.png />
 
 ==Getting started
 
@@ -27,3 +31,6 @@ Or visit Heroku: http://intense-beach-4692.herokuapp.com/
 
 ==Miscellaneous
 * Ruby version: 2.1.3
+
+==About Scuss
+Scuss was created by Bryant Chang, Gangbaolede Li, Jack Long, Jonathan Lo, and Jonathan Wu
