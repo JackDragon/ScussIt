@@ -2,7 +2,36 @@ $(document).ready(function (){
   id= 2
   // id = <%= @channel.id %>
   // get_messages(id);
+  $(".follow").click(function(event) {
+    type = $(this).html()
+    console.log("---"+this.id)
+    if (type == "Follow"){
+      follow_from_channel(this.id)
+    }else if(type == "Unfollow"){
+      unfollow(this.id)
+    }
+  });
+  
 });
+
+
+function follow_from_channel(id){
+  $.ajax({
+    url: '/channel/follow',
+    type: 'POST',
+    data: {"api_id": id},
+  })
+  .done(function() {
+    toggleFollowButton(true)
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+}
 
 function get_messages(cid) {
 

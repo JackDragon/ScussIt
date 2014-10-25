@@ -40,9 +40,9 @@
   <br>
   <% if !current_user.nil? %>
     <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
-      <%= button_to "Follow", {:controller => "channel", :action => "follow", :cid => @channel.id }, class: "btn btn-primary"%>
+      <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Follow</button>
     <% else %>
-      <%= button_to "Unfollow", {:controller => "channel", :action => "unfollow", :cid => @channel.id }, class: "btn btn-primary" %>
+      <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Unfollow</button>
     <% end %>
   <% end %>
 </div>

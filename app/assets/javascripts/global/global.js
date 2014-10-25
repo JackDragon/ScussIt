@@ -37,3 +37,31 @@ function getDetails(id){
 	return detail
 	
 }
+
+function unfollow(id){
+	$.ajax({
+		url: '/channel/unfollow',
+		type: 'POST',
+		data: {"api_id": id},
+	})
+	.done(function() {
+		toggleFollowButton(false)
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+}
+
+function toggleFollowButton(isFollowing){
+	if (isFollowing){
+		$(" .follow").html("Unfollow")
+	}else{
+		$(" .follow").html("Follow")
+	}
+
+}

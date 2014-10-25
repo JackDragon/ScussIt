@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		if (type == "Follow"){
 			follow(detail)
 		}else if(type == "Unfollow"){
-			unfollow(detail)
+			unfollow(detail['id'])
 		}
 		
 	});
@@ -30,24 +30,6 @@ function setViewWithDetails(detail){
 	$(".sidebar .title").html(detail["name"])
 	$(".sidebar .description").html(detail["overview"])
 	toggleFollowButton(checkFollowing(detail["id"]))
-}
-function unfollow(detail){
-	$.ajax({
-		url: '/channel/unfollow',
-		type: 'POST',
-		data: {"api_id": detail['id']},
-	})
-	.done(function() {
-		toggleFollowButton(false)
-		console.log("success");
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
 }
 function follow(detail){
 	$.ajax({
@@ -88,11 +70,4 @@ function checkFollowing(id){
 	
 	return isFollowing
 }
-function toggleFollowButton(isFollowing){
-	if (isFollowing){
-		$(".sidebar .follow").html("Unfollow")
-	}else{
-		$(".sidebar .follow").html("Follow")
-	}
 
-}
