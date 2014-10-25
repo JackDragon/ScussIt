@@ -16,12 +16,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Browse", '/browse' %></li>
         <% if user_signed_in? %>
-            <li> <%= link_to 'Logged in as ' + current_user.email + " ", '/home' %> </li>
-            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Logged in as ' + current_user.email + " ", '/home' %> </li>
+          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         <% else %>
-            <li><%= link_to "Register", new_user_registration_path, :class => 'navbar-link', :id =>'login'  %> </li>
-            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link', :id => 'register'  %></li>
+          <li><%= link_to "Register", new_user_registration_path, :class => 'navbar-link', :id =>'login'  %> </li>
+          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link', :id => 'register'  %></li>
         <% end %>
       </ul>
     </div> <!-- /.navbar-collapse -->

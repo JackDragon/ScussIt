@@ -15,15 +15,18 @@
     get_messages(id);
   });
 </script>
-
+<!-- <div class="container" style="float: right">
+  <h1><%= Channel.find(@channel.id).name %></h1>
+</div> -->
 
 <div class="panel-heading">
   <ul class="nav nav-pills" role="tablist">
-    <li class="active"><a href="#">Main</a></li>
-    <li><a href="#">Breaking Bad</a></li>
-    <li><a href="#">Lie To Me</a></li>
+    <li class="active"><a href="#">Main: <%= Channel.find(@channel.id).name %></a></li>
+    <!-- <li><a href="#">Breaking Bad</a></li> -->
+    <!-- <li><a href="#">Lie To Me</a></li> -->
   </ul>
 </div>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span9">
