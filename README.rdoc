@@ -2,7 +2,7 @@
 Scuss is a platform for viewers of tv shows to discuss their thoughts live. A live chat is the perfect medium for users to proclaim their excitements and express their disappointments, right as the events happen before their eyes. Discussions will be available the day the show is airing, to ensure the maximum possible participation. Users will be able to follow their favorite shows and be informed when they're live!
 
 ==Preview
-<img src=app/assets/images/home.png />
+link:app/assets/images/home.png
 
 ==Getting started
 
@@ -16,7 +16,7 @@ Run on your local machine:
 
 * Start server with <tt>rails s</tt>
 
-Or visit Heroku: http://intense-beach-4692.herokuapp.com/
+Or visit Heroku: http://intense-beach-4692.herokuapp.com
 
 ==Registration Instructions
 * Click Register[http://intense-beach-4692.herokuapp.com/users/sign_up]
