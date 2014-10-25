@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get "signup", to: "devise/registrations#new"
     get "login", to: "devise/sessions#new"
     get "logout", to: "devise/sessions#destroy"
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   get '/test', to: 'channel#index', as: :test

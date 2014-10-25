@@ -19,10 +19,10 @@ Run on your local machine:
 
 * Start server with <tt>rails s</tt>
 
-Or visit Heroku: http://intense-beach-4692.herokuapp.com
+Or visit Heroku: http://warm-mountain-1838.herokuapp.com/
 
 ==Registration instructions
-* Click Register[http://intense-beach-4692.herokuapp.com/users/sign_up]
+* Click Register[http://warm-mountain-1838.herokuapp.com/users/sign_up]
 * Enter a unique e-mail less than 256 characters.
 * Enter a password between 8 and 128 characters.
 * Confirm your password by entering it again.
