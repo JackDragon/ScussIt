@@ -1,3 +1,5 @@
+# Bryant Chang
+# Renjie Long
 Rails.application.routes.draw do
 
   root 'home#index'

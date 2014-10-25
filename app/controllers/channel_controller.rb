@@ -1,3 +1,6 @@
+# Renjie Long
+# Bryant Chang
+
 class ChannelController < ApplicationController
   def mychannels
     @favorites = User.find(params[:user]).channels.first(20)

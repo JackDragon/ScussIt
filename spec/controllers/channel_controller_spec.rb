@@ -1,3 +1,5 @@
+# Bryant Chang
+# Renjie Long
 require 'spec_helper'
 require 'rails_helper'
 

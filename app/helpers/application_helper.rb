@@ -1,3 +1,4 @@
+# Jon Wu
 module ApplicationHelper
 
 	require 'rest_client'

@@ -1,3 +1,4 @@
+# Renjie Long
 # == Schema Information
 #
 # Table name: users

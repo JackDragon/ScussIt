@@ -1,3 +1,4 @@
+// Jon Wu
 function redirectToChannel(detail){
 	$.ajax({
 		url: '/find',
