@@ -1,34 +1,31 @@
-[Di]Scuss - Live chat for live shows
-====================================
+==[Di]Scuss - Live chat for live shows
+
+Ruby version: 2.1.3
 
 Getting started
----------------
+--------------- 
 
-See the [installation instructions](http://voormedia.github.io/rails-erd/install.html)
-for a complete description of how to install Rails ERD. Here's a summary:
+Run on your local machine: 
 
-* Install Graphviz 2.22+ ([how?](http://voormedia.github.io/rails-erd/install.html))
+* Install dependencies <tt>bundle install</tt>
 
-* Add <tt>gem "rails-erd"</tt> to your application's Gemfile
+* Create database: <tt>rake db:create</tt>
 
-* Run <tt>bundle exec erd</tt>
+* Migrate database: <tt>rake db:migrate</tt>
 
+* Start server with <tt>rails s</tt>
 
-* Ruby version: 2.1.3
+Or view on Heroku:
 
-* System dependencies:   
+http://serene-harbor-8342.herokuapp.com
 
-* Configuration: ``bundle install``
+Usage
+-----
 
-* Database creation: ``rake db:create``
+Running Tests
+-------------
+* Run <tt>rspec</tt>
 
-* Database initialization: ``rake db:migrate``
-
-* How to run the test suite:  ``rspec``
-
-* Services (job queues, cache servers, search engines, etc.):
-
-* Deployment instructions: ``rails s`` or go to heroku website.
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
