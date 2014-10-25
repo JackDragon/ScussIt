@@ -3,8 +3,16 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
-     id = <%= @channel.id %>
-     get_messages(id);
+
+    // Binding the ENTER KEY
+    $(document).bind('keypress', function(element) {
+        if(element.keyCode==13){
+             $('#send_button').trigger('click');
+         }
+    });
+
+    id = <%= @channel.id %>
+    get_messages(id);
   });
 </script>
 
@@ -34,7 +42,7 @@
 
 <div class="container">
   <input id="message_input" type="text" style="width: 500px; height: 35px" placeholder="Enter your message here...">
-  <button onclick="click_send()" class="btn btn-primary">Send</button>
+  <button id="send_button" onclick="click_send()" class="btn btn-primary">Send</button>
   <br>
   <br>
   <% if !current_user.nil? %>

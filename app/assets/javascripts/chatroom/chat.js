@@ -5,10 +5,11 @@
   // get_messages(id);
 });
 
+
 function get_messages(cid) {
 
   var old_height = $('#chatbox').prop('scrollHeight');
-  
+
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
     dataType: "json",
