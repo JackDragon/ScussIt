@@ -99,12 +99,6 @@ class ChannelController < ApplicationController
 
   def find
     if params.has_key?(:api_id)
-      # if Channel.exists?(api_id: params[:api_id])
-      #   channel = Channel.find_by api_id: params[:api_id]
-      # else
-      #   channel = Channel.create!(channel_params)
-      #   flash[:notice] = "New Channel Created!"
-      # end
       channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
         c.name = params[:name]
         c.image_url = params[:image_url]
@@ -113,7 +107,6 @@ class ChannelController < ApplicationController
       url = "'/channel/"+channel.id.to_s+"'"
       p url
       render :js => "window.location ="+url
-      # redirect_to channel_room_path(channel.id)#, id: channel.id
     end
   end
 
