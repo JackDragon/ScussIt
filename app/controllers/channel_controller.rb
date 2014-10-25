@@ -1,8 +1,4 @@
 class ChannelController < ApplicationController
-  def index
-    @messages = Message.all
-  end
-
   def mychannels
     @favorites = User.find(params[:user]).channels.first(20)
   end
@@ -55,6 +51,7 @@ class ChannelController < ApplicationController
       if Channel.find_by(api_id: params[:api_id]) == nil
         Channel.create(channel_params)
       end
+      # p Channel.find_by api_id: params[:api_id]
       cid = (Channel.find_by api_id: params[:api_id]).id
       if !current_user.favorites.exists?(:channel_id => cid)
         current_user.favorites.create(:channel_id => cid)
@@ -99,12 +96,6 @@ class ChannelController < ApplicationController
 
   def find
     if params.has_key?(:api_id)
-      # if Channel.exists?(api_id: params[:api_id])
-      #   channel = Channel.find_by api_id: params[:api_id]
-      # else
-      #   channel = Channel.create!(channel_params)
-      #   flash[:notice] = "New Channel Created!"
-      # end
       channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
         c.name = params[:name]
         c.image_url = params[:image_url]
@@ -113,8 +104,8 @@ class ChannelController < ApplicationController
       url = "'/channel/"+channel.id.to_s+"'"
       p url
       render :js => "window.location ="+url
-      # redirect_to channel_room_path(channel.id)#, id: channel.id
     end
+    #render :nothing => true
   end
 
 private
