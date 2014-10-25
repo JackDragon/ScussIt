@@ -18,8 +18,28 @@ jQuery(document).ready(function($) {
 		}
 		
 	});
-});
 
+	$(".sidebar .scuss").click(function(event) {
+		redirectToChannel(detail);
+	});
+});
+function redirectToChannel(detail){
+	$.ajax({
+		url: '/find',
+		type: 'GET',
+		data: {"api_id": detail["id"]},
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+}
 function getDetails(id){
 
 	detail = null;
