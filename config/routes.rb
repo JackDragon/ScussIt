@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   get '/home/externalids', to: 'home#externalids', as: :home_externalids
   get '/mychannels', to: 'channel#mychannels', as: :mychannels
   get '/browse', to: 'channel#browse', as: :browse
+  get '/browse/:id', to: 'channel#details', as: :browse_details
   get '/channel/:id', to: 'channel#room', as: :channel_room
   post '/channel/follow', to: 'channel#follow', as: :channel_follow
   post '/channel/unfollow', to: 'channel#unfollow', as: :channel_unfollow
   post '/channel/:id/post', to: 'channel#post', as: :channel_post
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
-  
   get '/find/', to: 'channel#find', as: :channel_find
+  get '/channel/check_following/:id', to: 'channel#check_following', as: :channel_check_following
 
   resources :home
   

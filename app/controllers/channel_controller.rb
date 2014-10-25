@@ -3,6 +3,7 @@ class ChannelController < ApplicationController
     @favorites = User.find(params[:user]).channels.first(20)
   end
 
+  # Get all shows from MovieDB
   def browse
     themoviedb = ApplicationHelper::themoviedb
     paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> 1}
@@ -10,6 +11,15 @@ class ChannelController < ApplicationController
     @on_the_air = JSON.parse data
   end
 
+  # Get details of a show from MovieDB
+  def details
+    themoviedb = ApplicationHelper::themoviedb
+    paramaters = {'api_key'=> themoviedb[:api_key]}
+    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:tv]+params["id"],paramaters)
+    show = JSON.parse data
+    new_json = Channel.parse_detail(show)
+    render :json => new_json
+  end
 
   def post
     if user_signed_in?
@@ -37,7 +47,8 @@ class ChannelController < ApplicationController
         current_user.favorites.create(:channel_id => params[:cid])
       end
     elsif params.has_key?(:api_id)
-      if !Channel.find_by(api_id: params[:api_id]).exists?
+
+      if Channel.find_by(api_id: params[:api_id]) == nil
         Channel.create(channel_params)
       end
       cid = (Channel.find_by api_id: params[:api_id]).id
@@ -52,16 +63,24 @@ class ChannelController < ApplicationController
     cid = nil
     if params.has_key?(:cid)
       cid = params[:cid]
-    elsif params.has_key(:api_id)
+    elsif params.has_key?(:api_id)
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
     if current_user.favorites.exists?(:channel_id => cid)
-      # to_delete = current_user.favorites.where(:channel_id => params[:cid])
       to_delete = Favorite.where(:channel_id => cid, :user_id => current_user.id)[0]
       Favorite.destroy(to_delete.id)
-      # render json: {errCode: to_delete}
     end
     render nothing: true
+  end
+
+  def check_following
+    p params[:id]
+    following = false
+    if params.has_key?(:id) and (Channel.find_by api_id: params[:id]) != nil and current_user != nil
+      id = (Channel.find_by api_id: params[:id]).id
+      following = Favorite.find_by(channel_id: id, user_id: current_user.id) !=nil
+    end
+    render json: {following: following}
   end
 
   def create
@@ -87,8 +106,10 @@ class ChannelController < ApplicationController
         c.image_url = params[:image_url]
         c.network = params[:network]
       end
-
-      redirect_to channel_room_path(@channel.id)
+      url = "'/channel/"+channel.id.to_s+"'"
+      p url
+      render :js => "window.location ="+url
+      # redirect_to channel_room_path(channel.id)#, id: channel.id
     end
     #render :nothing => true
   end

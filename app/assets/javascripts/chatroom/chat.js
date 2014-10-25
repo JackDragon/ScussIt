@@ -1,4 +1,4 @@
-$(document).ready(function (){
+  $(document).ready(function (){
   console.log("hi")
   id= 2
   // id = <%= @channel.id %>
@@ -22,8 +22,8 @@ function get_messages(cid) {
   for (var i = 0; i < data['messages'].length; i++) {
       
       message = data['messages'][i]
-      username = message['userID']
-      body = "<p>"+message['body']+"</p>"
+      username = message['user']
+      body = "<p>"+ "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
       total+=body
       
   };
