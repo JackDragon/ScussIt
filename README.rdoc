@@ -8,7 +8,9 @@ link:app/assets/images/home.png
 
 Run on your local machine: 
 
-* Install dependencies <tt>bundle install</tt>
+* Install Bundler[http://bundler.io] or RVM[http://rvm.io/rvm/install] (recommended)
+
+* Install dependencies with <tt>bundle install</tt> in the project folder
 
 * Create database: <tt>rake db:create</tt>
 
