@@ -7,6 +7,8 @@
 
 function get_messages(cid) {
 
+  var old_height = $('#chatbox').prop('scrollHeight');
+  
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
     dataType: "json",
@@ -28,6 +30,10 @@ function get_messages(cid) {
       
   };
   $('#chatbox').html(total);
+  var new_height = $('#chatbox').prop('scrollHeight');
+  if(new_height > old_height){
+    $("#chatbox").animate({ scrollTop: new_height }, 'normal');
+  }
   setTimeout(function(){get_messages(cid);}, 720); 
 }
 
