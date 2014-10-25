@@ -26,7 +26,7 @@ function get_messages(cid) {
       
       message = data['messages'][i]
       username = message['user']
-      body = "<p>"+ "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
+      body = "<p id=\"message" + i.toString() + "\">" "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
       total+=body
       
   };
