@@ -43,10 +43,43 @@ describe ChannelController do
     c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
     visit(channel_room_path(c))
     fill_in 'message_input', with: 'HIII WORLD'
-    click_button 'btn'
-    reload_page
+    click_button 'send_button'
+    visit(channel_room_path(c))
     expect(page).to have_content 'HIII WORLD'
   end
+
+  it "tries to follow a channel" do
+    c = Channel.create!(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    visit(channel_room_path(c))
+    click_button "#{c.api_id}"
+    # page.find('btn.btn-primary.follow').click
+    # expect(page).to have_content 'Unfollow'
+    expect(page.has_content?('Unfollow')).to be_true
+  end
+
+  it "visits the browse page" do
+    visit('/browse')
+    expect(page).to have_css('div.browse_wrapper')
+  end
+
+  it "tries to click on a page on the front page" do
+    visit('/')
+
+  end
+
+  it "tries to click on a page on the browse page" do
+  end
+
+  it "tries to follow a page from the browse page" do
+  end
+
+  it "tries to log out" do
+  end
+
+  it "tries to change its information, then logs out, then tries to login with new information" do
+
+  end
+
 end
 
 
