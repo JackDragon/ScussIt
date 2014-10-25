@@ -2,15 +2,23 @@
 Scuss is a platform for viewers of tv shows to discuss their thoughts live. A live chat is the perfect medium for users to proclaim their excitements and express their disappointments, right as the events happen before their eyes. Discussions will be available the day the show is airing, to ensure the maximum possible participation. Users will be able to follow their favorite shows and be informed when they're live!
 
 ==Preview
+Home:  
 link:app/assets/images/home.png
+
+Browse:
+link:app/assets/images/browse.png
+
+Chat:
+link:app/assets/images/chat.png
+
 
 ==Getting started
 
 Run on your local machine: 
 
-* Install Bundler[http://bundler.io] or RVM[http://rvm.io/rvm/install] (recommended)
+* Install Bundler[http://bundler.io] or RVM[http://rvm.io/rvm/install] (recommended).
 
-* Install dependencies with <tt>bundle install</tt> in the project folder
+* Install dependencies with <tt>bundle install</tt> in the project folder.
 
 * Create database: <tt>rake db:create</tt>
 
@@ -18,17 +26,17 @@ Run on your local machine:
 
 * Start server with <tt>rails s</tt>
 
-Or visit Heroku: http://intense-beach-4692.herokuapp.com
+Or visit Heroku: http://warm-mountain-1838.herokuapp.com/
 
-==Registration Instructions
-* Click Register[http://intense-beach-4692.herokuapp.com/users/sign_up]
+==Registration instructions
+* Click Register[http://warm-mountain-1838.herokuapp.com/users/sign_up]
 * Enter a unique e-mail less than 256 characters.
 * Enter a password between 8 and 128 characters.
 * Confirm your password by entering it again.
 * Click <tt>Sign up</tt>
-* Check your e-mail to confirm your registration (please check your spam folder just in case!)
+* Check your e-mail to confirm your registration. (Please check your spam folder just in case!)
 
-==Running Tests
+==Running tests
 * Run <tt>rspec</tt>
 
 ==Miscellaneous

@@ -1,3 +1,5 @@
+# Renjie Long
+# Bryant Chang
 # == Schema Information
 #
 # Table name: channels

@@ -1,3 +1,5 @@
+# Renjie Long
+# Jonathan Lo
 # == Schema Information
 #
 # Table name: users

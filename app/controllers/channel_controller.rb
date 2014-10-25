@@ -1,3 +1,6 @@
+# Renjie Long
+# Bryant Chang
+
 class ChannelController < ApplicationController
   def mychannels
     @favorites = User.find(params[:user]).channels.first(20)
@@ -96,12 +99,12 @@ class ChannelController < ApplicationController
 
   def find
     if params.has_key?(:api_id)
-      channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
+      @channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
         c.name = params[:name]
         c.image_url = params[:image_url]
         c.network = params[:network]
       end
-      url = "'/channel/"+channel.id.to_s+"'"
+      url = "'/channel/"+@channel.id.to_s+"'"
       p url
       render :js => "window.location ="+url
     end

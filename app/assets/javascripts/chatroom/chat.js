@@ -14,7 +14,6 @@ $(document).ready(function (){
   
 });
 
-
 function follow_from_channel(id){
   $.ajax({
     url: '/channel/follow',
@@ -35,6 +34,8 @@ function follow_from_channel(id){
 
 function get_messages(cid) {
 
+  var old_height = $('#chatbox').prop('scrollHeight');
+
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
     dataType: "json",
@@ -51,15 +52,22 @@ function get_messages(cid) {
       
       message = data['messages'][i]
       username = message['user']
-      body = "<p>"+ "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
+      body = "<p id=\"message"+ i.toString + "\">" + "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
       total+=body
-      
   };
   $('#chatbox').html(total);
+  var new_height = $('#chatbox').prop('scrollHeight');
+  if(new_height > old_height){
+    $("#chatbox").animate({ scrollTop: new_height }, 'normal');
+  }
+
   if(document.URL.indexOf('channel/'+cid) > -1)
     content = setTimeout(function(){get_messages(cid);}, 720); 
   else
     clearTimeout(content)
+
+
+ 
 }
 
 function post_message(cid,message){
@@ -82,5 +90,6 @@ function post_message(cid,message){
 
 function click_send(){
   message = $("#message_input").val()
+  document.getElementById("message_input").value = "";
   post_message(id, message)
 }
