@@ -1,5 +1,4 @@
-  $(document).ready(function (){
-  console.log("hi")
+$(document).ready(function (){
   id= 2
   // id = <%= @channel.id %>
   // get_messages(id);
@@ -28,7 +27,10 @@ function get_messages(cid) {
       
   };
   $('#chatbox').html(total);
-  setTimeout(function(){get_messages(cid);}, 720); 
+  if(document.URL.indexOf('channel/'+cid) > -1)
+    content = setTimeout(function(){get_messages(cid);}, 720); 
+  else
+    clearTimeout(content)
 }
 
 function post_message(cid,message){

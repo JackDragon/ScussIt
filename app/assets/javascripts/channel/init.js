@@ -23,49 +23,12 @@ jQuery(document).ready(function($) {
 		redirectToChannel(detail);
 	});
 });
-function redirectToChannel(detail){
-	$.ajax({
-		url: '/find',
-		type: 'GET',
-		data: {"api_id": detail["id"]},
-	})
-	.done(function() {
-		console.log("success");
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
-}
-function getDetails(id){
 
-	detail = null;
-	$.ajax({
-		url: '/browse/'+id,
-		type: 'GET',
-		dataType: 'json',
-		async: false,
-	})
-	.done(function(data) {
-		detail = data;
-		console.log("success");
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});	
-	
-	return detail
-	
-}
+
+
 function setViewWithDetails(detail){
-	$(".sidebar p").html(detail["overview"])
-	$(".sidebar h1").html(detail["name"])
+	$(".sidebar .title").html(detail["name"])
+	$(".sidebar .description").html(detail["overview"])
 	toggleFollowButton(checkFollowing(detail["id"]))
 }
 function unfollow(detail){
