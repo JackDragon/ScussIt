@@ -3,13 +3,3 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
 Rails.application.initialize!
-
-# ActionMailer::Base.smtp_settings = {
-# 	:address => "smtp.gmail.com",
-# 	:port => 587,
-# 	:domain => 'heroku.com',  
-# 	:authentication => :plain, 
-# 	:enable_starttls_auto => true,
-# 	:user_name => 'jon.lo.hs@gmail.com',
-# 	:password => 'n1blheim'
-# }
