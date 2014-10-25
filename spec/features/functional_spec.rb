@@ -74,10 +74,35 @@ describe ChannelController do
   end
 
   it "tries to log out" do
+    visit('/users/sign_out')
+    expect(page).to have_content 'Login'
   end
 
-  it "tries to change its information, then logs out, then tries to login with new information" do
+  it "tries to change its information, then logs out" do
+    visit('/users/edit')
+    fill_in 'user[email]', with: "jackrlong@yahoo.com"
+    fill_in 'user[current_password]', with: "password"
+    click_button "Update"
+    expect(page).to have_content 'jackrlong@yahoo.com'
+    visit('/users/sign_out')
+    expect(page).to have_content 'Login'
+  end
 
+  it "tries to change its information, then then login with new information" do
+    visit('/users/edit')
+    fill_in 'user[email]', with: "jackrlong@yahoo.com"
+    fill_in 'user[current_password]', with: "password"
+    click_button "Update"
+    expect(page).to have_content 'jackrlong@yahoo.com'
+    visit('/users/sign_out')
+    expect(page).to have_content 'Login'
+    visit '/users/sign_in'
+    within("#new_user") do
+      fill_in 'Email', :with => 'jackrlong@yahoo.com'
+      fill_in 'Password', :with => 'password'
+    end
+    click_button 'Log in'
+    expect(page).to have_content 'jackrlong@yahoo.com'
   end
 
 end
