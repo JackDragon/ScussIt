@@ -1,8 +1,4 @@
 class ChannelController < ApplicationController
-  def index
-    @messages = Message.all
-  end
-
   def mychannels
     @favorites = User.find(params[:user]).channels.first(20)
   end
@@ -86,14 +82,15 @@ class ChannelController < ApplicationController
       #   channel = Channel.create!(channel_params)
       #   flash[:notice] = "New Channel Created!"
       # end
-      channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
+      @channel = Channel.find_or_create_by!(api_id: params[:api_id]) do |c|
         c.name = params[:name]
         c.image_url = params[:image_url]
         c.network = params[:network]
       end
 
-      redirect_to channel_room_path(channel.id)#, id: channel.id
+      redirect_to channel_room_path(@channel.id)
     end
+    #render :nothing => true
   end
 
 private
