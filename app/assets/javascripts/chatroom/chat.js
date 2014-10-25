@@ -57,17 +57,18 @@ function get_messages(cid) {
       
   };
   $('#chatbox').html(total);
+  var new_height = $('#chatbox').prop('scrollHeight');
+  if(new_height > old_height){
+    $("#chatbox").animate({ scrollTop: new_height }, 'normal');
+  }
 
   if(document.URL.indexOf('channel/'+cid) > -1)
     content = setTimeout(function(){get_messages(cid);}, 720); 
   else
     clearTimeout(content)
 
-  var new_height = $('#chatbox').prop('scrollHeight');
-  if(new_height > old_height){
-    $("#chatbox").animate({ scrollTop: new_height }, 'normal');
-  }
-  setTimeout(function(){get_messages(cid);}, 720); 
+
+ 
 }
 
 function post_message(cid,message){
