@@ -20,3 +20,4 @@ gem 'simplecov', :require => false, :group => :test
 
 gem 'rails_12factor'
 gem 'capybara'
+gem 'bcrypt'
