@@ -67,24 +67,24 @@ class ChannelController < ApplicationController
     cid = nil
     if params.has_key?(:cid)
       cid = params[:cid]
-    elsif params.has_key(:api_id)
+    elsif params.has_key?(:api_id)
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
     if current_user.favorites.exists?(:channel_id => cid)
-      # to_delete = current_user.favorites.where(:channel_id => params[:cid])
       to_delete = Favorite.where(:channel_id => cid, :user_id => current_user.id)[0]
       Favorite.destroy(to_delete.id)
-      # render json: {errCode: to_delete}
     end
     render nothing: true
   end
 
-  def check_follow
-    if params.has_key?(:id)
-      following = Favorite.find_by api_id => params[:id] != nil
-      return following
+  def check_following
+    p params[:id]
+    following = false
+    if params.has_key?(:id) and (Channel.find_by api_id: params[:id]) != nil and current_user != nil
+      id = (Channel.find_by api_id: params[:id]).id
+      following = Favorite.find_by(channel_id: id, user_id: current_user.id) !=nil
     end
-    return false
+    render json: {following: following}
   end
 
   def create
