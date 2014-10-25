@@ -5,6 +5,13 @@ Scuss is a platform for viewers of tv shows to discuss their thoughts live. A li
 Home:  
 link:app/assets/images/home.png
 
+Browse:
+link:app/assets/images/browse.png
+
+Chat:
+link:app/assets/images/chat.png
+
+
 ==Getting started
 
 Run on your local machine: 

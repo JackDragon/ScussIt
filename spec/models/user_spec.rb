@@ -1,3 +1,6 @@
+# Test User validations
+# Jonathan Lo
+
 # == Schema Information
 #
 # Table name: users

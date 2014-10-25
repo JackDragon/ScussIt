@@ -1,3 +1,5 @@
+# Jonathan Lo
+
 class UserMailer < ActionMailer::Base
   default from: "app30988389@heroku.com"
 
