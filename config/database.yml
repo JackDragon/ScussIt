@@ -2,6 +2,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: postgres
   pool: 5
   timeout: 5000
 
