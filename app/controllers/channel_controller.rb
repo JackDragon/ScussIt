@@ -45,26 +45,30 @@ class ChannelController < ApplicationController
   end
 
   def add_active
+    p "ADDDDDDDDDDDDDDDDDDDDDDDDD"*100
     cid = nil
     if params.has_key?(:cid)
       cid = params[:cid]
     elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
-    if cid != nil and !current_user.active.exists?(:channel_id => cid)
-      current_user.active.create(:channel_id => cid)
+      
+    if cid != nil and !current_user.actives.exists?(:channel_id => cid)
+      current_user.actives.create(:channel_id => cid)
     end
     render nothing: true
   end
 
   def delete_active
+    p "DEEEEEEEEEEEEEEEEEEEEEEEEE"*100
+    p params
     cid = nil
     if params.has_key?(:cid)
       cid = params[:cid]
     elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
-    if current_user.active.exists?(:channel_id => cid)
+    if current_user.actives.exists?(:channel_id => cid)
       to_delete = Active.where(:channel_id => cid, :user_id => current_user.id)[0]
       Active.destroy(to_delete.id)
     end
@@ -72,14 +76,16 @@ class ChannelController < ApplicationController
   end
 
   def user_list
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id) and Channel.exists?(:api_id => params[:api_id])
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-    l = []
-    if cid != nil and Active.exists(:channel_id => cid)
+    # cid = nil
+    # if params.has_key?(:cid)
+    #   cid = params[:cid]
+    # elsif params.has_key?(:api_id) and Channel.exists?(:api_id => params[:api_id])
+    #   cid = (Channel.find_by api_id: params[:api_id]).id
+    # end
+    # l = []
+    # p params
+    cid = params[:id]
+    if cid != nil and Active.exists?(:channel_id => cid)
       l = Active.where(:channel_id => cid)
     end
     render json: {active: l}

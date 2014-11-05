@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
   get '/find/', to: 'channel#find', as: :channel_find
   get '/channel/check_following/:id', to: 'channel#check_following', as: :channel_check_following
+  post '/channel/add_active', to: 'channel#add_active', as: :channel_add_active
+  post '/channel/delete_active', to: 'channel#delete_active', as: :channel_delete_active
+  get '/channel/active/:id', to: 'channel#user_list', as: :channel_active
 
   resources :home
   

@@ -14,6 +14,45 @@ $(document).ready(function (){
   
 });
 
+function add_active(id){
+  // alert("called1");
+  $.ajax({
+    url: '/channel/add_active',
+    type: 'POST',
+    data: {"cid": id},
+  })
+  .done(function() {
+    toggleFollowButton(true)
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+}
+
+function delete_active(id){
+  // alert("called2");
+  $.ajax({
+    url: '/channel/delete_active',
+    type: 'POST',
+    data: {"cid": id},
+  })
+  .done(function() {
+    toggleFollowButton(true)
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  // return null;
+}
+
 function follow_from_channel(id){
   $.ajax({
     url: '/channel/follow',

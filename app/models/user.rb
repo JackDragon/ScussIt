@@ -30,7 +30,9 @@ class User < ActiveRecord::Base
 
   has_many :messages
   has_many :favorites
+  has_many :actives
   has_many :channels, through: :favorites
+  has_many :channels, through: :actives
 
   validates :email, length: {maximum: 255}
   
