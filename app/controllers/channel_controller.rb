@@ -5,7 +5,12 @@ class ChannelController < ApplicationController
   respond_to :html, :js
 
   def mychannels
-    @favorites = User.find(params[:user]).channels.first(20)
+    @favorites = Favorite.where(user_id:current_user.id)
+    @results = []
+    for favorite in @favorites do
+      channel_id = favorite['channel_id']
+      @results.push(Channel.find_by(id: channel_id))
+    end
   end
 
   # Get all shows from MovieDB

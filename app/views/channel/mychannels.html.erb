@@ -1,18 +1,20 @@
+<!-- Jon Wu -->
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-<table>
-  <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.uid %></td>
-      </tr>
-  <% end %>
-</table>
-</body>
-</html>
+<%= javascript_include_tag 'channel' %>  
+
+<div class="browse_wrapper">
+	<div class="favorite-list">
+		<%= render partial: "favorites_list", object: [@results] %>	
+	</div>
+</div>
+
+<div class="sidebar">
+	<div class="content">	
+	 	<h1 class="title"></h1>
+		<% if !current_user.nil? %>
+			<button class="btn btn-primary follow" value=<%= @results[0]["api_id"] %>>Follow</button>	
+		<% end %>
+		<button class="btn btn-primary scuss" value=<%= @results[0]["api_id"] %>>Scuss it</button>	
+		<p class="description"></p>
+	</div>
+</div>
