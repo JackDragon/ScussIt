@@ -1,4 +1,9 @@
 jQuery(document).ready(function($) {
+	initialize()
+
+});
+
+function initialize(){
 	detail = getDetails($(".browse_frame:first").attr("id"))
 	setViewWithDetails(detail)
 
@@ -22,9 +27,7 @@ jQuery(document).ready(function($) {
 	$(".sidebar .scuss").click(function(event) {
 		redirectToChannel(detail);
 	});
-});
-
-
+}
 
 function setViewWithDetails(detail){
 	$(".sidebar .title").html(detail["name"])

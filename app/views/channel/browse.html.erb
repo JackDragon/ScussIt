@@ -1,19 +1,21 @@
 <!-- Jon Wu -->
 <%= javascript_include_tag 'channel' %>  
-<% @results = @on_the_air['results'] %>
 
-<div class="browse_wrapper">	
-	<% @results.each do |show| %>
-		<% @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['poster_path']
-			@name = show["name"]
-			@id = show["id"]
-		 %>
-		 
-		 <div class='browse_frame' id=<%= @id %> >
-			<img class="browse_poster" src=<%= @backdrop_path %> alt="">
-			<li><ul><h2> <%= @name %> </h2></ul></li>
-		</div>
-	<% end %>
+<div class="browse_wrapper">
+	<div class="navigate">
+		<%= button_to "Previous", previous_page_path, remote: true, class: 'btn btn-primary', method: :get %>
+		<%= button_to "Next", next_page_path, remote: true, class: 'btn btn-primary', method: :get %>
+	</div>		
+	
+	<div class="browse-list">
+		<%= render partial: "browse_list", object: [@results] %>	
+	</div>
+
+	<div class="navigate">
+		<%= button_to "Previous", previous_page_path, remote: true, class: 'btn btn-primary', method: :get %>
+		<%= button_to "Next", next_page_path, remote: true, class: 'btn btn-primary', method: :get %>
+	</div>		
+	
 </div>
 
 <div class="sidebar">
@@ -25,4 +27,6 @@
 		<button class="btn btn-primary scuss" value=<%= @results[0]["id"] %>>Scuss it</button>	
 		<p class="description"></p>
 	</div>
+
+	
 </div>

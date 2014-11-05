@@ -1,0 +1,9 @@
+render_browse()
+initialize()
+/**
+ * Re-render browse list
+ * @return {void} 
+ */
+function render_browse(){
+	$('.browse-list').html("<%= j (render partial: 'browse_list', object: [@results]) %>")	
+}
