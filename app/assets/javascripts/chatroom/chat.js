@@ -66,30 +66,30 @@ function get_messages(cid) {
     clearTimeout(content)
 }
 
-function get_userlist(cid) {
-  data = $.ajax({
-    url: "/channel/" + cid + "/userlist",
-    type: 'GET',
-    dataType: 'json',
-    async: false
-  }).success(function(data)){    
-  }).responseText;
+// function get_userlist(cid) {
+//   data = $.ajax({
+//     url: "/channel/" + cid + "/userlist",
+//     type: 'GET',
+//     dataType: 'json',
+//     async: false
+//   }).success(function(data)){    
+//   }).responseText;
   
-  data = JSON.parse(data)
-  total = ""
-  for (var i = 0; i < data['userlist'].length; i++) {
-    username = data['userlist'][i]
-    body = "<p>" + "<strong>" + username + "</strong>" + "</p>"
-    total+=body
-  };
+//   data = JSON.parse(data)
+//   total = ""
+//   for (var i = 0; i < data['userlist'].length; i++) {
+//     username = data['userlist'][i]
+//     body = "<p>" + "<strong>" + username + "</strong>" + "</p>"
+//     total+=body
+//   };
 
-  $('#userbox').html(total);
+//   $('#userbox').html(total);
 
-  if(document.URL.indexOf('channel/'+cid) > -1)
-    content = setTimeout(function(){get_messages(cid);}, 5000); 
-  else
-    clearTimeout(content)
-}
+//   if(document.URL.indexOf('channel/'+cid) > -1)
+//     content = setTimeout(function(){get_messages(cid);}, 5000); 
+//   else
+//     clearTimeout(content)
+// }
 
 function post_message(cid,message){
   $.ajax({
