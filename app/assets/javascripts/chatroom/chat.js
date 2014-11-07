@@ -22,7 +22,6 @@ function add_active(id){
     data: {"cid": id},
   })
   .done(function() {
-    toggleFollowButton(true)
     console.log("success");
   })
   .fail(function() {
@@ -41,7 +40,6 @@ function delete_active(id){
     async: false
   })
   .done(function() {
-    toggleFollowButton(true)
     console.log("success");
   })
   .fail(function() {
@@ -61,7 +59,6 @@ function update_active(id){
     async: false
   })
   .done(function() {
-    toggleFollowButton(true)
     console.log("success");
   })
   .fail(function() {
@@ -93,27 +90,26 @@ function follow_from_channel(id){
 
 function get_userlist(cid) {
   data = $.ajax({
-    url: '/channel/active/' + cid,
-    type: 'GET',
-    dataType: 'json',
+    dataType: "json",
+    type: "GET",
+    // channel_id should be dynamic
+    url: "/channel/active/" + cid,
     async: false
-  }).success(function(data)){
+  }).success(function(data){      
   }).responseText;
-
   data = JSON.parse(data)
-  total = ""
+  total = "<h3> Names </h3>"
   for (var i = 0; i < data['user_list'].length; i++) {
-    username = data['user_list']
+    username = data['user_list'][i]
     body = '<p><strong>' + username + '</strong></p>'
     total+=body
   };
   $('#userbox').html(total);
 
-  if(document.URL.indexOf('channel/active' + cid) > -1)
-    content = setTimeout(function(){get_userlist(cid);}, 720); 
+  if(document.URL.indexOf('channel/' + cid) > -1)
+     content = setTimeout(function(){get_userlist(cid);}, 5000); 
   else
     clearTimeout(content)
-
 }
 
 function get_messages(cid) {
