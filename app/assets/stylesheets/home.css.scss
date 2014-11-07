@@ -7,6 +7,7 @@ body{
 	margin: 0;
 	min-width: 1024px;
 	padding-top: 45px;
+	background-color: black;
 
 }
 .header{
@@ -142,5 +143,10 @@ body{
 	display: table;
   	margin: auto;
 	height: 100%;
+}
+
+.home-wrapper h1{
+	padding-left: 50px;
+	color: yellow;
 }
 
