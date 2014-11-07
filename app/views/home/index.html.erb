@@ -1,9 +1,22 @@
 
 <%= javascript_include_tag 'home' %>  
+<body>
+	<div class="home-wrapper">
+		<h1>Live Channels!</h1>
+		<div class="airing-today-wrapper">
+			<div class="airing-today-frames">	
+				<% @results.each do |tvshow| %>
+					<% if tvshow["poster_path"] != nil  %>
 
-<div class="airing-today-wrapper">
-	<div class="airing-today-frames">		
+						<div class='frame' id='<%= tvshow["id"] %>'>
+							<li>
+								<ul><h2><%= tvshow['name'] %></h2></ul>
+							</li>
+							<img src=<%= "https://image.tmdb.org/t/p/w185" + tvshow["poster_path"] %> alt='' />
+						</div>
+					<% end %>
+				<% end %>	
+			</div>
+		</div>
 	</div>
-</div>
-
-
+</body>
