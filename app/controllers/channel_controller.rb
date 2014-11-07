@@ -145,7 +145,16 @@ class ChannelController < ApplicationController
     if cid != nil and Active.exists?(:channel_id => cid)
       l = Active.where(:channel_id => cid).where("updated > ?", timenow-20.seconds)
     end
-    render json: {active: l}
+    userlist = []
+    for entry in l
+      p "ENTRY"*100
+      p entry
+      eid = entry.user_id
+      username = User.where(:id => eid)[0].username
+      # entry["username"] = username
+      userlist += [username]
+    end
+    render json: {user_list: userlist}
   end
 
   def follow
