@@ -154,5 +154,16 @@ describe User do
     #     expect(page).to have_content 'Logged in as'
     #   end
     # end
+
+  # it "tries to follow a channel" do
+  #   u = User.new(email: "jon.lo@berkeley.edu", password: "12345678")
+  #   u.username = "jlo"
+  #   u.skip_confirmation!
+  #   expect(u.save).to be(true)
+  #   c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+  #
+  #   u.follow(u.id, c.id)
+  #   expect(Favorites.where("user_id = ? and channel_id = ?", uid, cid)).to exist
+  # end
 end
 

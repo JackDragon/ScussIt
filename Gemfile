@@ -24,4 +24,4 @@ gem 'bcrypt'
 
 gem 'selenium-webdriver'
 gem 'database_cleaner'
-gem "selenium-client" 
+gem 'selenium-client'

@@ -99,6 +99,17 @@ describe ChannelController do
     end
   end
 
+  # describe 'post #post' do
+  #   context 'we post a message in a row' do
+  #     it 'should have the message show up' do
+  #       Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+  #       post :post, {body: "test", channel_id: 1}
+  #
+  #       expect(Messages.where(channel_id: 1).body).to eq("test")
+  #     end
+  #   end
+  # end
+
 
 
 end

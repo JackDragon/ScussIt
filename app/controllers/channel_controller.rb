@@ -6,8 +6,8 @@ class ChannelController < ApplicationController
 
   def mychannels
     @results = Favorite.get_favorite(current_user.id)
-    p "*"*80
-    p @results    
+    # p "*"*80
+    # p @results
   end
 
   # Get all shows from MovieDB
