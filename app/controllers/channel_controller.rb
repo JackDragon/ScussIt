@@ -1,6 +1,16 @@
+# Renjie Long
+# Bryant Chang
+
 class ChannelController < ApplicationController
+  respond_to :html, :js
+
   def mychannels
-    @favorites = User.find(params[:user]).channels.first(20)
+    @favorites = Favorite.where(user_id:current_user.id)
+    @results = []
+    for favorite in @favorites do
+      channel_id = favorite['channel_id']
+      @results.push(Channel.find_by(id: channel_id))
+    end
   end
 
   # Get all shows from MovieDB
@@ -9,6 +19,38 @@ class ChannelController < ApplicationController
     paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> 1}
     data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:on_the_air], paramaters)
     @on_the_air = JSON.parse data
+    @results = @on_the_air['results']
+
+    set_total_page(@on_the_air["total_pages"])
+    set_current_page(1)
+
+  end
+
+  def next_page
+    current_page = get_current_page
+
+    if(current_page < get_total_page)
+      set_current_page(current_page + 1)
+    end
+    redirect_to action: 'browse_list'
+  end
+
+
+  def previous_page
+    current_page = get_current_page
+
+    if(current_page > 1)
+      set_current_page(current_page - 1)
+    end
+    redirect_to action: 'browse_list'
+  end
+
+  def browse_list
+    themoviedb = ApplicationHelper::themoviedb
+    paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> get_current_page}
+    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:on_the_air], paramaters)
+    @on_the_air = JSON.parse data
+    @results = @on_the_air['results']
   end
 
   # Get details of a show from MovieDB
@@ -109,7 +151,23 @@ class ChannelController < ApplicationController
   end
 
 private
+  $total_page
+  $current_page
 
+  def set_current_page(current_page)
+    $current_page = current_page
+    return $current_page
+  end
+  def get_current_page
+    return $current_page
+  end
+  def set_total_page(total_page)
+    $total_page = total_page
+    return $total_page
+  end
+  def get_total_page
+    return $total_page
+  end
   def message_params
     params.permit(:body, :channel_id)
   end
@@ -117,7 +175,5 @@ private
   def channel_params
     params.permit(:api_id, :name, :image_url, :network)
   end
-
   
 end
-

@@ -1,3 +1,5 @@
+# Bryant Chang
+# Renjie Long
 require 'spec_helper'
 require 'rails_helper'
 
@@ -81,6 +83,34 @@ describe ChannelController do
   end
 
 end
+
+  describe "user routes", :type => :feature do
+    before :each do
+      u = User.new(:email => 'q@q.q', :password => 'password', password_confirmation: 'password', username: 'qqq')
+      u.skip_confirmation!
+      u.save!
+      visit '/users/sign_in'
+      within("#new_user") do
+        fill_in 'Email', :with => 'q@q.q'
+        fill_in 'Password', :with => 'password'
+      end
+      click_button 'Log in'
+    end
+
+  it "channel post message", :js => true do
+    u = User.create!(:email => "q@q.com", :password => "password", password_confirmation: 'password', username: 'joejoe')
+    get :post, {:id => c.id, :channel_id => c.id, :user_id => u.id, :body => "sup"}
+    post :post, {:id => c.id, :channel_id => c.id, :body => "sup"}
+    expect(response.body).to eq "{success: 1}"
+    expect(Message.find_by_body("sup")).not_to be_empty
+    end
+    click_button 'Log in'
+    expect(page).to have_content 'jackrlong@yahoo.com'
+  end
+
+
+
+  end
 
 
 end

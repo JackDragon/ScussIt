@@ -1,3 +1,5 @@
+# Bryant Chang
+# Renjie Long
 Rails.application.routes.draw do
 
   root 'home#index'
@@ -6,6 +8,9 @@ Rails.application.routes.draw do
   get '/home/externalids', to: 'home#externalids', as: :home_externalids
   get '/mychannels', to: 'channel#mychannels', as: :mychannels
   get '/browse', to: 'channel#browse', as: :browse
+  get '/browse/next_page', to: 'channel#next_page', as: :next_page
+  get '/browse/previous_page', to: 'channel#previous_page', as: :previous_page
+  get '/browse/browse_list', to: 'channel#browse_list', as: :browse_list
   get '/browse/:id', to: 'channel#details', as: :browse_details
   get '/channel/:id', to: 'channel#room', as: :channel_room
   post '/channel/follow', to: 'channel#follow', as: :channel_follow
@@ -14,7 +19,6 @@ Rails.application.routes.draw do
   get '/channel/:id/messages', to: 'channel#messages', as: :channel_messages
   get '/find/', to: 'channel#find', as: :channel_find
   get '/channel/check_following/:id', to: 'channel#check_following', as: :channel_check_following
-
   resources :home
   
   devise_for :users

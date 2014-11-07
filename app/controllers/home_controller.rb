@@ -1,3 +1,4 @@
+# Jon Wu
 class HomeController < ApplicationController
 	require 'json'
 	

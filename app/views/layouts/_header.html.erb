@@ -21,6 +21,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "My Channels", '/mychannels' %></li>
         <li><%= link_to "Browse", '/browse' %></li>
         <li><%= link_to 'My Channels', '#', :class => 'navbar-link'%> </li>
         <% if user_signed_in? %>

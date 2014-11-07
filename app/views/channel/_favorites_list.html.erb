@@ -1,0 +1,11 @@
+<% @results.each do |show| %>
+	<% @backdrop_path = "https://image.tmdb.org/t/p/w185"+show['image_url']
+		@name = show["name"]
+		@id = show["api_id"]
+	 %>
+	 
+	 <div class='browse_frame' id=<%= @id %> >
+		<img class="browse_poster" src=<%= @backdrop_path %> alt="">
+		<li><ul><h2> <%= @name %> </h2></ul></li>
+	</div>
+<% end %>

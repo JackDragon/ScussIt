@@ -1,6 +1,6 @@
-# Channel functional tests
+# Bryant Chang
+# Renjie Long
 # Jonathan Lo
-
 require 'spec_helper'
 require 'rails_helper'
 

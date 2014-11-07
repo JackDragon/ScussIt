@@ -1,3 +1,4 @@
+ /*Jon Wu*/
 .browse_wrapper{
 	width: 80%;
 	height:100vh;
@@ -5,8 +6,6 @@
 	background-color: black;
 	float: right;
 	text-align: center;
-	
-  
 }
 
 .sidebar{
@@ -21,12 +20,9 @@
 
 
 .sidebar .content{
-	
 	width: 100%;
 }
-.browse_wrapper{
-	padding-top: 15px;
-}
+
 .browse_wrapper .browse_frame{
 	position: relative;
 	display: inline-block;
@@ -66,7 +62,6 @@
 	width: 100%;
 	margin: 0;
 	padding-left: 10px;
-	
 	padding-top: 3px;
 	padding-bottom: 3px;
 }  
@@ -87,4 +82,15 @@
 	width: 100%;
 }
 
+.navigate{
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
 
+.navigate h3{
+	display: inline;
+}
+.navigate form{
+	display: inline-block;
+	padding: 5px;
+} 
