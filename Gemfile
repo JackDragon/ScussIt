@@ -21,3 +21,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'rails_12factor'
 gem 'capybara'
 gem 'bcrypt'
+
+gem 'selenium-webdriver'
+gem 'database_cleaner'
+gem "selenium-client" 

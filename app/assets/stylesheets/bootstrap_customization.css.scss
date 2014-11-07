@@ -43,8 +43,8 @@ $brand-primary:                     #c0392b;
     overflow:auto;
 }
 
-.topic {
-	float: right;
+.user_list {
+    float: right;
     text-align:left;
     margin:0 auto;
     margin-bottom:25px;
@@ -54,3 +54,13 @@ $brand-primary:                     #c0392b;
     height:500px;
     border:1px solid #ACD8F0;
 }
+
+.dropdown-menu {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #2c3e50;
+}
+
+
+

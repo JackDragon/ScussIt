@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/home/externalids', to: 'home#externalids', as: :home_externalids
   get '/mychannels', to: 'channel#mychannels', as: :mychannels
   get '/browse', to: 'channel#browse', as: :browse
+  get '/browse/next_page', to: 'channel#next_page', as: :next_page
+  get '/browse/previous_page', to: 'channel#previous_page', as: :previous_page
+  get '/browse/browse_list', to: 'channel#browse_list', as: :browse_list
   get '/browse/:id', to: 'channel#details', as: :browse_details
   get '/channel/:id', to: 'channel#room', as: :channel_room
   post '/channel/follow', to: 'channel#follow', as: :channel_follow
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
   post '/channel/delete_active', to: 'channel#delete_active', as: :channel_delete_active
   get '/channel/active/:id', to: 'channel#user_list', as: :channel_active
   post '/channel/update_active', to: 'channel#update_active', as: :channel_update_active
-
   resources :home
   
   devise_for :users

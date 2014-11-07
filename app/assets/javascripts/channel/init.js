@@ -1,4 +1,10 @@
 jQuery(document).ready(function($) {
+	initialize()
+
+});
+
+function initialize(){
+	
 	detail = getDetails($(".browse_frame:first").attr("id"))
 	setViewWithDetails(detail)
 
@@ -22,9 +28,7 @@ jQuery(document).ready(function($) {
 	$(".sidebar .scuss").click(function(event) {
 		redirectToChannel(detail);
 	});
-});
-
-
+}
 
 function setViewWithDetails(detail){
 	$(".sidebar .title").html(detail["name"])
@@ -32,10 +36,11 @@ function setViewWithDetails(detail){
 	toggleFollowButton(checkFollowing(detail["id"]))
 }
 function follow(detail){
+	console.log(detail)
 	$.ajax({
 		url: '/channel/follow',
 		type: 'POST',
-		data: {"api_id": detail['id'], "name": detail['name'] , "image_url": detail['poster_url'], "network": detail['network']},
+		data: {"api_id": detail['id'], "name": detail['name'] , "image_url": detail['poster_path'], "network": detail['network']},
 	})
 	.done(function() {
 		toggleFollowButton(true)

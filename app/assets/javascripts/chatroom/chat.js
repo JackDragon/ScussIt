@@ -109,7 +109,6 @@ function get_messages(cid) {
   data = JSON.parse(data)
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
-      
       message = data['messages'][i]
       username = message['user']
       body = "<p id=\"message"+ i.toString + "\">" + "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
@@ -125,14 +124,10 @@ function get_messages(cid) {
     content = setTimeout(function(){get_messages(cid);}, 720); 
   else
     clearTimeout(content)
-
-
- 
 }
 
 function post_message(cid,message){
-
-   $.ajax({
+  $.ajax({
     url: '/channel/'+cid+'/post', 
     type: 'POST',
     data: {'channel_id': cid, 'body': message},
