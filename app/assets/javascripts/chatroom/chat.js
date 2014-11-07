@@ -34,11 +34,11 @@ function add_active(id){
 }
 
 function delete_active(id){
-  // alert("called2");
   $.ajax({
     url: '/channel/delete_active',
     type: 'POST',
     data: {"cid": id},
+    async: false
   })
   .done(function() {
     toggleFollowButton(true)
@@ -50,7 +50,27 @@ function delete_active(id){
   .always(function() {
     console.log("complete");
   });
-  // return null;
+  return null;
+}
+
+function update_active(id){
+  $.ajax({
+    url: '/channel/update_active',
+    type: 'POST',
+    data: {"cid": id},
+    async: false
+  })
+  .done(function() {
+    toggleFollowButton(true)
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  return null;
 }
 
 function follow_from_channel(id){
@@ -85,6 +105,7 @@ function get_messages(cid) {
   }).success(function(data){      
   }).responseText;
 
+  update_active(cid);
   data = JSON.parse(data)
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {

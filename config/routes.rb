@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/channel/add_active', to: 'channel#add_active', as: :channel_add_active
   post '/channel/delete_active', to: 'channel#delete_active', as: :channel_delete_active
   get '/channel/active/:id', to: 'channel#user_list', as: :channel_active
+  post '/channel/update_active', to: 'channel#update_active', as: :channel_update_active
 
   resources :home
   
