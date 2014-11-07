@@ -91,6 +91,31 @@ function follow_from_channel(id){
   });
 }
 
+function get_userlist(cid) {
+  data = $.ajax({
+    url: '/channel/active/' + cid,
+    type: 'GET',
+    dataType: 'json',
+    async: false
+  }).success(function(data)){
+  }).responseText;
+
+  data = JSON.parse(data)
+  total = ""
+  for (var i = 0; i < data['user_list'].length; i++) {
+    username = data['user_list']
+    body = '<p><strong>' + username + '</strong></p>'
+    total+=body
+  };
+  $('#userbox').html(total);
+
+  if(document.URL.indexOf('channel/active' + cid) > -1)
+    content = setTimeout(function(){get_userlist(cid);}, 720); 
+  else
+    clearTimeout(content)
+
+}
+
 function get_messages(cid) {
 
   var old_height = $('#chatbox').prop('scrollHeight');
