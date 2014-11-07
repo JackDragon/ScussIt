@@ -4,6 +4,20 @@ class HomeController < ApplicationController
 	
 	def index
 		
+		page_index = 1
+		data = ApplicationHelper.airingtoday(page_index)
+		airing_today = JSON.parse data
+
+		@results = airing_today['results']
+		page = airing_today["total_pages"].to_f
+
+		while (page_index < page)
+			page_index += 1
+			data = ApplicationHelper.airingtoday(page_index)
+			airing_today = JSON.parse data
+			@results += airing_today['results']
+		end
+		
 	end
 	def airingtoday
 		themoviedb = ApplicationHelper::themoviedb

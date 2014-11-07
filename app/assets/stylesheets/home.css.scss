@@ -9,66 +9,7 @@ body{
 	padding-top: 45px;
 
 }
-.header{
 
-	background-color: #8CA3B2;
-	height: 50px;
-
-}
-
-.header .registration{
-	/*background-color: blue;*/
-	position: relative;
-	float:right;
-
-
-	/*center vertical*/
-	top: 50%; 
-	transform: translateY(-50%);
-	/*padding-right: 25%;*/
-	/*text-align: center;*/
-	width: 25%
-
-
-}
-.header .registration a{
-	text-decoration: none;
-	margin-left: 10px;
-}
-
-.header .menu a{
-	text-decoration: none;
-	margin-left: 10px;
-	
-
-}	
-.header .logo{
-	padding-left: 20%;
-	width: 5%;
-	float: left;
-	height: 70%;
-	position: relative;
-	top: 50%; 
-	text-align: center;
-	transform: translateY(-50%);
-}
-
-.header .logo img{
-	height: 100%;
-
-}
-.header .menu{
-	/*height: 100%;*/
-	width: 50%;
-	float: left;
-	position: relative;
-	top: 50%; 
-	transform: translateY(-50%);
-	
-
-
-	/*background-: ;color: black;*/
-}
 
 .airing-today-wrapper{
 	padding-top: 50px;
@@ -125,7 +66,6 @@ body{
 	width: 100%;
 	margin: 0;
 	padding-left: 10px;
-
 	padding-top: 3px;
 	padding-bottom: 3px;
 }  
@@ -143,4 +83,17 @@ body{
   	margin: auto;
 	height: 100%;
 }
+
+.home-wrapper h1{
+
+	padding-left: 50px;
+	color: yellow;
+	display: inline
+}
+.home-wrapper{
+	padding-top: 20px;
+	height: calc(100vh - 45px);
+	background-color: black;
+}
+
 

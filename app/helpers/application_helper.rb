@@ -31,5 +31,13 @@ module ApplicationHelper
 		return body
 	end
 
+	# Get airingtoday
+	def self.airingtoday(page)
+		themoviedb = ApplicationHelper::themoviedb
+		paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> page}
+		data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:airing_today], paramaters)
+		return data
+	end
+
 
 end
