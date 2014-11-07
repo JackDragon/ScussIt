@@ -3,7 +3,6 @@ class HomeController < ApplicationController
 	require 'json'
 	
 	def index
-		
 		page_index = 1
 		data = ApplicationHelper.airingtoday(page_index)
 		airing_today = JSON.parse data
@@ -18,13 +17,22 @@ class HomeController < ApplicationController
 			@results += airing_today['results']
 		end
 		
+		@favorites_size = 0
+		if !current_user.nil?
+			@favorites = Favorite.get_favorite(current_user.id)
+			for favorite in @favorites do
+				channel_id = favorite['api_id'].to_f
+				for results in @results do
+					if (results["id"] == channel_id)
+						@results.insert(0,@results.delete(results))
+						@favorites_size += 1
+					end
+				end
+			end
+		end
+
 	end
-	def airingtoday
-		themoviedb = ApplicationHelper::themoviedb
-		paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> params['page']}
-		data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:airing_today], paramaters)
-		render :json => data	
-	end
+	
 
 	def externalids
 		themoviedb = ApplicationHelper::themoviedb

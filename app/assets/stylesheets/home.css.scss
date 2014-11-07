@@ -28,6 +28,7 @@ body{
 .airing-today-wrapper .airing-today-frames{
 	width: auto;
 	height: 350px;
+	padding-left: 5px;
 }
 
 .airing-today-wrapper .airing-today-frames .frame{
@@ -36,6 +37,10 @@ body{
 	background-color: black;
 	height: 100%;
 	border: 1px solid white;
+}
+
+.airing-today-wrapper .airing-today-frames .favorite{
+	border: 1px solid yellow;
 }
 .airing-today-wrapper .airing-today-frames .frame:hover{
 	border: 1px solid yellow;	
@@ -73,6 +78,16 @@ body{
 	white-space: nowrap; 
     width: 90%; 
     overflow: hidden;
+    text-overflow: ellipsis; 
+	margin: 0;
+	
+}
+
+.airing-today-wrapper .airing-today-frames .frame li ul h3{
+	white-space: nowrap; 
+    width: 90%; 
+    overflow: hidden;
+    color: yellow;
     text-overflow: ellipsis; 
 	margin: 0;
 	

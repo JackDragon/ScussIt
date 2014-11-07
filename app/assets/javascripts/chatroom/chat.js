@@ -4,7 +4,6 @@ $(document).ready(function (){
   // get_messages(id);
   $(".follow").click(function(event) {
     type = $(this).html()
-    console.log("---"+this.id)
     if (type == "Follow"){
       follow_from_channel(this.id)
     }else if(type == "Unfollow"){

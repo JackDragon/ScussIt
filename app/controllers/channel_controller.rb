@@ -5,12 +5,9 @@ class ChannelController < ApplicationController
   respond_to :html, :js
 
   def mychannels
-    @favorites = Favorite.where(user_id:current_user.id)
-    @results = []
-    for favorite in @favorites do
-      channel_id = favorite['channel_id']
-      @results.push(Channel.find_by(id: channel_id))
-    end
+    @results = Favorite.get_favorite(current_user.id)
+    p "*"*80
+    p @results    
   end
 
   # Get all shows from MovieDB
@@ -218,7 +215,6 @@ class ChannelController < ApplicationController
         c.network = params[:network]
       end
       url = "'/channel/"+@channel.id.to_s+"'"
-      p url
       render :js => "window.location ="+url
     end
     #render :nothing => true

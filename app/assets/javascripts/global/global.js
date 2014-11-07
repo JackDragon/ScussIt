@@ -1,9 +1,10 @@
 // Jon Wu
 function redirectToChannel(detail){
+	console.log(detail)
 	$.ajax({
 		url: '/find',
 		type: 'GET',
-		data: {"api_id": detail['id'], "name": detail['name'], "image_url": detail['poster_url'], "network": detail['network']},
+		data: {"api_id": detail['id'], "name": detail['name'], "image_url": detail['poster_path'], "network": detail['network']},
 	})
 	.done(function() {
 		console.log("success");

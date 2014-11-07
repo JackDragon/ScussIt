@@ -1,0 +1,23 @@
+<% favorites_count = 0  %>	
+
+
+<% @results.each do |tvshow| %>
+	<% if tvshow["poster_path"] != nil  %>
+		<% if (favorites_count < @favorites_size)  %>
+			<div class='frame favorite' id='<%= tvshow["id"] %>'>
+			<li>
+				<ul><h2><%= tvshow['name'] %></h2></ul>
+				<ul><h3>Favorited!</h3></ul>
+			</li>
+		<% else %>
+			<div class='frame' id='<%= tvshow["id"] %>'>
+			<li>
+				<ul><h2><%= tvshow['name'] %></h2></ul>
+			</li>
+		<% end %>
+				
+				<img src=<%= "https://image.tmdb.org/t/p/w185" + tvshow["poster_path"] %> alt='' />
+			</div>
+	<% end %>
+	<% favorites_count += 1 %>
+<% end %>	
