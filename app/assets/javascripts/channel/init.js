@@ -4,30 +4,32 @@ jQuery(document).ready(function($) {
 });
 
 function initialize(){
-	
-	detail = getDetails($(".browse_frame:first").attr("id"))
-	setViewWithDetails(detail)
-
-
-	$(".browse_frame").click(function(event) {
-		detail = getDetails(this.id)
+	id = $(".browse_frame:first").attr("id")
+	if(id != null){
+		detail = getDetails(id)
 		setViewWithDetails(detail)
-		$(".sidebar .follow").attr('value', this.id);
-	});
 
-	$(".sidebar .follow").click(function(event) {
-		type = $(this).html()
-		if (type == "Follow"){
-			follow(detail)
-		}else if(type == "Unfollow"){
-			unfollow(detail['id'])
-		}
-		
-	});
+		$(".browse_frame").click(function(event) {
+			detail = getDetails(this.id)
+			setViewWithDetails(detail)
+			$(".sidebar .follow").attr('value', this.id);
+		});
 
-	$(".sidebar .scuss").click(function(event) {
-		redirectToChannel(detail);
-	});
+		$(".sidebar .follow").click(function(event) {
+			type = $(this).html()
+			if (type == "Follow"){
+				follow(detail)
+			}else if(type == "Unfollow"){
+				unfollow(detail['id'])
+			}
+			
+		});
+
+		$(".sidebar .scuss").click(function(event) {
+			redirectToChannel(detail);
+		});
+	}
+	
 }
 
 function setViewWithDetails(detail){
