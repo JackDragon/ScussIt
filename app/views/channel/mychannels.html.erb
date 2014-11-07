@@ -11,10 +11,12 @@
 <div class="sidebar">
 	<div class="content">	
 	 	<h1 class="title"></h1>
-		<% if !current_user.nil? %>
-			<button class="btn btn-primary follow" value=<%= @results[0]["api_id"] %>>Follow</button>	
-		<% end %>
-		<button class="btn btn-primary scuss" value=<%= @results[0]["api_id"] %>>Scuss it</button>	
+			<% if @results.any? %>
+				<button class="btn btn-primary follow" value=<%= @results[0]["api_id"] %>>Follow</button>		
+				<button class="btn btn-primary scuss" value=<%= @results[0]["api_id"] %>>Scuss it</button>	
+			<% else %>
+				<h1>No Favorites :(</h1>
+			<% end %>
 		<p class="description"></p>
 	</div>
 </div>
