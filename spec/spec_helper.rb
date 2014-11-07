@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start
 # require 'devise'
 require 'capybara/rspec'
+# require 'capybara/rails'
 
 
 # require 'capybara/rails'
