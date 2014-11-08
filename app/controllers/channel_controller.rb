@@ -82,118 +82,41 @@ class ChannelController < ApplicationController
 
   def add_active
     # p "ADDDDDDDDDDDDDDDDDDDDDDDDD"*100
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-      
-    if cid != nil and !current_user.actives.exists?(:channel_id => cid)
-      current_user.actives.create(:channel_id => cid, :updated => DateTime.now)
-    end
+    Channel.active_add(params, current_user)
     render nothing: true
   end
 
   def delete_active
     # p "DEEEEEEEEEEEEEEEEEEEEEEEEE"*100
     # p params
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-    if current_user.actives.exists?(:channel_id => cid)
-      to_delete = Active.where(:channel_id => cid, :user_id => current_user.id)[0]
-      Active.destroy(to_delete.id)
-    end
+    Channel.active_delete(params, current_user)
     render nothing: true
   end
 
   def update_active
     # p "UPDATED"*100
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-      
-    if cid != nil and current_user.actives.exists?(:channel_id => cid)
-      entry = Active.where(:channel_id => cid)[0]
-      entry.updated = DateTime.now
-      entry.save()
-    end
+    Channel.active_update(params, current_user)
     render nothing: true
   end
 
   def user_list
-    # cid = nil
-    # if params.has_key?(:cid)
-    #   cid = params[:cid]
-    # elsif params.has_key?(:api_id) and Channel.exists?(:api_id => params[:api_id])
-    #   cid = (Channel.find_by api_id: params[:api_id]).id
-    # end
-    l = []
-    # p params
-    timenow = DateTime.now
-    cid = params[:id]
-    if cid != nil and Active.exists?(:channel_id => cid)
-      l = Active.where(:channel_id => cid).where("updated > ?", timenow-20.seconds)
-    end
-    userlist = []
-    for entry in l
-      p "ENTRY"*100
-      p entry
-      eid = entry.user_id
-      username = User.where(:id => eid)[0].username
-      # entry["username"] = username
-      userlist += [username]
-    end
+    userlist = Channel.active_user_list(params, current_user)
     render json: {user_list: userlist}
   end
 
   def follow
-    if params.has_key?(:cid)
-      if !current_user.favorites.exists?(:channel_id => params[:cid])
-        current_user.favorites.create(:channel_id => params[:cid])
-      end
-    elsif params.has_key?(:api_id)
-
-      if Channel.find_by(api_id: params[:api_id]) == nil
-        Channel.create(channel_params)
-      end
-      # p Channel.find_by api_id: params[:api_id]
-      cid = (Channel.find_by api_id: params[:api_id]).id
-      if !current_user.favorites.exists?(:channel_id => cid)
-        current_user.favorites.create(:channel_id => cid)
-      end
-    end
+    Channel.follow(params, current_user)
     render nothing: true
   end
 
   def unfollow
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id)
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-    if current_user.favorites.exists?(:channel_id => cid)
-      to_delete = Favorite.where(:channel_id => cid, :user_id => current_user.id)[0]
-      Favorite.destroy(to_delete.id)
-    end
+    Channel.unfollow(params, current_user)
     render nothing: true
   end
 
   def check_following
-    p params[:id]
-    following = false
-    if params.has_key?(:id) and (Channel.find_by api_id: params[:id]) != nil and current_user != nil
-      id = (Channel.find_by api_id: params[:id]).id
-      following = Favorite.find_by(channel_id: id, user_id: current_user.id) !=nil
-    end
+    # p params[:id]
+    following = Channel.following(params, current_user)
     render json: {following: following}
   end
 

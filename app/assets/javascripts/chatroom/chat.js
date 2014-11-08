@@ -19,6 +19,7 @@ function add_active(id){
     url: '/channel/add_active',
     type: 'POST',
     data: {"cid": id},
+    async: false
   })
   .done(function() {
     console.log("success");
@@ -55,7 +56,7 @@ function update_active(id){
     url: '/channel/update_active',
     type: 'POST',
     data: {"cid": id},
-    async: false
+    async: true
   })
   .done(function() {
     console.log("success");
@@ -112,6 +113,7 @@ function get_userlist(cid) {
 }
 
 function get_messages(cid) {
+  update_active(cid);
 
   var old_height = $('#chatbox').prop('scrollHeight');
 
@@ -125,7 +127,6 @@ function get_messages(cid) {
   }).success(function(data){      
   }).responseText;
 
-  update_active(cid);
   data = JSON.parse(data)
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {

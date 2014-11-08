@@ -28,6 +28,56 @@ describe Channel do
     expect(j['poster_path']).to eq('/7mwErPneNN2BUAODW2gldnhL8Oe.jpg')
   end
 
+  it "should follow correctly" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.nil?).to be(false)
+  end
+
+  it "should follow correctly api_id and get correct following method" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:api_id => c.api_id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.nil?).to be(false)
+    params = {:id => c.id}
+    following = Channel.following(params, u)
+    expect(following).to be(true)
+  end
+
+  it "should unfollow correctly" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.nil?).to be(false)
+    Channel.unfollow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav).to eq([])
+  end
+
+  it "should correctly add to active user list" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.nil?).to be(false)
+  end
+
   context 'getting messages' do
     it 'should return the messages for the channel' do    
       c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
