@@ -35,7 +35,7 @@ describe Channel do
     u.skip_confirmation!
     u.save!
     params = {:cid => c.id}
-    Channel.follow(params, u)
+    Channel.follow(params, u, nil)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
     expect(fav.empty?).to be(false)
   end
@@ -46,7 +46,7 @@ describe Channel do
     u.skip_confirmation!
     u.save!
     params = {:api_id => c.api_id}
-    Channel.follow(params, u)
+    Channel.follow(params, u, nil)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
     expect(fav.empty?).to be(false)
     params = {:id => c.api_id}
@@ -60,7 +60,7 @@ describe Channel do
     u.skip_confirmation!
     u.save!
     params = {:cid => c.id}
-    Channel.follow(params, u)
+    Channel.follow(params, u, nil)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
     expect(fav.empty?).to be(false)
     Channel.unfollow(params, u)
