@@ -56,10 +56,9 @@ function update_active(id){
     url: '/channel/update_active',
     type: 'POST',
     data: {"cid": id},
-    async: true
   })
   .done(function() {
-    console.log("success");
+    console.log("success update_active");
   })
   .fail(function() {
     console.log("error");
@@ -115,8 +114,6 @@ function get_userlist(cid) {
 function get_messages(cid) {
   update_active(cid);
 
-  var old_height = $('#chatbox').prop('scrollHeight');
-
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
     dataType: "json",
@@ -127,7 +124,18 @@ function get_messages(cid) {
   }).success(function(data){      
   }).responseText;
 
+
+  update_active(cid);
   data = JSON.parse(data)
+  setDataView(data)
+
+  if(document.URL.indexOf('channel/'+cid) > -1)
+    content = setTimeout(function(){get_messages(cid);}, 720); 
+  else
+    clearTimeout(content)
+}
+function setDataView(data){
+  var old_height = $('#chatbox').prop('scrollHeight');
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
       message = data['messages'][i]
@@ -140,11 +148,6 @@ function get_messages(cid) {
   if(new_height > old_height){
     $("#chatbox").animate({ scrollTop: new_height }, 'normal');
   }
-
-  if(document.URL.indexOf('channel/'+cid) > -1)
-    content = setTimeout(function(){get_messages(cid);}, 720); 
-  else
-    clearTimeout(content)
 }
 
 function post_message(cid,message){

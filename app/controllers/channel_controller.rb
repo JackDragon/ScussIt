@@ -81,21 +81,16 @@ class ChannelController < ApplicationController
   end
 
   def add_active
-    # p "ADDDDDDDDDDDDDDDDDDDDDDDDD"*100
-    Channel.active_add(params, current_user)
+
+    if current_user != nil
+      Channel.active_add(params, current_user)
+    end
+
     render nothing: true
   end
 
   def delete_active
-    # p "DEEEEEEEEEEEEEEEEEEEEEEEEE"*100
-    # p params
     Channel.active_delete(params, current_user)
-    render nothing: true
-  end
-
-  def update_active
-    # p "UPDATED"*100
-    Channel.active_update(params, current_user)
     render nothing: true
   end
 
@@ -103,6 +98,23 @@ class ChannelController < ApplicationController
     userlist = Channel.active_user_list(params, current_user)
     render json: {user_list: userlist}
   end
+
+  def update_active  
+    # Channel.active_update(params, current_user)
+    if current_user != nil
+      cid = nil
+      if params.has_key?(:cid)
+        cid = params[:cid]
+      end
+      if cid != nil
+        p"*" *80
+        entry = Active.find_by(channel_id: cid, user_id: current_user.id)
+        entry.update(updated: DateTime.now)
+      end
+    end
+      render nothing: true
+  end
+
 
   def follow
     Channel.follow(params, current_user)
