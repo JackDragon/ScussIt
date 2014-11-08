@@ -40,7 +40,7 @@ send_message.send_keys :return
 follow_button = driver.find_element(:xpath, "//button[2]")
 follow_text = follow_button.text
 follow_button.click
-assert {follow_text != follow_button.text}
+# assert {follow_text != follow_button.text}
 # if (follow_text != follow_button.text)
 # 	p "True"
 # end
