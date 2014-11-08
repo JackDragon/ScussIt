@@ -13,6 +13,64 @@ describe ChannelController do
   # end
 
   # before { controller.stub(:authenticate_user!).and_return true }
+  # 
+  describe "Set total page" do
+    it "returns total page" do
+      @controller = ChannelController.new
+      @controller.instance_eval{set_total_page(3)}
+      total = @controller.instance_eval{get_total_page()}
+      expect(total).to eq(3)
+    end
+  end
+
+  describe "Set current page" do
+    it "returns current page" do
+      @controller = ChannelController.new
+      @controller.instance_eval{set_current_page(3)}
+      current = @controller.instance_eval{get_current_page()}
+      expect(current).to eq(3)
+    end
+  end
+
+
+  describe "update active in channel.rb" do
+    it "return new time for Active" do
+      @controller = ChannelController.new
+      
+      u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+      c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 60743)
+      entry_1 = Active.new(channel_id: c.id, user_id: u.id, updated: DateTime.now)
+      post :update_active, cid: c.id
+      entry_2 = Active.find_by(channel_id: c.id, user_id: u.id)
+      
+      expect(entry_1).to_not eq(entry_2)
+    end
+  end
+
+  describe "click next page" do
+    it "increment current page" do
+      @controller = ChannelController.new
+      @controller.instance_eval{set_total_page(3)}
+      @controller.instance_eval{set_current_page(1)}
+      
+      get :next_page
+      current = @controller.instance_eval{get_current_page()}
+      expect(current).to eq(2)
+    end
+  end
+
+  describe "click previous page" do
+    it "decrement current page" do
+      @controller = ChannelController.new
+      @controller.instance_eval{set_total_page(5)}
+      @controller.instance_eval{set_current_page(4)}
+      
+      get :previous_page
+      current = @controller.instance_eval{get_current_page()}
+      expect(current).to eq(3)
+    end
+  end
+
 
   describe "channel GET index" do
     it "has a 200 status code" do
@@ -20,6 +78,8 @@ describe ChannelController do
       expect(response.status).to eq(200)
     end
   end
+
+
   # describe "Message posting" do
   #   include Devise::TestHelpers
   #   # @request.env["devise.mapping"] = Devise.mappings[:user]

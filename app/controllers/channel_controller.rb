@@ -100,19 +100,8 @@ class ChannelController < ApplicationController
   end
 
   def update_active  
-    # Channel.active_update(params, current_user)
-    if current_user != nil
-      cid = nil
-      if params.has_key?(:cid)
-        cid = params[:cid]
-      end
-      if cid != nil
-        p"*" *80
-        entry = Active.find_by(channel_id: cid, user_id: current_user.id)
-        entry.update(updated: DateTime.now)
-      end
-    end
-      render nothing: true
+    Channel.active_update(params, current_user)    
+    render nothing: true
   end
 
 

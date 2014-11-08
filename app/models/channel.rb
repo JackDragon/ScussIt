@@ -121,19 +121,15 @@ class Channel < ActiveRecord::Base
   end
 
   def self.active_update(params, current_user)
-    cid = nil
-    if params.has_key?(:cid)
-      cid = params[:cid]
-    elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
-      cid = (Channel.find_by api_id: params[:api_id]).id
-    end
-      
-    if cid != nil and current_user.actives.exists?(:channel_id => cid)
-      entry = Active.where(:channel_id => cid)[0]
-      entry.updated = DateTime.now
-      entry.save()
-    elsif cid != nil
-      self.active_add(params, current_user)
+    if current_user != nil
+      cid = nil
+      if params.has_key?(:cid)
+        cid = params[:cid]
+      end
+      if cid != nil
+        entry = Active.find_by(channel_id: cid, user_id: current_user.id)
+        entry.update(updated: DateTime.now)
+      end
     end
   end
 
@@ -156,7 +152,7 @@ class Channel < ActiveRecord::Base
     timenow = DateTime.now
     cid = params[:id]
     if cid != nil and Active.exists?(:channel_id => cid)
-      l = Active.where(:channel_id => cid).where("updated > ?", timenow-20.seconds)
+      l = Active.where(:channel_id => cid).where("updated > ?", timenow-5.seconds)
     end
     userlist = []
     for entry in l

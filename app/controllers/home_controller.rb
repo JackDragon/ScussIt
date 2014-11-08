@@ -16,20 +16,15 @@ class HomeController < ApplicationController
 			airing_today = JSON.parse data
 			@results += airing_today['results']
 		end
-		
+		p @results
 		@favorites_size = 0
-		if !current_user.nil?
-			@favorites = Favorite.get_favorite(current_user.id)
-			for favorite in @favorites do
-				channel_id = favorite['api_id'].to_f
-				for results in @results do
-					if (results["id"] == channel_id)
-						@results.insert(0,@results.delete(results))
-						@favorites_size += 1
-					end
-				end
-			end
-		end
+		
+		new_results = HomeHelper.reorder_favorites(@results, current_user)
+		@favorites_size = new_results[0]
+		@results = new_results[1]
+		
+		
+
 
 	end
 	
@@ -49,4 +44,6 @@ class HomeController < ApplicationController
 		render :json => json
 	end
 	
+		
+
 end
