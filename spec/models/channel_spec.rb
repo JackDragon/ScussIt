@@ -36,7 +36,7 @@ describe Channel do
     params = {:cid => c.id}
     Channel.follow(params, u)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
-    expect(fav.nil?).to be(false)
+    expect(fav.empty?).to be(false)
   end
 
   it "should follow correctly api_id and get correct following method" do
@@ -44,10 +44,10 @@ describe Channel do
     u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
     u.skip_confirmation!
     u.save!
-    params = {:api_id => c.api_id}
+    params = {:api_id => 35}
     Channel.follow(params, u)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
-    expect(fav.nil?).to be(false)
+    expect(fav.empty?).to be(false)
     params = {:id => c.id}
     following = Channel.following(params, u)
     expect(following).to be(true)
@@ -61,7 +61,7 @@ describe Channel do
     params = {:cid => c.id}
     Channel.follow(params, u)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
-    expect(fav.nil?).to be(false)
+    expect(fav.empty?).to be(false)
     Channel.unfollow(params, u)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
     expect(fav).to eq([])
@@ -75,7 +75,38 @@ describe Channel do
     params = {:cid => c.id}
     Channel.active_add(params, u)
     act = Active.where(:user_id => u.id, :channel_id => c.id)
-    expect(fav.nil?).to be(false)
+    expect(act.empty?).to be(false)
+  end
+
+  it "should correctly add to active user list and update" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id.to_i}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    before = act[0].updated
+    Channel.active_update(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    after = act[0].updated
+    expect(after > before).to be(true)
+  end
+
+  it "should correctly add to active user list and delete" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    Channel.active_delete(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act).to eq([])
   end
 
   context 'getting messages' do
