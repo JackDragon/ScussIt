@@ -29,7 +29,7 @@ Run on your local machine:
 Or visit Heroku: http://scuss.herokuapp.com/
 
 ==Registration instructions
-* Click Register[http://warm-mountain-1838.herokuapp.com/users/sign_up]
+* Click Register[http://scuss.herokuapp.com/users/sign_up]
 * Enter a unique e-mail less than 256 characters.
 * Enter a password between 8 and 128 characters.
 * Confirm your password by entering it again.
