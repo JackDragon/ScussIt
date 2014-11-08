@@ -70,6 +70,6 @@ dropdown = wait.until {driver.find_element(:xpath, "//a[@class='dropdown-toggle'
 dropdown.click
 driver.find_element(:xpath, "//a[@href='/users/sign_out']").click
 
-puts driver.title
+puts "All tests passed!"
 
 # driver.quit
