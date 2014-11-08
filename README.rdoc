@@ -39,6 +39,12 @@ Or visit Heroku: http://warm-mountain-1838.herokuapp.com/
 ==Running tests
 * Run <tt>rspec</tt>
 
+Unable to test due to dependencies on third-pary api:
+In channel_controller.rb
+* action::browse
+* action::browse_list
+* action::details
+
 ==Miscellaneous
 * Ruby version: 2.1.3
 

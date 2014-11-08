@@ -79,8 +79,6 @@ describe ChannelController do
     end
   end
 
- 
-
   # describe "Message posting" do
   #   include Devise::TestHelpers
   #   # @request.env["devise.mapping"] = Devise.mappings[:user]
