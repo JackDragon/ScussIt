@@ -10,11 +10,9 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
-    // $(window).onload();
-    // window.onbeforeload = add_active(<%= @channel.id %>)
+    
     add_active(<%= @channel.id %>)
-    // $(window).unload(delete_active(<%= @channel.id %>));
-    // window.onbeforeunload = delete_active(<%= @channel.id %>);
+    
     $(window).bind('beforeunload', function(e){
       delete_active(<%= @channel.id %>);
     });

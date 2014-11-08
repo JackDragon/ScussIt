@@ -21,11 +21,93 @@ describe Channel do
   end
 
   it "should parse show details properly" do 
-    show = JSON.parse('{"backdrop_path":"/3yLECa8OqWys9yl7vE53apjoDsO.jpg","id":4385,"original_name":"The Colbert Report","first_air_date":"2005-10-17","origin_country":["US"],"poster_path":"/7mwErPneNN2BUAODW2gldnhL8Oe.jpg","popularity":1.88902176650493,"name":"The Colbert Report","vote_average":8.0,"vote_count":2}')
+    show = JSON.parse('{"backdrop_path":"/3yLECa8OqWys9yl7vE53apjoDsO.jpg","id": 4385,"original_name":"The Colbert Report","first_air_date":"2005-10-17","origin_country":["US"],"poster_path":"/7mwErPneNN2BUAODW2gldnhL8Oe.jpg","popularity":1.88902176650493,"name":"The Colbert Report","vote_average":8.0,"vote_count":2,"networks": [{"id": 88,"name": "FX"}]}')
     j = Channel.parse_detail(show)
-    expect(j['id']).to eq(4385)
-    expect(j['name']).to eq("The Colbert Report")
-    expect(j['poster_path']).to eq('/7mwErPneNN2BUAODW2gldnhL8Oe.jpg')
+    
+    expect(j[:id]).to eq(4385)
+    expect(j[:name]).to eq("The Colbert Report")
+    expect(j[:poster_path]).to eq('/7mwErPneNN2BUAODW2gldnhL8Oe.jpg')
+  end
+
+  it "should follow correctly" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.empty?).to be(false)
+  end
+
+  it "should follow correctly api_id and get correct following method" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => "35")
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:api_id => c.api_id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.empty?).to be(false)
+    params = {:id => c.api_id}
+    following = Channel.following(params, u)
+    expect(following).to be(true)
+  end
+
+  it "should unfollow correctly" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.follow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav.empty?).to be(false)
+    Channel.unfollow(params, u)
+    fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
+    expect(fav).to eq([])
+  end
+
+  it "should correctly add to active user list" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+  end
+
+  it "should correctly add to active user list and update" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id.to_i}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    before = act[0].updated
+    Channel.active_update(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    after = act[0].updated
+    expect(after > before).to be(true)
+  end
+
+  it "should correctly add to active user list and delete" do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    params = {:cid => c.id}
+    Channel.active_add(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act.empty?).to be(false)
+    Channel.active_delete(params, u)
+    act = Active.where(:user_id => u.id, :channel_id => c.id)
+    expect(act).to eq([])
   end
 
   context 'getting messages' do
