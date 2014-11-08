@@ -67,7 +67,7 @@ class Channel < ActiveRecord::Base
     return new_json
   end
 
-  def self.follow(params, current_user)
+  def self.follow(params, current_user, channel_params)
     if params.has_key?(:cid)
       if !current_user.favorites.exists?(:channel_id => params[:cid])
         current_user.favorites.create(:channel_id => params[:cid])

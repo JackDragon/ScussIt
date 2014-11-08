@@ -106,7 +106,9 @@ class ChannelController < ApplicationController
 
 
   def follow
-    Channel.follow(params, current_user)
+    p "*" *80
+    p params
+    Channel.follow(params, current_user, channel_params)
     render nothing: true
   end
 
