@@ -41,15 +41,15 @@ describe Channel do
   end
 
   it "should follow correctly api_id and get correct following method" do
-    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => "35")
     u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
     u.skip_confirmation!
     u.save!
-    params = {:api_id => 35}
+    params = {:api_id => c.api_id}
     Channel.follow(params, u)
     fav = Favorite.where(:user_id => u.id, :channel_id => c.id)
     expect(fav.empty?).to be(false)
-    params = {:id => c.id}
+    params = {:id => c.api_id}
     following = Channel.following(params, u)
     expect(following).to be(true)
   end
