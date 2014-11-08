@@ -41,10 +41,10 @@ Or visit Heroku: http://scuss.herokuapp.com/
 * UI Tests using Selenium: run <tt>ruby selenium_tests.rb</tt> in the project root directory.
 
 Unable to test due to dependencies on third-pary api:
-In channel_controller.rb
-* action::browse
-* action::browse_list
-* action::details
+
+* action::browse (channel_controller.rb)
+* action::browse_list (channel_controller.rb)
+* action::details (channel_controller.rb)
 
 ==Miscellaneous
 * Ruby version: 2.1.3
