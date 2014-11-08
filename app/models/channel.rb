@@ -41,6 +41,8 @@ class Channel < ActiveRecord::Base
 
   # extract values from detail json
   def self.parse_detail(show)
+    p "*"*80
+    p show
     overview = show['overview']
     homepage = show['homepage']
     name = show['name']

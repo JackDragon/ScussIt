@@ -21,11 +21,12 @@ describe Channel do
   end
 
   it "should parse show details properly" do 
-    show = JSON.parse('{"backdrop_path":"/3yLECa8OqWys9yl7vE53apjoDsO.jpg","id":4385,"original_name":"The Colbert Report","first_air_date":"2005-10-17","origin_country":["US"],"poster_path":"/7mwErPneNN2BUAODW2gldnhL8Oe.jpg","popularity":1.88902176650493,"name":"The Colbert Report","vote_average":8.0,"vote_count":2}')
+    show = JSON.parse('{"backdrop_path":"/3yLECa8OqWys9yl7vE53apjoDsO.jpg","id": 4385,"original_name":"The Colbert Report","first_air_date":"2005-10-17","origin_country":["US"],"poster_path":"/7mwErPneNN2BUAODW2gldnhL8Oe.jpg","popularity":1.88902176650493,"name":"The Colbert Report","vote_average":8.0,"vote_count":2,"networks": [{"id": 88,"name": "FX"}]}')
     j = Channel.parse_detail(show)
-    expect(j['id']).to eq(4385)
-    expect(j['name']).to eq("The Colbert Report")
-    expect(j['poster_path']).to eq('/7mwErPneNN2BUAODW2gldnhL8Oe.jpg')
+    
+    expect(j[:id]).to eq(4385)
+    expect(j[:name]).to eq("The Colbert Report")
+    expect(j[:poster_path]).to eq('/7mwErPneNN2BUAODW2gldnhL8Oe.jpg')
   end
 
   it "should follow correctly" do
