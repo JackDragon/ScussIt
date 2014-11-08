@@ -26,7 +26,7 @@ Run on your local machine:
 
 * Start server with <tt>rails s</tt>
 
-Or visit Heroku: http://warm-mountain-1838.herokuapp.com/
+Or visit Heroku: http://scuss.herokuapp.com/
 
 ==Registration instructions
 * Click Register[http://warm-mountain-1838.herokuapp.com/users/sign_up]
@@ -38,6 +38,7 @@ Or visit Heroku: http://warm-mountain-1838.herokuapp.com/
 
 ==Running tests
 * Run <tt>rspec</tt>
+* UI Tests using Selenium: run <tt>ruby selenium_tests.rb</tt> in the project root directory.
 
 ==Miscellaneous
 * Ruby version: 2.1.3
