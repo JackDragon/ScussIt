@@ -1,3 +1,6 @@
+# Jonathan Lo
+# Bryant Chang
+
 require "selenium-webdriver"
 require "test/unit"
 
