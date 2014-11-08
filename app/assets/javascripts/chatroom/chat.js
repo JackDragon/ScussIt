@@ -98,7 +98,7 @@ function get_userlist(cid) {
   }).success(function(data){      
   }).responseText;
   data = JSON.parse(data)
-  total = "<h3> Names </h3>"
+  total = "<h3>User List</h3>"
   for (var i = 0; i < data['user_list'].length; i++) {
     username = data['user_list'][i]
     body = '<p><strong>' + username + '</strong></p>'
