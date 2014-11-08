@@ -79,6 +79,7 @@ describe ChannelController do
     end
   end
 
+ 
 
   # describe "Message posting" do
   #   include Devise::TestHelpers
