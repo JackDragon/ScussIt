@@ -10,7 +10,6 @@ $(document).ready(function (){
       unfollow(this.id)
     }
   });
-  
 });
 
 function add_active(id){
@@ -100,7 +99,7 @@ function get_userlist(cid) {
   total = "<h3>User List</h3>"
   for (var i = 0; i < data['user_list'].length; i++) {
     username = data['user_list'][i]
-    body = '<p><strong>' + username + '</strong></p>'
+    body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
     total+=body
   };
   $('#userbox').html(total);
@@ -111,6 +110,8 @@ function get_userlist(cid) {
     clearTimeout(content)
 }
 
+
+//Emoticons are from http://www.facebook-emoticons-smileys-free.blogspot.com/ and http://www.iconarchive.com/
 function emotify(message) {
   emo_message = message
   emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
