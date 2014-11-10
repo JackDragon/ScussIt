@@ -111,6 +111,23 @@ function get_userlist(cid) {
     clearTimeout(content)
 }
 
+function emotify(message) {
+  emo_message = message
+  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/<@/g, '<img src=\"/assets/angrybird.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/>:\(/g, '<img src=\"/assets/angry.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/\(@\)/g, '<img src=\"/assets/apple.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:\\/g, '<img src=\"/assets/blush.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/@_@/g, '<img src=\"/assets/glasses.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/\(#\)/g, '<img src=\"/assets/pumpkin.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/stupid.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/kitty.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"45px\" height=\"45px\" >')
+  return emo_message
+}
+
 function get_messages(cid) {
   update_active(cid);
 
@@ -134,13 +151,15 @@ function get_messages(cid) {
   else
     clearTimeout(content)
 }
+
 function setDataView(data){
   var old_height = $('#chatbox').prop('scrollHeight');
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
       message = data['messages'][i]
       username = message['user']
-      body = "<p id=\"message"+ i.toString + "\">" + "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
+      body = "<p id=\"message" + i.toString + "\">" + "<strong>" + username + "</strong>" +  ": " + emotify(message['body']) + "</p>"
+      // body = emotify(message['body'])
       total+=body
   };
   $('#chatbox').html(total);
