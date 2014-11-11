@@ -28,15 +28,21 @@
     get_userlist(id);
   });
 </script>
-<!-- <div class="container" style="float: right">
-  <h1><%= Channel.find(@channel.id).name %></h1>
-</div> -->
+
 
 <div class="panel-heading">
   <ul class="nav nav-pills" role="tablist">
-    <li class="active"><a href="#">Main: <%= Channel.find(@channel.id).name %></a></li>
-    <!-- <li><a href="#">Breaking Bad</a></li> -->
-    <!-- <li><a href="#">Lie To Me</a></li> -->
+    <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
+    <li><button id="add_topic_button" onclick="" class="btn btn-primary">Add Topics</button></li>
+    <li>
+      <% if !current_user.nil? %>
+        <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
+          <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Follow</button>
+        <% else %>
+          <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Unfollow</button>
+        <% end %>
+      <% end %>
+    </li>
   </ul>
 </div>
 
@@ -44,11 +50,15 @@
   <div class="row-fluid">
     <div class="col-md-3">
       <div class="topic_list" id="topicbox">
-
+        Topics are coming soon~
       </div>
     </div>
     <div class="col-md-7">
       <div class="chat" id="chatbox">
+      </div>
+      <div class="input_sender">
+        <input id="message_input" type="text" maxlength="255" style="width: 500px; height: 35px; margin-right: 10px" placeholder="Enter your message here...">
+        <button id="send_button" onclick="click_send()" class="btn btn-primary">Send</button>
       </div>
     </div>
 
@@ -60,25 +70,10 @@
   </div>
 </div>
 
-<div class="container">
-<!-- <div class="container" onunload="add_active(<% @channel.id %>)" onload="delete_active( <% @channel.id %>)"> -->
-  <input id="message_input" type="text" maxlength="255" style="width: 500px; height: 35px" placeholder="Enter your message here...">
-  <button id="send_button" onclick="click_send()" class="btn btn-primary">Send</button>
-  <br>
-  <br>
-  <% if !current_user.nil? %>
-    <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
-      <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Follow</button>
-    <% else %>
-      <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Unfollow</button>
-    <% end %>
-  <% end %>
-</div>
-<br>
-<br>
-<br>
 
-
+<br>
+<br>
+<br>
 
 
 <!-- HTML -->
