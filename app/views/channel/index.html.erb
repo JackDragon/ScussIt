@@ -31,8 +31,8 @@
 
 
 <div class="panel-heading">
+  <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
   <ul class="nav nav-pills" role="tablist">
-    <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
     <li><button id="add_topic_button" onclick="" class="btn btn-primary">Add Topics</button></li>
     <li>
       <% if !current_user.nil? %>
