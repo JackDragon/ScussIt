@@ -33,7 +33,7 @@
 <div class="panel-heading">
   <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
   <ul class="nav nav-pills" role="tablist">
-    <li><button id="add_topic_button" onclick="" class="btn btn-primary">Add Topics</button></li>
+    <li><button id="add_topic_button" onclick="click_add_topic_button()" class="btn btn-primary">Add Topics</button></li>
     <li>
       <% if !current_user.nil? %>
         <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>

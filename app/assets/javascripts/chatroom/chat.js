@@ -187,6 +187,34 @@ function post_message(cid,message){
   });
 }
 
+// function post_topic(cid,topic){
+//   $.ajax({
+//     url: '/channel/' + cid + '/topic',
+//     type: 'POST',
+//     data: {'channel_id': cid, 'body':topic},
+//   })
+//   .done(function() {
+//     console.log("success");
+//   })
+//   .fail(function() {
+//     console.log("error");
+//   })
+//   .always(function() {
+//     console.log("complete");
+//   });
+// }
+
+function click_add_topic_button() {
+  bootbox.prompt("Please enter topic name:", function(topic) {                
+    if (topic === null) {                                             
+      bootbox.alert("failed");
+    } else {
+      bootbox.alert(topic);
+      //post_topic(id, topic);
+    }
+  });
+}
+
 function click_send(){
   message = $("#message_input").val()
   document.getElementById("message_input").value = "";
