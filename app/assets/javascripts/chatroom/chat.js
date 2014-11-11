@@ -160,7 +160,6 @@ function setDataView(data){
       message = data['messages'][i]
       username = message['user']
       body = "<p id=\"message" + i.toString + "\">" + "<strong>" + username + "</strong>" +  ": " + emotify(message['body']) + "</p>"
-      // body = emotify(message['body'])
       total+=body
   };
   $('#chatbox').html(total);
@@ -187,6 +186,8 @@ function post_message(cid,message){
   });
 }
 
+// Here need some backend for topic post and get url
+
 // function post_topic(cid,topic){
 //   $.ajax({
 //     url: '/channel/' + cid + '/topic',
@@ -202,6 +203,29 @@ function post_message(cid,message){
 //   .always(function() {
 //     console.log("complete");
 //   });
+// }
+
+// function get_topics(){
+//   data = $.ajax({
+//     dataType: "json",
+//     type: "GET",
+//     //url: "/channel/active/" + cid,
+//     async: false
+//   }).success(function(data){      
+//   }).responseText;
+  
+//   data = JSON.parse(data)
+//   total = "<h3>Topics:</h3>"
+//   for (var i = 0; i < data['user_list'].length; i++) {
+//     topic_name = data['topic_list'][i]
+//     body = '<p>' + '<strong>' + topic_name + '</strong></p>'
+//     total+=body
+//   };
+//   $('#topicbox').html(total);
+//   if(document.URL.indexOf('channel/' + cid) > -1)
+//      content = setTimeout(function(){get_topics(cid);}, 5000); 
+//   else
+//     clearTimeout(content)
 // }
 
 function click_add_topic_button() {
