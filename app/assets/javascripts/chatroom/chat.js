@@ -10,7 +10,6 @@ $(document).ready(function (){
       unfollow(this.id)
     }
   });
-  
 });
 
 function add_active(id){
@@ -100,7 +99,7 @@ function get_userlist(cid) {
   total = "<h3>User List</h3>"
   for (var i = 0; i < data['user_list'].length; i++) {
     username = data['user_list'][i]
-    body = '<p><strong>' + username + '</strong></p>'
+    body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
     total+=body
   };
   $('#userbox').html(total);
@@ -111,6 +110,33 @@ function get_userlist(cid) {
     clearTimeout(content)
 }
 
+
+// emotifies symbols to emoticons
+function emotify(message) {
+  emo_message = message
+  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"45px\" height=\"45px\" >')
+
+
+  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/>:\(/g, '<img src=\"/assets/angry.png\" width=\"45px\" height=\"45px\" >')
+
+  emo_message = emo_message.replace(/\(@\)/g, '<img src=\"/assets/apple.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:\\/g, '<img src=\"/assets/blush.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/@_@/g, '<img src=\"/assets/glasses.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/\(#\)/g, '<img src=\"/assets/pumpkin.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"45px\" height=\"45px\" >')
+  return emo_message
+}
+
+// get messages from /channel/cid/messages
+// cid is dynamic
 function get_messages(cid) {
   update_active(cid);
 
@@ -134,13 +160,14 @@ function get_messages(cid) {
   else
     clearTimeout(content)
 }
+
 function setDataView(data){
   var old_height = $('#chatbox').prop('scrollHeight');
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
       message = data['messages'][i]
       username = message['user']
-      body = "<p id=\"message"+ i.toString + "\">" + "<strong>" + username + "</strong>" +  ": "+message['body']+"</p>"
+      body = "<p id=\"message" + i.toString + "\">" + "<strong>" + username + "</strong>" +  ": " + emotify(message['body']) + "</p>"
       total+=body
   };
   $('#chatbox').html(total);
@@ -164,6 +191,59 @@ function post_message(cid,message){
   })
   .always(function() {
     console.log("complete");
+  });
+}
+
+// Here need some backend for topic post and get url
+
+// function post_topic(cid,topic){
+//   $.ajax({
+//     url: '/channel/' + cid + '/topic',
+//     type: 'POST',
+//     data: {'channel_id': cid, 'body':topic},
+//   })
+//   .done(function() {
+//     console.log("success");
+//   })
+//   .fail(function() {
+//     console.log("error");
+//   })
+//   .always(function() {
+//     console.log("complete");
+//   });
+// }
+
+// function get_topics(){
+//   data = $.ajax({
+//     dataType: "json",
+//     type: "GET",
+//     //url: "/channel/active/" + cid,
+//     async: false
+//   }).success(function(data){      
+//   }).responseText;
+  
+//   data = JSON.parse(data)
+//   total = "<h3>Topics:</h3>"
+//   for (var i = 0; i < data['user_list'].length; i++) {
+//     topic_name = data['topic_list'][i]
+//     body = '<p>' + '<strong>' + topic_name + '</strong></p>'
+//     total+=body
+//   };
+//   $('#topicbox').html(total);
+//   if(document.URL.indexOf('channel/' + cid) > -1)
+//      content = setTimeout(function(){get_topics(cid);}, 5000); 
+//   else
+//     clearTimeout(content)
+// }
+
+function click_add_topic_button() {
+  bootbox.prompt("Please enter topic name:", function(topic) {                
+    if (topic === null) {                                             
+      bootbox.alert("failed");
+    } else {
+      bootbox.alert(topic);
+      //post_topic(id, topic);
+    }
   });
 }
 
