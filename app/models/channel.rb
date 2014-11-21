@@ -21,8 +21,7 @@ class Channel < ActiveRecord::Base
   after_create :create_main
 
   def create_main
-    self.topics.find_or_create_by!(:name => :Main) do |t|
-      t.name = :Main
+    self.topics.find_or_create_by!(:name => "Main") do |t|
     end
   end
 
