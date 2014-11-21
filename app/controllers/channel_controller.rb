@@ -124,7 +124,8 @@ class ChannelController < ApplicationController
   end
 
   def create
-    Channel.create(channel_params)
+    @channel = Channel.create(channel_params)
+    # @channel.topics.create(:name => :Main)
   end
 
   def messages
@@ -165,7 +166,7 @@ private
     return $total_page
   end
   def message_params
-    params.permit(:body, :channel_id)
+    params.permit(:body, :channel_id, :topic_name)
   end
 
   def channel_params

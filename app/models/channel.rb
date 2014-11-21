@@ -17,11 +17,18 @@ class Channel < ActiveRecord::Base
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
+  after_create :create_others
+
+  def create_others
+    self.topics.find_or_create_by!(:name => :Main) do |t|
+      t.name = :Main
+    end
+  end
 
   def self.get_messages(id)
     h = []
-    Message.where(channel_id: id).each do |c|
-      h+= [{user: c.user.username, body: c.body}]
+    Message.where(channel_id: id).each do |m|
+      h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
     end
     return h
   end
@@ -33,10 +40,6 @@ class Channel < ActiveRecord::Base
   def check_in(uid)
     #TODO: Check if user is in it first
     self.user_channels.create(user_id: uid, timeout: DateTime.in(120))
-  end
-
-  def cleanup_users
-    #TODO: REMOVE INACTIVE USERS
   end
 
   # extract values from detail json
@@ -109,60 +112,78 @@ class Channel < ActiveRecord::Base
 
   def self.active_delete(params, current_user)
     cid = nil
+    topic_names = params[:topic_names]
     if params.has_key?(:cid)
       cid = params[:cid]
+      topic_names = params[:topic_names]
     elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
-    if current_user.actives.exists?(:channel_id => cid)
-      to_delete = Active.where(:channel_id => cid, :user_id => current_user.id)[0]
-      Active.destroy(to_delete.id)
+    for top in topic_names
+      if current_user.actives.exists?(:channel_id => cid, :topic_name => top)
+        to_delete = Active.where(:channel_id => cid, :user_id => current_user.id, :topic_name => top)[0]
+        Active.destroy(to_delete.id)
+      end
     end
   end
 
   def self.active_update(params, current_user)
     if current_user != nil
       cid = nil
+      topic_names = params[:topic_names]
       if params.has_key?(:cid)
         cid = params[:cid]
       end
       if cid != nil
-        entry = Active.find_by(channel_id: cid, user_id: current_user.id)
-        entry.update(updated: DateTime.now)
+        for top in topic_names
+          entry = Active.find_by(channel_id: cid, user_id: current_user.id, :topic_name => top)
+          entry.update(updated: DateTime.now)
+        end
       end
     end
   end
 
   def self.active_add(params, current_user)
     cid = nil
+    topic_names = nil
+    if params.has_key?(:topic_names)
+      topic_names = params[:topic_names]
+    else
+      topic_names = ["Main"]
+    end
     if params.has_key?(:cid)
       cid = params[:cid]
     elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
-      
-    if cid != nil and !current_user.actives.exists?(:channel_id => cid)
-      current_user.actives.create(:channel_id => cid, :updated => DateTime.now)
+    for top in topic_names
+      if cid != nil and !current_user.actives.exists?(:channel_id => cid, :topic_name => top)
+        current_user.actives.create(:channel_id => cid, :topic_name => top, :updated => DateTime.now)
+      end
     end
   end
 
   def self.active_user_list(params, current_user)
-    l = []
     # p params
-    timenow = DateTime.now
-    cid = params[:id]
-    if cid != nil and Active.exists?(:channel_id => cid)
-      l = Active.where(:channel_id => cid).where("updated > ?", timenow-5.seconds)
-    end
-    userlist = []
-    for entry in l
-      # p "ENTRY"*100
-      # p entry
-      eid = entry.user_id
-      username = User.where(:id => eid)[0].username
-      # entry["username"] = username
-      userlist += [username]
-    end
-    return userlist
+    active_dict = {}
+    topics = Topic.where(:channel_id => cid)
+    for top in topics:
+      l = []
+      timenow = DateTime.now
+      cid = params[:id]
+      if cid != nil and Active.exists?(:channel_id => cid, :topic_name => top.topic_name)
+        l = Active.where(:channel_id => cid, :topic_name => top.topic_name).where("updated > ?", timenow-5.seconds)
+      end
+      userlist = []
+      for entry in l
+        # p "ENTRY"*100
+        # p entry
+        eid = entry.user_id
+        username = User.where(:id => eid)[0].username
+        # entry["username"] = username
+        userlist += [username]
+      end
+      active_dict[top.topic_name] = userlist
+    return active_dict
   end
 end
