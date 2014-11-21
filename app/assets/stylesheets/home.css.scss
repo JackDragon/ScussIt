@@ -7,22 +7,20 @@ body{
 	margin: 0;
 	min-width: 1024px;
 	padding-top: 45px;
-
 }
 
 
 .airing-today-wrapper{
-	padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: black;
+	margin-top: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: rgba(0,0,0,0.4);
 	overflow-x: scroll;
     white-space: nowrap;
 }
 
 .airing-today-wrapper h1{
 	color: white;
-
-
 }
 
 .airing-today-wrapper .airing-today-frames{
@@ -100,15 +98,18 @@ body{
 }
 
 .home-wrapper h1{
-
+	
 	padding-left: 50px;
-	color: yellow;
-	display: inline
+	color: white;
+	display: inline;
+	
 }
 .home-wrapper{
 	padding-top: 20px;
 	height: calc(100vh - 45px);
 	background-color: black;
+	background-position: center;
+	background-image: url(/assets/background.jpg);
 }
 
 

@@ -15,11 +15,30 @@ class ChannelController < ApplicationController
     themoviedb = ApplicationHelper::themoviedb
     paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> 1}
     data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:on_the_air], paramaters)
+    set_current_endpoint(themoviedb[:endpoint]+themoviedb[:on_the_air])
     @on_the_air = JSON.parse data
     @results = @on_the_air['results']
-
+    set_current_query(nil)
     set_total_page(@on_the_air["total_pages"])
     set_current_page(1)
+
+  end
+
+  def search
+    themoviedb = ApplicationHelper::themoviedb
+    if !params[:query].nil?
+      query = params[:query].strip
+      if query.empty?
+        set_current_query(nil)
+        set_current_endpoint(themoviedb[:endpoint]+themoviedb[:on_the_air])
+        set_current_page(1)
+      else
+        set_current_query(query)
+        set_current_endpoint(themoviedb[:endpoint]+themoviedb[:search])
+        set_current_page(1)
+      end
+    end
+    redirect_to action: 'browse_list'
 
   end
 
@@ -28,8 +47,10 @@ class ChannelController < ApplicationController
 
     if(current_page < get_total_page)
       set_current_page(current_page + 1)
+      redirect_to action: 'browse_list'
     end
-    redirect_to action: 'browse_list'
+
+    
   end
 
 
@@ -38,16 +59,23 @@ class ChannelController < ApplicationController
 
     if(current_page > 1)
       set_current_page(current_page - 1)
+      redirect_to action: 'browse_list'
     end
-    redirect_to action: 'browse_list'
+    
   end
 
   def browse_list
     themoviedb = ApplicationHelper::themoviedb
-    paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> get_current_page}
-    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:on_the_air], paramaters)
+    if !get_current_query.nil?
+      paramaters = {'api_key'=> themoviedb[:api_key], 'query' => get_current_query, 'page'=> get_current_page}
+    else
+      paramaters = {'api_key'=> themoviedb[:api_key], 'page'=> get_current_page}
+    end
+
+    data = ApplicationHelper.get(get_current_endpoint, paramaters)
     @on_the_air = JSON.parse data
     @results = @on_the_air['results']
+    set_total_page(@on_the_air["total_pages"])
   end
 
   # Get details of a show from MovieDB
@@ -76,6 +104,7 @@ class ChannelController < ApplicationController
       @channel = Channel.find(id)
       @messages = Channel.get_messages(params[:id])
       @user = current_user
+      @topic_names = Channel.get_topics(params[:id])
       render :index
     end
   end
@@ -99,8 +128,8 @@ class ChannelController < ApplicationController
     render json: {user_list: userlist}
   end
 
-  def update_active  
-    Channel.active_update(params, current_user)    
+  def update_active
+    Channel.active_update(params, current_user)
     render nothing: true
   end
 
@@ -160,9 +189,23 @@ class ChannelController < ApplicationController
     render json: {topics: topics}
   end
 
+  def get_user_count
+    render json: {count: Channel.get_user_count(params[:id], params[:topic_name])}
+  end
+
 private
   $total_page
   $current_page
+  $current_endpoint
+  $current_query
+
+  def set_current_query(current_query)
+    $current_query = current_query
+    return $current_query
+  end
+  def get_current_query
+    return $current_query
+  end
 
   def set_current_page(current_page)
     $current_page = current_page
@@ -171,6 +214,16 @@ private
   def get_current_page
     return $current_page
   end
+
+  def set_current_endpoint(current_endpoint)
+    $current_endpoint = current_endpoint
+    return $current_endpoint
+  end
+
+  def get_current_endpoint
+    return $current_endpoint
+  end
+
   def set_total_page(total_page)
     $total_page = total_page
     return $total_page

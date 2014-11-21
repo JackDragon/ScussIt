@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/browse/next_page', to: 'channel#next_page', as: :next_page
   get '/browse/previous_page', to: 'channel#previous_page', as: :previous_page
   get '/browse/browse_list', to: 'channel#browse_list', as: :browse_list
+  get '/browse/search', to: 'channel#search', as: :serach
   get '/browse/:id', to: 'channel#details', as: :browse_details
   get '/channel/:id', to: 'channel#room', as: :channel_room
   post '/channel/follow', to: 'channel#follow', as: :channel_follow
@@ -23,8 +24,10 @@ Rails.application.routes.draw do
   post '/channel/delete_active', to: 'channel#delete_active', as: :channel_delete_active
   get '/channel/active/:id', to: 'channel#user_list', as: :channel_active
   post '/channel/update_active', to: 'channel#update_active', as: :channel_update_active
-  post '/channel/:cid/add_topic', to: 'channel#add_topic', as: :channel_add_topic
-  get '/channel/:cid/topics', to: 'channel#topics', as: :channel_get_topics
+  post '/channel/:id/add_topic', to: 'channel#add_topic', as: :channel_add_topic
+  get '/channel/:id/topics', to: 'channel#topics', as: :channel_get_topics
+  get '/channel/:id/:topic_name/user_count', to: 'channel#user_count', as: :channel_user_count
+
   resources :home
   
   devise_for :users

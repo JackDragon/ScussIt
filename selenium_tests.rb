@@ -13,6 +13,7 @@ end
 
 driver = Selenium::WebDriver.for :firefox
 driver.get "http://scuss.herokuapp.com"
+# driver.get "http://localhost:3000"
 
 # navigate to sign in page
 element = driver.find_element(:xpath, "//a[@href='/users/sign_in']")

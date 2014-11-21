@@ -3,8 +3,13 @@
 
 <div class="browse_wrapper">
 	<div class="navigate">
-		<%= button_to "Previous", previous_page_path, remote: true, class: 'btn btn-primary', method: :get %>
-		<%= button_to "Next", next_page_path, remote: true, class: 'btn btn-primary', method: :get %>
+		
+
+	<%= form_tag("/browse/search", method: "get", remote: true) do %>
+		  <%= label_tag(:query, "Search for:") %>
+		  <%= text_field_tag(:query) %>
+		  <%= submit_tag("Search",class: "btn-success") %>
+		<% end %>
 	</div>		
 	
 	<div class="browse-list">
