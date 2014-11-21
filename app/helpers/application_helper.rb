@@ -17,6 +17,7 @@ module ApplicationHelper
 			endpoint: "https://api.themoviedb.org/3",
 			airing_today: "/tv/airing_today",
 			on_the_air: "/tv/on_the_air",
+			search: "/search/tv",
 			tv: "/tv/",
 			external_ids:"/external_ids"
 		}
