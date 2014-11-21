@@ -147,6 +147,19 @@ class ChannelController < ApplicationController
     #render :nothing => true
   end
 
+  def add_topics
+    if current_user != nil
+      Channel.create_topic(params, current_user)
+    end
+
+    render nothing: true
+  end
+
+  def topics
+    topics = Channel.get_topics(params[:id])
+    render json: {topics: topics}
+  end
+
 private
   $total_page
   $current_page

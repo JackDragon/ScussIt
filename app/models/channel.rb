@@ -17,11 +17,18 @@ class Channel < ActiveRecord::Base
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
-  after_create :create_others
+  after_create :create_main
 
-  def create_others
+  def create_main
     self.topics.find_or_create_by!(:name => :Main) do |t|
       t.name = :Main
+    end
+  end
+
+  def create_topic
+    name = params[:topic_names][0]
+    self.topics.find_or_create_by!(:name => name) do |t|
+      t.name = name
     end
   end
 
@@ -29,6 +36,14 @@ class Channel < ActiveRecord::Base
     h = []
     Message.where(channel_id: id).each do |m|
       h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
+    end
+    return h
+  end
+
+  def self.get_topics(id)
+    h = []
+    Topic.where(channel_id: id).each do |t|
+      h+= [t.name]
     end
     return h
   end
@@ -112,16 +127,15 @@ class Channel < ActiveRecord::Base
 
   def self.active_delete(params, current_user)
     cid = nil
-    topic_names = params[:topic_names]
+    # topic_names = params[:topic_names]
     if params.has_key?(:cid)
       cid = params[:cid]
-      topic_names = params[:topic_names]
+      # topic_names = params[:topic_names]
     elsif params.has_key?(:api_id) and Channel.find_by(api_id: params[:api_id]) != nil
       cid = (Channel.find_by api_id: params[:api_id]).id
     end
-    for top in topic_names
-      if current_user.actives.exists?(:channel_id => cid, :topic_name => top)
-        to_delete = Active.where(:channel_id => cid, :user_id => current_user.id, :topic_name => top)[0]
+    if current_user.actives.exists?(:channel_id => cid)
+      for to_delete in Active.where(:channel_id => cid, :user_id => current_user.id)[0]
         Active.destroy(to_delete.id)
       end
     end
