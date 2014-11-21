@@ -76,6 +76,7 @@ class ChannelController < ApplicationController
       @channel = Channel.find(id)
       @messages = Channel.get_messages(params[:id])
       @user = current_user
+      @topic_names = Channel.get_topics(params[:id])
       render :index
     end
   end
