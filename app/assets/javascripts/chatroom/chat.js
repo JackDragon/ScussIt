@@ -12,8 +12,8 @@ $(document).ready(function (){
   });
 });
 
-function add_active(id){
-  // alert("called1");
+function add_active(id, topics){
+  alert("called1");
   $.ajax({
     url: '/channel/add_active',
     type: 'POST',
@@ -211,9 +211,9 @@ function post_message(cid, topic, message){
 
 //Here need some backend for topic post and get url
 
-function post_topic(cid,topic){
+function post_topic(cid, topic){
   $.ajax({
-    url: '/channel/' + cid + '/add_topic',
+    url: "/channel/" + cid + "/add_topic",
     type: 'POST',
     data: {'channel_id': cid, 'topic_names':[topic]},
   })
@@ -228,6 +228,7 @@ function post_topic(cid,topic){
   });
 }
 
+
 function get_topics(cid){
   data = $.ajax({
     dataType: "json",
@@ -236,15 +237,16 @@ function get_topics(cid){
     async: false
   }).success(function(data){      
   }).responseText;
-  
+  // alert('getting data')
   data = JSON.parse(data)
-  console.log(data)
+  total = ""
   total = "<h3>Topics:</h3>"
-  for (var i = 0; i < data.length; i++) {
-    topic_name = data[i]
-    body = '<p>' + '<strong>' + topic_name + '</strong></p>'
-    total+=body
+  total += '<ul class="nav nav-tabs nav-stacked">'
+  for (var i = 0; i < data['topics'].length; i++) {
+    topic_name = data['topics'][i]
+    total += '<li><a href="#topic' + i.toString + '"' + ' data-toggle="tab">'+ topic_name + '</a></li>'
   };
+  total += '</ul>'
   $('#topicbox').html(total);
   if(document.URL.indexOf('channel/' + cid) > -1)
      content = setTimeout(function(){get_topics(cid);}, 5000); 
@@ -253,17 +255,19 @@ function get_topics(cid){
 }
 
 function click_add_topic_button() {
-  bootbox.prompt("Please enter topic name:", function(topic) {                
-    if (topic === null) {                                             
-      bootbox.alert("failed to topics");
-    } else {
-      post_topic(id, topic);
-    }
-  });
+  // bootbox.prompt("Please enter topic name:", function(topic) {                
+  //   if (topic === null) {                                             
+  //     bootbox.alert("failed to topics");
+  //   } else {
+  //     post_topic(id, topic)
+  //   }
+  // });
+  topic = 'Interesting'
+  post_topic(id, topic)
 }
 
 function click_send(){
   message = $("#message_input").val()
   document.getElementById("message_input").value = "";
-  post_message(id, topic, message)
+  // post_message(id, topic, message)
 }

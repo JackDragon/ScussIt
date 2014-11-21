@@ -176,13 +176,12 @@ class ChannelController < ApplicationController
     #render :nothing => true
   end
 
-  def add_topics
+  def add_topic
     if current_user != nil
       id = params[:id].to_i
       @channel = Channel.find(id)
       @channel.create_topic(params, current_user)
     end
-
     render nothing: true
   end
 

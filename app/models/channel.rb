@@ -25,7 +25,7 @@ class Channel < ActiveRecord::Base
     end
   end
 
-  def create_topic
+  def create_topic(params, current_user)
     name = params[:topic_names][0]
     self.topics.find_or_create_by!(:name => name) do |t|
       t.name = name
