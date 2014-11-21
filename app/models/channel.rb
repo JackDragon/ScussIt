@@ -40,7 +40,7 @@ class Channel < ActiveRecord::Base
     return h
   end
 
-  def get_topics(id)
+  def self.get_topics(id)
     h = []
     Topic.where(channel_id: id).each do |t|
       h+= [t.name]

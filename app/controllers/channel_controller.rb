@@ -178,15 +178,19 @@ class ChannelController < ApplicationController
 
   def add_topics
     if current_user != nil
-      Channel.create_topic(params, current_user)
+      id = params[:id].to_i
+      @channel = Channel.find(id)
+      @channel.create_topic(params, current_user)
     end
 
     render nothing: true
   end
 
   def topics
-    topics = Channel.get_topics(params[:id])
-    render json: {topics: topics}
+    if params.has_key?(:id)
+      topics = Channel.get_topics(params[:id])
+      render json: {topics: topics}
+    end
   end
 
   def get_user_count
