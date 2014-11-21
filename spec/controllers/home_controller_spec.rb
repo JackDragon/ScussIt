@@ -1,3 +1,4 @@
+# This is a test file for home controller
 # # Jon Wu
 # require 'rails_helper'
 #

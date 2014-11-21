@@ -111,20 +111,25 @@ function get_userlist(cid) {
 }
 
 
-//Emoticons are from http://www.facebook-emoticons-smileys-free.blogspot.com/ and http://www.iconarchive.com/
 function emotify(message) {
   emo_message = message
   emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/<@/g, '<img src=\"/assets/angrybird.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"45px\" height=\"45px\" >')
+
+
   emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/>:\(/g, '<img src=\"/assets/angry.png\" width=\"45px\" height=\"45px\" >')
+
   emo_message = emo_message.replace(/\(@\)/g, '<img src=\"/assets/apple.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/:\\/g, '<img src=\"/assets/blush.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/@_@/g, '<img src=\"/assets/glasses.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/\(#\)/g, '<img src=\"/assets/pumpkin.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/stupid.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/kitty.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"45px\" height=\"45px\" >')
   emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"45px\" height=\"45px\" >')
   return emo_message
 }

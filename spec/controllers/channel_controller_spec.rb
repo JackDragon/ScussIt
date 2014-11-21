@@ -1,3 +1,4 @@
+# This is a test file for channel controller
 # Bryant Chang
 # Renjie Long
 # Jonathan Lo
