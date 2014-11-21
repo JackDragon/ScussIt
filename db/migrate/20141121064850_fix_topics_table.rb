@@ -1,6 +1,6 @@
 class FixTopicsTable < ActiveRecord::Migration
   def change
-    drop_table topic
+    drop_table :topic
     create_table :topics do |t|
         t.string :name
     end

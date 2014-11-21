@@ -238,6 +238,7 @@ function get_topics(cid){
   }).responseText;
   
   data = JSON.parse(data)
+  console.log(data)
   total = "<h3>Topics:</h3>"
   for (var i = 0; i < data.length; i++) {
     topic_name = data[i]
