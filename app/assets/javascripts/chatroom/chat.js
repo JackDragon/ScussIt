@@ -113,24 +113,27 @@ function get_userlist(cid) {
 
 function emotify(message) {
   emo_message = message
-  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"35px\" height=\"35px\" title=":)">')
+  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"35px\" height=\"35px\" title=":D">')
+  emo_message = emo_message.replace(/\>:\(/g, '<img src=\"/assets/angry.png\" width=\"35px\" height=\"35px\">')
+  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"35px\" height=\"35px\" title=":(">')
+  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"35px\" height=\"35px\" title=":\'(">')
+  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"35px\" height=\"35px\" title=";)">')
+  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"35px\" height=\"35px\" title="o.O">')
 
+  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"35px\" height=\"35px\" title="=:-O">')
 
-  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/>:\(/g, '<img src=\"/assets/angry.png\" width=\"45px\" height=\"45px\" >')
+  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"35px\" height=\"35px\" title="8-}">')
+  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"35px\" height=\"35px\" title="=^..^=">')
+  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"35px\" height=\"35px\" title=":3-]">')
+  
+  // 100% more Kappa
+  emo_message = emo_message.replace(/Kappa/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ddc6e3a8732cb50f-25x28.png" title="Kappa">')
+  emo_message = emo_message.replace(/PJSalt/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-18be1a297459453f-36x30.png" >')
+  emo_message = emo_message.replace(/BibleThump/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f6c13c7fc0a5c93d-36x30.png" >')
+  emo_message = emo_message.replace(/BrainSlug/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-d8eee0a259b7dfaa-30x30.png" >')
+  emo_message = emo_message.replace(/FrankerZ/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3b96527b46b1c941-40x30.png" >')
 
-  emo_message = emo_message.replace(/\(@\)/g, '<img src=\"/assets/apple.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/:\\/g, '<img src=\"/assets/blush.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/@_@/g, '<img src=\"/assets/glasses.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/\(#\)/g, '<img src=\"/assets/pumpkin.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"45px\" height=\"45px\" >')
-  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"45px\" height=\"45px\" >')
   return emo_message
 }
 
