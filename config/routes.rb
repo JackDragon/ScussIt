@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/browse/next_page', to: 'channel#next_page', as: :next_page
   get '/browse/previous_page', to: 'channel#previous_page', as: :previous_page
   get '/browse/browse_list', to: 'channel#browse_list', as: :browse_list
+  get '/browse/search', to: 'channel#search', as: :serach
   get '/browse/:id', to: 'channel#details', as: :browse_details
   get '/channel/:id', to: 'channel#room', as: :channel_room
   post '/channel/follow', to: 'channel#follow', as: :channel_follow
