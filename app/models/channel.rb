@@ -14,6 +14,7 @@ class Channel < ActiveRecord::Base
   has_many :messages
   has_many :user_channels
   has_many :users, through: :user_channel
+  has_many :topics
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
