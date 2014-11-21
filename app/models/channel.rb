@@ -17,11 +17,18 @@ class Channel < ActiveRecord::Base
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
-  after_create :create_others
+  after_create :create_main
 
-  def create_others
+  def create_main
     self.topics.find_or_create_by!(:name => :Main) do |t|
       t.name = :Main
+    end
+  end
+
+  def create_topic
+    name = params[:topic_names][0]
+    self.topics.find_or_create_by!(:name => name) do |t|
+      t.name = name
     end
   end
 
@@ -29,6 +36,14 @@ class Channel < ActiveRecord::Base
     h = []
     Message.where(channel_id: id).each do |m|
       h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
+    end
+    return h
+  end
+
+  def self.get_topics(id)
+    h = []
+    Topic.where(channel_id: id).each do |t|
+      h+= [t.name]
     end
     return h
   end
