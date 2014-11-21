@@ -26,6 +26,7 @@
     id = <%= @channel.id %>
     get_messages(id);
     get_userlist(id);
+    get_topics(id);
   });
 </script>
 
@@ -52,12 +53,12 @@
       <div class="topic_list" id="topicbox">
 
         <!-- will be softcoded using javascript -->
-        <ul class="nav nav-tabs nav-stacked">
+<!--         <ul class="nav nav-tabs nav-stacked">
             <li><a href="#topic0" data-toggle="tab">General</a></li>
             <li><a href="#topic1" data-toggle="tab">Topic 1</a></li>
             <li><a href="#topic2" data-toggle="tab">Topic 2</a></li>
         </ul>
-
+ -->
       </div>
     </div>
     <div class="col-md-7">

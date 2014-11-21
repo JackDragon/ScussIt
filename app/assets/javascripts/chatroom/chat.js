@@ -17,7 +17,8 @@ function add_active(id){
   $.ajax({
     url: '/channel/add_active',
     type: 'POST',
-    data: {"cid": id},
+    // a list of one topic names
+    data: {"cid": id,"topic_names": topics},
     async: false
   })
   .done(function() {
@@ -54,7 +55,8 @@ function update_active(id){
   $.ajax({
     url: '/channel/update_active',
     type: 'POST',
-    data: {"cid": id},
+    //topic_name is a list of topic names
+    data: {"cid": id, "topic_name":topic_list},
   })
   .done(function() {
     console.log("success update_active");
@@ -86,6 +88,10 @@ function follow_from_channel(id){
   });
 }
 
+
+//
+// json
+//
 function get_userlist(cid) {
   data = $.ajax({
     dataType: "json",
@@ -177,11 +183,12 @@ function setDataView(data){
   }
 }
 
-function post_message(cid,message){
+function post_message(cid, topic, message){
   $.ajax({
     url: '/channel/'+cid+'/post', 
     type: 'POST',
-    data: {'channel_id': cid, 'body': message},
+    //need to get the topic name
+    data: {'channel_id': cid, 'body': message, 'topic_name':topic},
   })
   .done(function() {
     console.log("success");
@@ -194,55 +201,54 @@ function post_message(cid,message){
   });
 }
 
-// Here need some backend for topic post and get url
+//Here need some backend for topic post and get url
 
-// function post_topic(cid,topic){
-//   $.ajax({
-//     url: '/channel/' + cid + '/topic',
-//     type: 'POST',
-//     data: {'channel_id': cid, 'body':topic},
-//   })
-//   .done(function() {
-//     console.log("success");
-//   })
-//   .fail(function() {
-//     console.log("error");
-//   })
-//   .always(function() {
-//     console.log("complete");
-//   });
-// }
+function post_topic(cid,topic){
+  $.ajax({
+    url: '/channel/' + cid + '/add_topic',
+    type: 'POST',
+    data: {'channel_id': cid, 'topic_names':[topic]},
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+}
 
-// function get_topics(){
-//   data = $.ajax({
-//     dataType: "json",
-//     type: "GET",
-//     //url: "/channel/active/" + cid,
-//     async: false
-//   }).success(function(data){      
-//   }).responseText;
+function get_topics(cid){
+  data = $.ajax({
+    dataType: "json",
+    type: "GET",
+    url: '/channel/' + cid + '/topics',
+    async: false
+  }).success(function(data){      
+  }).responseText;
   
-//   data = JSON.parse(data)
-//   total = "<h3>Topics:</h3>"
-//   for (var i = 0; i < data['user_list'].length; i++) {
-//     topic_name = data['topic_list'][i]
-//     body = '<p>' + '<strong>' + topic_name + '</strong></p>'
-//     total+=body
-//   };
-//   $('#topicbox').html(total);
-//   if(document.URL.indexOf('channel/' + cid) > -1)
-//      content = setTimeout(function(){get_topics(cid);}, 5000); 
-//   else
-//     clearTimeout(content)
-// }
+  data = JSON.parse(data)
+  total = "<h3>Topics:</h3>"
+  for (var i = 0; i < data['topic_list'].length; i++) {
+    topic_name = data['topic_list'][i]
+    body = '<p>' + '<strong>' + topic_name + '</strong></p>'
+    total+=body
+  };
+  $('#topicbox').html(total);
+  if(document.URL.indexOf('channel/' + cid) > -1)
+     content = setTimeout(function(){get_topics(cid);}, 5000); 
+  else
+    clearTimeout(content)
+}
 
 function click_add_topic_button() {
   bootbox.prompt("Please enter topic name:", function(topic) {                
     if (topic === null) {                                             
-      bootbox.alert("failed");
+      bootbox.alert("failed to topics");
     } else {
-      bootbox.alert(topic);
-      //post_topic(id, topic);
+      post_topic(id, topic);
     }
   });
 }
@@ -250,5 +256,5 @@ function click_add_topic_button() {
 function click_send(){
   message = $("#message_input").val()
   document.getElementById("message_input").value = "";
-  post_message(id, message)
+  post_message(id, topic, message)
 }

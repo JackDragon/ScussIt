@@ -167,7 +167,7 @@ class Channel < ActiveRecord::Base
     # p params
     active_dict = {}
     topics = Topic.where(:channel_id => cid)
-    for top in topics:
+    for top in topics
       l = []
       timenow = DateTime.now
       cid = params[:id]
@@ -184,6 +184,7 @@ class Channel < ActiveRecord::Base
         userlist += [username]
       end
       active_dict[top.topic_name] = userlist
-    return active_dict
+      return active_dict
+    end
   end
 end
