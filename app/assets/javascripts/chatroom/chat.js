@@ -111,6 +111,7 @@ function get_userlist(cid) {
 }
 
 
+// emotifies symbols to emoticons
 function emotify(message) {
   emo_message = message
   emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"45px\" height=\"45px\" >')
@@ -134,6 +135,8 @@ function emotify(message) {
   return emo_message
 }
 
+// get messages from /channel/cid/messages
+// cid is dynamic
 function get_messages(cid) {
   update_active(cid);
 
