@@ -100,8 +100,8 @@ class ChannelController < ApplicationController
     render json: {user_list: userlist}
   end
 
-  def update_active  
-    Channel.active_update(params, current_user)    
+  def update_active
+    Channel.active_update(params, current_user)
     render nothing: true
   end
 
@@ -159,6 +159,10 @@ class ChannelController < ApplicationController
   def topics
     topics = Channel.get_topics(params[:id])
     render json: {topics: topics}
+  end
+
+  def get_user_count
+    render json: {count: Channel.get_user_count(params[:id], params[:topic_name])}
   end
 
 private

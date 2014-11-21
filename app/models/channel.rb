@@ -40,12 +40,17 @@ class Channel < ActiveRecord::Base
     return h
   end
 
-  def self.get_topics(id)
+  def get_topics(id)
     h = []
     Topic.where(channel_id: id).each do |t|
       h+= [t.name]
     end
     return h
+  end
+
+  def get_user_count(id, topic_name)
+    timenow = DateTime.now
+    return Active.where(:channel_id => id, :topic_name => topic_name).where("updated > ?", timenow-5.seconds).size
   end
 
   def get_users
