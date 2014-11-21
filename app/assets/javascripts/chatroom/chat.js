@@ -89,10 +89,9 @@ function follow_from_channel(id){
 }
 
 
-//
 // json
-//
-function get_userlist(cid) {
+//{topic1:[name1, name2], topic2:[name3, name4]}
+function get_userlist(cid, topic) {
   data = $.ajax({
     dataType: "json",
     type: "GET",
@@ -103,8 +102,10 @@ function get_userlist(cid) {
   }).responseText;
   data = JSON.parse(data)
   total = "<h3>User List</h3>"
-  for (var i = 0; i < data['user_list'].length; i++) {
-    username = data['user_list'][i]
+
+  data = data[topic]
+  for (var i = 0; i < data.length; i++) {
+    username = data[i]
     body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
     total+=body
   };
@@ -146,6 +147,10 @@ function emotify(message) {
 
 // get messages from /channel/cid/messages
 // cid is dynamic
+//
+//
+//
+//[{user body topic_name}{}{}]
 function get_messages(cid) {
   update_active(cid);
 
@@ -234,8 +239,8 @@ function get_topics(cid){
   
   data = JSON.parse(data)
   total = "<h3>Topics:</h3>"
-  for (var i = 0; i < data['topic_list'].length; i++) {
-    topic_name = data['topic_list'][i]
+  for (var i = 0; i < data.length; i++) {
+    topic_name = data[i]
     body = '<p>' + '<strong>' + topic_name + '</strong></p>'
     total+=body
   };

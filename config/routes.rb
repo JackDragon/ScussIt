@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   post '/channel/delete_active', to: 'channel#delete_active', as: :channel_delete_active
   get '/channel/active/:id', to: 'channel#user_list', as: :channel_active
   post '/channel/update_active', to: 'channel#update_active', as: :channel_update_active
-  post '/channel/:cid/add_topic', to: 'channel#add_topic', as :channel_add_topic
-  get '/channel/:cid/topics', to: 'channel#topics', as :channel_get_topics
+  post '/channel/:cid/add_topic', to: 'channel#add_topic', as: :channel_add_topic
+  get '/channel/:cid/topics', to: 'channel#topics', as: :channel_get_topics
   resources :home
   
   devise_for :users
