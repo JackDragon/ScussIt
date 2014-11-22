@@ -23,8 +23,9 @@
     });
 
     id = <%= @channel.id %>
-    // get_messages(id);
-    // get_userlist(id);
+    topic = 'Main'
+    get_messages(id);
+    // get_userlist(id, topic);
     get_topics(id);
   });
 </script>
