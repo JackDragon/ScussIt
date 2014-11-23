@@ -17,4 +17,4 @@ user.save
 # channel = Channel.create! :name => 'bee', :api_id => 35
 # channel = Channel.create! :name => 'teehee?', :api_id => 31
 
-# message = Message.create! body: 'huh, does this work?', user_id: 1, channel_id: 1
+message = Message.create! body: 'huh, does this work?', user_id: 1, channel_id: 1

@@ -12,13 +12,11 @@ $(document).ready(function (){
   });
 });
 
-function add_active(id, topics){
-  alert("called1");
+function add_active(id){
   $.ajax({
     url: '/channel/add_active',
     type: 'POST',
-    // a list of one topic names
-    data: {"cid": id,"topic_names": topics},
+    data: {"cid": id},
     async: false
   })
   .done(function() {
@@ -55,8 +53,7 @@ function update_active(id){
   $.ajax({
     url: '/channel/update_active',
     type: 'POST',
-    //topic_name is a list of topic names
-    data: {"cid": id, "topic_name":topic_list},
+    data: {"cid": id},
   })
   .done(function() {
     console.log("success update_active");
@@ -91,26 +88,49 @@ function follow_from_channel(id){
 
 // json
 //{topic1:[name1, name2], topic2:[name3, name4]}
-function get_userlist(cid, topic) {
+// function get_userlist(cid) {
+//   data = $.ajax({
+//     dataType: "json",
+//     type: "GET",
+//     url: "/channel/active/" + cid,
+//     async: false
+//   }).success(function(data){      
+//   }).responseText;
+//   data = JSON.parse(data)
+
+//   total = "<h3>User List</h3>"
+//   alert(data)
+//   data = data['Main']
+//   for (var i = 0; i < data.length; i++) {
+//     username = data[i]
+//     body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
+//     total+=body
+//   };
+//   alert(total)
+//   $('#userbox').html(total);
+//   if(document.URL.indexOf('channel/' + cid) > -1)
+//      content = setTimeout(function(){get_userlist(cid);}, 5000); 
+//   else
+//     clearTimeout(content)
+// }
+
+function get_userlist(cid) {
   data = $.ajax({
     dataType: "json",
     type: "GET",
-    // channel_id should be dynamic
     url: "/channel/active/" + cid,
     async: false
   }).success(function(data){      
   }).responseText;
   data = JSON.parse(data)
+  console.log(data)
   total = "<h3>User List</h3>"
-
-  data = data[topic]
-  for (var i = 0; i < data.length; i++) {
-    username = data[i]
-    body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
+  for (var i = 0; i < data['user_list'].length; i++) {
+    username = data['user_list'][i]
+    body = '<p><strong>' + username + '</strong></p>'
     total+=body
   };
   $('#userbox').html(total);
-
   if(document.URL.indexOf('channel/' + cid) > -1)
      content = setTimeout(function(){get_userlist(cid);}, 5000); 
   else
@@ -148,24 +168,21 @@ function emotify(message) {
 // get messages from /channel/cid/messages
 // cid is dynamic
 //
-//
-//
 //[{user body topic_name}{}{}]
 function get_messages(cid) {
-  update_active(cid);
+  update_active(cid, 'Main');
 
   console.log("/channel/" + cid + "/messages");
   data = $.ajax({
     dataType: "json",
     type: "GET",
-    // channel_id should be dynamic
     url: "/channel/" + cid + "/messages",
     async: false
   }).success(function(data){      
   }).responseText;
 
 
-  update_active(cid);
+  update_active(cid, 'Main');
   data = JSON.parse(data)
   setDataView(data)
 
@@ -191,12 +208,12 @@ function setDataView(data){
   }
 }
 
-function post_message(cid, topic, message){
+function post_message(cid, message){
   $.ajax({
     url: '/channel/'+cid+'/post', 
     type: 'POST',
     //need to get the topic name
-    data: {'channel_id': cid, 'body': message, 'topic_name':topic},
+    data: {'channel_id': cid, 'body': message},
   })
   .done(function() {
     console.log("success");
@@ -211,11 +228,11 @@ function post_message(cid, topic, message){
 
 //Here need some backend for topic post and get url
 
-function post_topic(cid, topic){
+function post_topic(cid){
   $.ajax({
     url: "/channel/" + cid + "/add_topic",
     type: 'POST',
-    data: {'channel_id': cid, 'topic_names':[topic]},
+    data: {'channel_id': cid},
   })
   .done(function() {
     console.log("success");
@@ -229,45 +246,45 @@ function post_topic(cid, topic){
 }
 
 
-function get_topics(cid){
-  data = $.ajax({
-    dataType: "json",
-    type: "GET",
-    url: '/channel/' + cid + '/topics',
-    async: false
-  }).success(function(data){      
-  }).responseText;
-  // alert('getting data')
-  data = JSON.parse(data)
-  total = ""
-  total = "<h3>Topics:</h3>"
-  total += '<ul class="nav nav-tabs nav-stacked">'
-  for (var i = 0; i < data['topics'].length; i++) {
-    topic_name = data['topics'][i]
-    total += '<li><a href="#topic' + i.toString + '"' + ' data-toggle="tab">'+ topic_name + '</a></li>'
-  };
-  total += '</ul>'
-  $('#topicbox').html(total);
-  if(document.URL.indexOf('channel/' + cid) > -1)
-     content = setTimeout(function(){get_topics(cid);}, 5000); 
-  else
-    clearTimeout(content)
-}
+// function get_topics(cid){
+//   data = $.ajax({
+//     dataType: "json",
+//     type: "GET",
+//     url: '/channel/' + cid + '/topics',
+//     async: false
+//   }).success(function(data){      
+//   }).responseText;
+//   // alert('getting data')
+//   data = JSON.parse(data)
+//   total = ""
+//   total = "<h3>Topics:</h3>"
+//   total += '<ul class="nav nav-tabs nav-stacked">'
+//   for (var i = 0; i < data['topics'].length; i++) {
+//     topic_name = data['topics'][i]
+//     total += '<li><a href="#topic' + i.toString + '"' + ' data-toggle="tab">'+ topic_name + '</a></li>'
+//   };
+//   total += '</ul>'
+//   $('#topicbox').html(total);
+//   if(document.URL.indexOf('channel/' + cid) > -1)
+//      content = setTimeout(function(){get_topics(cid);}, 5000); 
+//   else
+//     clearTimeout(content)
+// }
 
-function click_add_topic_button() {
-  // bootbox.prompt("Please enter topic name:", function(topic) {                
-  //   if (topic === null) {                                             
-  //     bootbox.alert("failed to topics");
-  //   } else {
-  //     post_topic(id, topic)
-  //   }
-  // });
-  topic = 'Interesting'
-  post_topic(id, topic)
-}
+// function click_add_topic_button() {
+//   bootbox.prompt("Please enter topic name:", function(topic) {                
+//     if (topic === null) {                                             
+//       bootbox.alert("failed to topics");
+//     } else {
+//       post_topic(id, topic)
+//     }
+//   });
+//   topic = 'Interesting'
+//   post_topic(id, topic)
+// }
 
 function click_send(){
   message = $("#message_input").val()
   document.getElementById("message_input").value = "";
-  // post_message(id, topic, message)
+  post_message(id, message)
 }
