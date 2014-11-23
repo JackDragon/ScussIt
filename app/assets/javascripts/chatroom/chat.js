@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function (){
   id= 2
   // id = <%= @channel.id %>
@@ -10,7 +13,61 @@ $(document).ready(function (){
       unfollow(this.id)
     }
   });
+
+  $(".topics").click(function(event) {
+    topic_listener(this.id)
+  });
+
+  
 });
+
+function topic_listener(cid){
+  $.ajax({
+    url: '/channel/'+cid+'/topics',
+    type: 'GET',
+    dataType: 'json',
+  })
+  .done(function(data) {
+    topics = data['topics']
+    btTopics = {}
+    console.log(topics)
+    i = 2
+    for (var i = 0; i < topics.length; i++) {
+      name = topics[i]['name']
+      
+
+      btTopics[name] = { 
+        label: "#"+name,
+        className: "btn-topics btn-primary",
+        id: cid,
+      }
+    };
+    console.log(btTopics)
+    bootbox.dialog({
+      message: "Topics",
+      title: "Topics",
+      buttons: btTopics
+    });
+
+    buttonTopicsListener(cid)
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+}
+function buttonTopicsListener(cid){
+  $('.btn-topics').click(function(event) {
+    get_messsages_by_topic($(this).attr("data-bb-handler"), cid);
+  });
+}
+function get_messsages_by_topic(name,id){
+  tag = name;
+}
 
 function add_active(id){
   $.ajax({
@@ -20,13 +77,13 @@ function add_active(id){
     async: false
   })
   .done(function() {
-    console.log("success");
+    // console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    console.log("complete");
+    // console.log("complete");
   });
 }
 
@@ -38,13 +95,13 @@ function delete_active(id){
     async: false
   })
   .done(function() {
-    console.log("success");
+    // console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    console.log("complete");
+    // console.log("complete");
   });
   return null;
 }
@@ -56,13 +113,13 @@ function update_active(id){
     data: {"cid": id},
   })
   .done(function() {
-    console.log("success update_active");
+    // console.log("success update_active");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    console.log("complete");
+    // console.log("complete");
   });
   return null;
 }
@@ -75,13 +132,13 @@ function follow_from_channel(id){
   })
   .done(function() {
     toggleFollowButton(true)
-    console.log("success");
+    // console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    console.log("complete");
+    // console.log("complete");
   });
 }
 
@@ -113,6 +170,9 @@ function follow_from_channel(id){
 //   else
 //     clearTimeout(content)
 // }
+
+
+
 
 function get_userlist(cid) {
   data = $.ajax({
@@ -169,25 +229,43 @@ function emotify(message) {
 // cid is dynamic
 //
 //[{user body topic_name}{}{}]
-function get_messages(cid) {
-  update_active(cid, 'Main');
 
-  console.log("/channel/" + cid + "/messages");
+
+var content;
+var tag; 
+
+function get_messages(cid, name) {
+  
+  name = tag
+  name = typeof name !== 'undefined' ? name : "Main";
+  console.log(name)
+  // update_active(cid);
+  //set default value for name if its not passed
+  url_link = "/channel/"+id+"/messages"  
+  if(name == "Main"){
+    params = {}
+  }else{
+    params = {"topic": name}
+  }
+  console.log(params)
+  
   data = $.ajax({
     dataType: "json",
     type: "GET",
-    url: "/channel/" + cid + "/messages",
+    url: url_link,
+    data: params,
     async: false
   }).success(function(data){      
   }).responseText;
 
 
-  update_active(cid, 'Main');
+  update_active(cid);
+  console.log(data)
   data = JSON.parse(data)
   setDataView(data)
 
   if(document.URL.indexOf('channel/'+cid) > -1)
-    content = setTimeout(function(){get_messages(cid);}, 720); 
+    content = setTimeout(function(){get_messages(cid, name);}, 720); 
   else
     clearTimeout(content)
 }
@@ -216,6 +294,7 @@ function post_message(cid, message){
     data: {'channel_id': cid, 'body': message},
   })
   .done(function() {
+    tag = "Main"
     console.log("success");
   })
   .fail(function() {

@@ -41,12 +41,12 @@ class Channel < ActiveRecord::Base
   end
 
   def self.get_messages_for_topic(id, topic)
-    topic = Topics.find_by(channel_id: id, topic_name: topic)
-    # h = []
-    # Message.where(channel_id: id, topic_name: topic).each do |m|
-    #   h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
-    # end
-    return topic.messages
+    topic = Topic.find_by(channel_id: id, name: topic)
+    h = []
+    topic.messages.each do |m|
+      h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
+    end
+    return h
   end
 
   def self.get_topics(id)

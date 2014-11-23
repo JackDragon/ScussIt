@@ -94,15 +94,21 @@ class ChannelController < ApplicationController
     else
       @message = Message.create!(message_params)
     end
-    if message_params.has_key?(:body)
-      tags = message_params[:body].scan(/#\S+/)
-      if !tags.empty?
-        cid = message_params[:cid]
-        @topic = Topics.find_or_initialize_by(:topic_name => tags[0], :channel_id => cid)
-        @message.update(:topic_id => @topic.id)
-      end
-      render :json => {success: 1}
+
+    tags = message_params[:body].scan(/#\S+/)
+    
+    
+    if !tags.empty?
+      p "*" * 80 
+
+      cid = message_params[:channel_id]
+      p cid
+      p tags[0][1..-1]
+      topic = Topic.find_or_create_by(name: tags[0][1..-1], channel_id: cid)
+      @message.update(topic_id: topic.id)
     end
+    render :json => {success: 1}
+    
   end
 
   def room
@@ -167,7 +173,11 @@ class ChannelController < ApplicationController
   def messages
     # m = Message.where(:channel_id => params[:id])
     # render json: {messages: m}
-    render json: {messages: Channel.get_messages(params[:id])}
+    if params.has_key?(:topic)
+      render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
+    else
+      render json: {messages: Channel.get_messages(params[:id])}
+    end
   end
 
   def find
@@ -194,8 +204,9 @@ class ChannelController < ApplicationController
 
   def topics
     if params.has_key?(:id)
-      topics = Channel.get_topics(params[:id])
-      render json: {topics: topics}
+      @topics = Channel.get_topics(params[:id])
+      p @topics
+      render json: {topics: @topics}
     end
   end
 
@@ -204,6 +215,7 @@ class ChannelController < ApplicationController
   end
 
   def messages_for_topic
+    p"*!" *80
     render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
   end
 
