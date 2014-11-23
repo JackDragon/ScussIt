@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function (){
   id= 2
   // id = <%= @channel.id %>
@@ -143,36 +140,6 @@ function follow_from_channel(id){
 }
 
 
-// json
-//{topic1:[name1, name2], topic2:[name3, name4]}
-// function get_userlist(cid) {
-//   data = $.ajax({
-//     dataType: "json",
-//     type: "GET",
-//     url: "/channel/active/" + cid,
-//     async: false
-//   }).success(function(data){      
-//   }).responseText;
-//   data = JSON.parse(data)
-
-//   total = "<h3>User List</h3>"
-//   alert(data)
-//   data = data['Main']
-//   for (var i = 0; i < data.length; i++) {
-//     username = data[i]
-//     body = '<p>' + '<img src=\"/assets/user.png\" width=\"25px\" height=\"25px\" >' + '<strong>' + username + '</strong></p>'
-//     total+=body
-//   };
-//   alert(total)
-//   $('#userbox').html(total);
-//   if(document.URL.indexOf('channel/' + cid) > -1)
-//      content = setTimeout(function(){get_userlist(cid);}, 5000); 
-//   else
-//     clearTimeout(content)
-// }
-
-
-
 
 function get_userlist(cid) {
   data = $.ajax({
@@ -224,11 +191,6 @@ function emotify(message) {
 
   return emo_message
 }
-
-// get messages from /channel/cid/messages
-// cid is dynamic
-//
-//[{user body topic_name}{}{}]
 
 
 var content;
@@ -305,7 +267,6 @@ function post_message(cid, message){
   });
 }
 
-//Here need some backend for topic post and get url
 
 function post_topic(cid){
   $.ajax({
@@ -324,43 +285,6 @@ function post_topic(cid){
   });
 }
 
-
-// function get_topics(cid){
-//   data = $.ajax({
-//     dataType: "json",
-//     type: "GET",
-//     url: '/channel/' + cid + '/topics',
-//     async: false
-//   }).success(function(data){      
-//   }).responseText;
-//   // alert('getting data')
-//   data = JSON.parse(data)
-//   total = ""
-//   total = "<h3>Topics:</h3>"
-//   total += '<ul class="nav nav-tabs nav-stacked">'
-//   for (var i = 0; i < data['topics'].length; i++) {
-//     topic_name = data['topics'][i]
-//     total += '<li><a href="#topic' + i.toString + '"' + ' data-toggle="tab">'+ topic_name + '</a></li>'
-//   };
-//   total += '</ul>'
-//   $('#topicbox').html(total);
-//   if(document.URL.indexOf('channel/' + cid) > -1)
-//      content = setTimeout(function(){get_topics(cid);}, 5000); 
-//   else
-//     clearTimeout(content)
-// }
-
-// function click_add_topic_button() {
-//   bootbox.prompt("Please enter topic name:", function(topic) {                
-//     if (topic === null) {                                             
-//       bootbox.alert("failed to topics");
-//     } else {
-//       post_topic(id, topic)
-//     }
-//   });
-//   topic = 'Interesting'
-//   post_topic(id, topic)
-// }
 
 function click_send(){
   message = $("#message_input").val()

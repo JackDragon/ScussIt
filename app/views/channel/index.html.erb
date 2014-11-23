@@ -25,7 +25,6 @@
     id = <%= @channel.id %>
     get_messages(id);
     get_userlist(id);
-    // get_topics(id);
   });
 </script>
 
@@ -33,7 +32,6 @@
 <div class="panel-heading">
   <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
   <ul class="nav nav-pills" role="tablist">
-    <li><button id="add_topic_button" onclick="click_add_topic_button()" class="btn btn-primary">Add Topics</button></li>
     <li>
       <% if !current_user.nil? %>
         <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
@@ -52,11 +50,6 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-<!--     <div class="col-md-3">
-      <div class="topic_list" id="topicbox">
-
-      </div>
-    </div> -->
     <div class="col-md-9">
       <div class="tab-content" id="chatbox">
 
