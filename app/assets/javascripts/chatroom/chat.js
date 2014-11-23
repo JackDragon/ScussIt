@@ -74,13 +74,13 @@ function add_active(id){
     async: false
   })
   .done(function() {
-    // console.log("success");
+    console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    // console.log("complete");
+    console.log("complete");
   });
 }
 
@@ -92,13 +92,13 @@ function delete_active(id){
     async: false
   })
   .done(function() {
-    // console.log("success");
+    console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    // console.log("complete");
+    console.log("complete");
   });
   return null;
 }
@@ -110,13 +110,13 @@ function update_active(id){
     data: {"cid": id},
   })
   .done(function() {
-    // console.log("success update_active");
+    console.log("success update_active");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    // console.log("complete");
+    console.log("complete");
   });
   return null;
 }
@@ -129,13 +129,13 @@ function follow_from_channel(id){
   })
   .done(function() {
     toggleFollowButton(true)
-    // console.log("success");
+    console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    // console.log("complete");
+    console.log("complete");
   });
 }
 
@@ -165,29 +165,42 @@ function get_userlist(cid) {
 }
 
 
+/*
+  The emoticons are from http://www.webiconset.com/
+  Free Licence
+*/
 // emotifies symbols to emoticons
 function emotify(message) {
   emo_message = message
-  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"35px\" height=\"35px\" title=":)">')
-  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"35px\" height=\"35px\" title=":D">')
+  emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"35px\" height=\"35px\" title=\":)\">')
+  emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"35px\" height=\"35px\" title=\":D\">')
   emo_message = emo_message.replace(/\>:\(/g, '<img src=\"/assets/angry.png\" width=\"35px\" height=\"35px\">')
-  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"35px\" height=\"35px\" title=":(">')
-  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"35px\" height=\"35px\" title=":\'(">')
-  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"35px\" height=\"35px\" title=";)">')
-  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"35px\" height=\"35px\" title="o.O">')
+  emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"35px\" height=\"35px\" title=\":(\">')
+  emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"35px\" height=\"35px\" title=\":\'(\">')
+  emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"35px\" height=\"35px\" title=\";)\">')
+  emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"35px\" height=\"35px\" title=\"o.O\">')
+  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"35px\" height=\"35px\" title=\"=:-O\">')
+  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"35px\" height=\"35px\" title=\"8-}\">')
+  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"35px\" height=\"35px\" title=\"=^..^=\">')
+  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"35px\" height=\"35px\" title=\":3-]\">')
+  emo_message = emo_message.replace(/<3/g, '<img src=\"/assets/heart.png\" width=\"35px\" height=\"35px\" title=\"<3\">')
+  emo_message = emo_message.replace(/:P/g, '<img src=\"/assets/tongue.png\" width=\"35px\" height=\"35px\" title=\":P\">')
+  emo_message = emo_message.replace(/:\*/g, '<img src=\"/assets/kiss.png\" width=\"35px\" height=\"35px\" title=\":\*\">')
+  emo_message = emo_message.replace(/<\/3/g, '<img src=\"/assets/broken-heart.png\" width=\"35px\" height=\"35px\" title=\"<\/3\">')
+  emo_message = emo_message.replace(/.~\*/g, '<img src=\"/assets/bomb.png\" width=\"35px\" height=\"35px\" title=\".~\*\">')
+  emo_message = emo_message.replace(/@}--\'--/g, '<img src=\"/assets/flower.png\" width=\"35px\" height=\"35px\" title=\"@}--\'--\">')
+  emo_message = emo_message.replace(/\}:-\)/g, '<img src=\"/assets/devil.png\" width=\"35px\" height=\"35px\" title=\"\}:-\)\">')
+  emo_message = emo_message.replace(/\{\}/g, '<img src=\"/assets/hug.png\" width=\"35px\" height=\"35px\" title=\"\{\}\">')
+  emo_message = emo_message.replace(/\(-_-\)zzz/g, '<img src=\"/assets/sleep.png\" width=\"35px\" height=\"35px\" title=\"\(-_-\)zzz\">')
+  emo_message = emo_message.replace(/\(\'-\'\)y-~~/g, '<img src=\"/assets/smoking.png\" width=\"35px\" height=\"35px\" title=\"\(\'ー\'\)y-~~\">')
+  emo_message = emo_message.replace(/\|-O/g, '<img src=\"/assets/yawn.png\" width=\"35px\" height=\"35px\" title=\"\|-O\">')
 
-  emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"35px\" height=\"35px\" title="=:-O">')
-
-  emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"35px\" height=\"35px\" title="8-}">')
-  emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"35px\" height=\"35px\" title="=^..^=">')
-  emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"35px\" height=\"35px\" title=":3-]">')
-  
-  // 100% more Kappa
-  emo_message = emo_message.replace(/Kappa/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ddc6e3a8732cb50f-25x28.png" title="Kappa">')
-  emo_message = emo_message.replace(/PJSalt/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-18be1a297459453f-36x30.png" >')
-  emo_message = emo_message.replace(/BibleThump/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f6c13c7fc0a5c93d-36x30.png" >')
-  emo_message = emo_message.replace(/BrainSlug/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-d8eee0a259b7dfaa-30x30.png" >')
-  emo_message = emo_message.replace(/FrankerZ/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3b96527b46b1c941-40x30.png" >')
+  // 100% more Kappa from http://static-cdn.jtvnw.net
+  // emo_message = emo_message.replace(/Kappa/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ddc6e3a8732cb50f-25x28.png" title="Kappa">')
+  // emo_message = emo_message.replace(/PJSalt/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-18be1a297459453f-36x30.png" >')
+  // emo_message = emo_message.replace(/BibleThump/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f6c13c7fc0a5c93d-36x30.png" >')
+  // emo_message = emo_message.replace(/BrainSlug/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-d8eee0a259b7dfaa-30x30.png" >')
+  // emo_message = emo_message.replace(/FrankerZ/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3b96527b46b1c941-40x30.png" >')
 
   return emo_message
 }
@@ -220,7 +233,6 @@ function get_messages(cid, name) {
   }).success(function(data){      
   }).responseText;
 
-
   update_active(cid);
   console.log(data)
   data = JSON.parse(data)
@@ -252,7 +264,6 @@ function post_message(cid, message){
   $.ajax({
     url: '/channel/'+cid+'/post', 
     type: 'POST',
-    //need to get the topic name
     data: {'channel_id': cid, 'body': message},
   })
   .done(function() {
