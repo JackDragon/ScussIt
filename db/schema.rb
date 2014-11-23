@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121043558) do
+ActiveRecord::Schema.define(version: 20141123021613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20141121043558) do
     t.integer  "user_id"
     t.integer  "channel_id"
     t.datetime "updated"
-    t.string   "topic_name"
   end
 
   create_table "channels", force: true do |t|
@@ -47,9 +46,10 @@ ActiveRecord::Schema.define(version: 20141121043558) do
     t.integer  "user_id"
     t.integer  "channel_id"
     t.string   "topic_name"
+    t.integer  "topic_id"
   end
 
-  create_table "topic", force: true do |t|
+  create_table "topics", force: true do |t|
     t.string  "name"
     t.integer "channel_id"
   end

@@ -4,3 +4,20 @@
 }
 
 
+.btn-topics{
+	
+
+	/*width: 100%;*/
+	display: block;
+	height: 30px;
+	margin-bottom:  5px;
+	/*padding: 5px;*/
+}
+.modal-footer .btn + .btn{
+	margin-bottom:  5px;
+	margin-left: 0 !important;
+}
+
+.modal-footer{
+	overflow: hidden;
+}

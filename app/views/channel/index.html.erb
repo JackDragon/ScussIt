@@ -1,3 +1,4 @@
+<!-- This is a html file for chatroom -->
 <!--
   Bryant Chang
   Renjie Long
@@ -10,7 +11,6 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
-    
     add_active(<%= @channel.id %>)
     
     $(window).bind('beforeunload', function(e){
@@ -26,7 +26,6 @@
     id = <%= @channel.id %>
     get_messages(id);
     get_userlist(id);
-    get_topics(id);
   });
 </script>
 
@@ -34,7 +33,6 @@
 <div class="panel-heading">
   <h3> Chat room: <%= Channel.find(@channel.id).name %></h3>
   <ul class="nav nav-pills" role="tablist">
-    <li><button id="add_topic_button" onclick="click_add_topic_button()" class="btn btn-primary">Add Topics</button></li>
     <li>
       <% if !current_user.nil? %>
         <% if !current_user.favorites.exists?(:channel_id => @channel.id) %>
@@ -43,33 +41,19 @@
           <button id=<%= @channel.api_id %> class="btn btn-primary follow" >Unfollow</button>
         <% end %>
       <% end %>
+
+    </li>
+    <li>
+      <button id=<%= @channel.id %> class="btn btn-primary topics" >Topics</button>
     </li>
   </ul>
 </div>
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="col-md-3">
-      <div class="topic_list" id="topicbox">
-
-        <!-- will be softcoded using javascript -->
-<!--         <ul class="nav nav-tabs nav-stacked">
-            <li><a href="#topic0" data-toggle="tab">General</a></li>
-            <li><a href="#topic1" data-toggle="tab">Topic 1</a></li>
-            <li><a href="#topic2" data-toggle="tab">Topic 2</a></li>
-        </ul>
- -->
-      </div>
-    </div>
-    <div class="col-md-7">
+    <div class="col-md-9">
       <div class="tab-content" id="chatbox">
-        <!-- will be softcoded using javascript -->
-<!--         <div class="tab-pane fade" id="topic1">
-            Tab 1 content
-        </div>
-        <div class="tab-pane fade" id="topic2">
-            Tab 2 content
-        </div> -->
+
       </div>
       <div class="input_sender">
         <input id="message_input" type="text" maxlength="255" style="width: 500px; height: 35px; margin-right: 10px" placeholder="Enter your message here...">
@@ -77,7 +61,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="user_list" id="userbox">
 
       </div>
