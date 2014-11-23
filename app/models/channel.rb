@@ -50,7 +50,7 @@ class Channel < ActiveRecord::Base
   end
 
   def self.get_topics(id)
-    channel = Channel.find(params[:id])
+    channel = Channel.find(id)
     topics = channel.topics
     return topics
   end
