@@ -94,8 +94,15 @@ class ChannelController < ApplicationController
     else
       @message = Message.create!(message_params)
     end
-    render :json => {success: 1}
-    
+    if message_params.has_key?(:body)
+      tags = message_params[:body].scan(/#\S+/)
+      if !tags.empty?
+        cid = message_params[:cid]
+        @topic = Topics.find_or_initialize_by(:topic_name => tags[0], :channel_id => cid)
+        @message.update(:topic_id => @topic.id)
+      end
+      render :json => {success: 1}
+    end
   end
 
   def room
@@ -194,6 +201,17 @@ class ChannelController < ApplicationController
 
   def get_user_count
     render json: {count: Channel.get_user_count(params[:id], params[:topic_name])}
+  end
+
+  def messages_for_topic
+    render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
+  end
+
+  def topics_for_user
+    if params.has_key?(:id) and params.has_key?(:topic)
+      topics = Channel.get_topics_for_user(params[:id], params[:topic], current_user)
+      render json: {topics: topics}
+    end
   end
 
 private
