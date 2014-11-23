@@ -184,14 +184,17 @@ class Channel < ActiveRecord::Base
 
   def self.active_user_list(params, current_user)
     # p params
+    cid = current_user.id
     active_dict = {}
-    topics = Topic.where(:channel_id => cid)
+    topics = Topic.where(:channel_id => params[:id])
     for top in topics
       l = []
       timenow = DateTime.now
       cid = params[:id]
-      if cid != nil and Active.exists?(:channel_id => cid, :topic_name => top.topic_name)
-        l = Active.where(:channel_id => cid, :topic_name => top.topic_name).where("updated > ?", timenow-5.seconds)
+      p "***" * 80
+      p top
+      if cid != nil and Active.exists?(:channel_id => cid, :topic_name => top.name)
+        l = Active.where(:channel_id => cid, :topic_name => top.name).where("updated > ?", timenow-5.seconds)
       end
       userlist = []
       for entry in l
@@ -202,7 +205,7 @@ class Channel < ActiveRecord::Base
         # entry["username"] = username
         userlist += [username]
       end
-      active_dict[top.topic_name] = userlist
+      active_dict[top.name] = userlist
       return active_dict
     end
   end
