@@ -40,10 +40,25 @@ class Channel < ActiveRecord::Base
     return h
   end
 
+  def self.get_messages_for_topic(id, topic)
+    topic = Topics.find_by(channel_id: id, topic_name: topic)
+    # h = []
+    # Message.where(channel_id: id, topic_name: topic).each do |m|
+    #   h+= [{user: m.user.username, body: m.body, topic_name: m.topic_name}]
+    # end
+    return topic.messages
+  end
+
   def self.get_topics(id)
+    channel = Channel.find(params[:id])
+    topics = channel.topics
+    return topics
+  end
+
+  def self.get_topics_for_user(id, topic, user)
     h = []
-    Topic.where(channel_id: id).each do |t|
-      h+= [t.name]
+    Active.where(:channel_id => id, :topic_name => topic, :user_id => user.id).each do |t|
+      h+= [t.topic_name]
     end
     return h
   end
@@ -156,7 +171,9 @@ class Channel < ActiveRecord::Base
       if cid != nil
         for top in topic_names
           entry = Active.find_by(channel_id: cid, user_id: current_user.id, :topic_name => top)
-          entry.update(updated: DateTime.now)
+          if entry != nil
+            entry.update(updated: DateTime.now)
+          end
         end
       end
     end
