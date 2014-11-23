@@ -20,13 +20,15 @@ Run on your local machine:
 
 * Install dependencies with <tt>bundle install</tt> in the project folder.
 
+* (Post-Postgres Setup:) After installing PostgreSQL on your local machine, type: <tt>create role postgres with createdb login;</tt> in your psql console.
+
 * Create database: <tt>rake db:create</tt>
 
 * Migrate database: <tt>rake db:migrate</tt>
 
 * Start server with <tt>rails s</tt>
 
-Or visit Heroku: http://scuss.herokuapp.com/
+Or visit Heroku: http://scuss.herokuapp.com
 
 ==Registration instructions
 * Click Register[http://scuss.herokuapp.com/users/sign_up]

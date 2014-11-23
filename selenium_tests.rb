@@ -2,14 +2,17 @@
 # Bryant Chang
 
 require "selenium-webdriver"
-require "test/unit"
+require 'spec_helper'
+require 'rails_helper'
 
-class AssertionError < RuntimeError
-end
+# class AssertionError < RuntimeError
+# end
 
-def assert &block
-    raise AssertionError unless yield
-end
+# def assert &block
+#     raise AssertionError unless yield
+# end
+
+assert (4 == 4)
 
 driver = Selenium::WebDriver.for :firefox
 driver.get "http://scuss.herokuapp.com"
@@ -63,6 +66,11 @@ browse_next.click
 # browse prev.
 browse_prev = wait.until {driver.find_element(:xpath, "//input[@value='Previous']")}
 browse_prev.click
+
+# search
+search = wait.until {driver.find_element(:xpath, "//input[@id='query']")}
+search.send_keys "blue"
+search.send_keys :return
 
 # Edit profile
 dropdown = wait.until {driver.find_element(:xpath, "//a[@class='dropdown-toggle']")}
