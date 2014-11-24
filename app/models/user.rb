@@ -38,9 +38,9 @@ class User < ActiveRecord::Base
   
   def follow(uid, cid)
     # :user = User.find(uid)
-    @already = Favorites.where("user_id = ? and channel_id = ?", uid, cid)
+    @already = Favorite.where("user_id = ? and channel_id = ?", uid, cid)
     if !@already.any?
-      Favorites.create(user_id: uid, channel_id: cid)
+      Favorite.create(user_id: uid, channel_id: cid)
     end
   end
 end

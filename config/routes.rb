@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/channel/:id/topics', to: 'channel#topics', as: :channel_get_topics
   get '/channel/:id/:topic_name/user_count', to: 'channel#user_count', as: :channel_user_count
   get '/channel/:id/messages/:topic', to: 'channel#messages_for_topic', as: :channel_message_for_topic
-  get '/channel/:id/topics_for_user', to: 'channel#topics_for_user', as: :channel_topics_for_user
+  # get '/channel/:id/topics_for_user', to: 'channel#topics_for_user', as: :channel_topics_for_user
 
   resources :home
   

@@ -15,6 +15,7 @@ class Channel < ActiveRecord::Base
   has_many :user_channels
   has_many :users, through: :user_channel
   has_many :topics
+  has_many :actives
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
@@ -25,8 +26,8 @@ class Channel < ActiveRecord::Base
     end
   end
 
-  def create_topic(params, current_user)
-    name = params[:topic_names][0]
+  def create_topic(params)
+    name = params[:name]
     self.topics.find_or_create_by!(:name => name) do |t|
       t.name = name
     end
@@ -55,17 +56,21 @@ class Channel < ActiveRecord::Base
     return topics
   end
 
-  def self.get_topics_for_user(id, topic, user)
-    h = []
-    Active.where(:channel_id => id, :topic_name => topic, :user_id => user.id).each do |t|
-      h+= [t.topic_name]
-    end
-    return h
-  end
+  # def self.get_topics_for_user(id, topic, user)
+  #   h = []
+  #   Active.where(:channel_id => id, :topic_name => topic, :user_id => user.id).each do |t|
+  #     h+= [t.topic_name]
+  #   end
+  #   return h
+  # end
 
   def get_user_count(id, topic_name)
     timenow = DateTime.now
-    return Active.where(:channel_id => id, :topic_name => topic_name).where("updated > ?", timenow-5.seconds).size
+    if topic_name != "Main"
+      return Active.where(:channel_id => id, :topic_name => topic_name).where("updated > ?", timenow-5.seconds).size
+    else
+      return Active.where(:channel_id => id).where("updated > ?", timenow-5.seconds).size
+    end
   end
 
   def get_users

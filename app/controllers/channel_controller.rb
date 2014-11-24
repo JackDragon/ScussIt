@@ -201,7 +201,7 @@ class ChannelController < ApplicationController
     if current_user != nil
       id = params[:id].to_i
       @channel = Channel.find(id)
-      @channel.create_topic(params, current_user)
+      @channel.create_topic(params)
     end
     render nothing: true
   end

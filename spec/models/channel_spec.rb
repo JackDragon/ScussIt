@@ -93,7 +93,7 @@ describe Channel do
     act = Active.where(:user_id => u.id, :channel_id => c.id)
     expect(act.empty?).to be(false)
     after = act[0].updated
-    expect(after > before).to be(true)
+    expect(after >= before).to be(true)
   end
 
   it "should correctly add to active user list and delete" do
@@ -142,5 +142,80 @@ describe Channel do
     u.save!
     m = Message.create!(user_id: u.id, channel_id: c.id, body: '#awesome does this work?', topic_id: t.id)
     expect(m.topic.name).to eq("awesome")
+  end
+
+  it 'should return correct active' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    a = c.actives.create(user_id: u.id, updated: DateTime.now)
+    expect(Active.where(:channel_id => c.id).where("updated > ?", DateTime.now-5.seconds)).to_not be_empty
+  end
+
+  it 'should return correct active user list' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    a = c.actives.create(user_id: u.id, updated: DateTime.now)
+    expect(Active.where(:channel_id => c.id).where("updated > ?", DateTime.now-5.seconds)).to_not be_empty
+    userlist = Channel.active_user_list({id: c.id}, u)
+    expect(userlist).to eq(['joe'])
+  end
+
+  it 'should create topic using channel controller' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    t = c.create_topic(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+  end
+
+  it 'should get correct message list for topic' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    t = c.create_topic(:name => "awesome")
+    u.save!
+    Message.create!(user_id: u.id, channel_id: c.id, body: '#awesome yo', topic_id: t.id)
+    expect(Channel.get_messages_for_topic(c.id, "awesome")).to eq [{user: 'joe', body: '#awesome yo'}]
+  end
+
+  it 'should get all users' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    a = c.actives.create(user_id: u.id, updated: DateTime.now)
+    expect(Active.where(:channel_id => c.id).where("updated > ?", DateTime.now-5.seconds)).to_not be_empty
+    userlist = Channel.get_users()
+    expect(userlist).to_be not_empty
+  end
+
+  it 'should get right no user count' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    expect(Active.where(:channel_id => c.id).where("updated > ?", DateTime.now-5.seconds)).to_not be_empty
+    count = Channel.get_user_count(c.id, "Main")
+    expect(count).to_eq 0
+  end
+
+  it 'should get right user count' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    a = c.actives.create(user_id: u.id, updated: DateTime.now)
+    expect(Active.where(:channel_id => c.id).where("updated > ?", DateTime.now-5.seconds)).to_not be_empty
+    count = Channel.get_user_count(c.id, "Main")
+    expect(count).to_eq 1
   end
 end
