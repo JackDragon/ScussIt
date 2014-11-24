@@ -250,7 +250,7 @@ function setDataView(data){
   for (var i = 0; i < data['messages'].length; i++) {
       message = data['messages'][i]
       username = message['user']
-      body = "<p id=\"message" + i.toString + "\">" + "<strong>" + username + "</strong>" +  ": " + emotify(message['body']) + "</p>"
+      body = "<p id=\"message" + i + "\">" + "<strong>" + username + "</strong>" +  ": " + emotify(message['body']) + "</p>"
       total+=body
   };
   $('#chatbox').html(total);

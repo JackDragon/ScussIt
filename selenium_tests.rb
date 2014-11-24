@@ -1,9 +1,10 @@
 # Jonathan Lo
+# Gangbaolede Li
 # Bryant Chang
 
 require "selenium-webdriver"
-require 'spec_helper'
-require 'rails_helper'
+# require 'spec_helper'
+# require 'rails_helper'
 
 # class AssertionError < RuntimeError
 # end
@@ -11,8 +12,6 @@ require 'rails_helper'
 # def assert &block
 #     raise AssertionError unless yield
 # end
-
-assert (4 == 4)
 
 driver = Selenium::WebDriver.for :firefox
 driver.get "http://scuss.herokuapp.com"
@@ -43,13 +42,42 @@ send_message.send_keys "Test Sentence, Please Ignore."
 # submit a message
 send_message.send_keys :return
 
+# check message exists
+sleep(5)
+message = driver.find_element(:xpath, "//p[last()]").text
+puts(message)
+if !message.include?("Test Sentence, Please Ignore.")
+	abort("Message not found")
+end
+
+# check emoticon
+send_message.send_keys ":)"
+send_message.send_keys :return
+sleep(5)
+message = driver.find_element(:xpath, "//p[last()]").text
+driver.find_element(:xpath, "//img[@src='/assets/smile.png']")
+
+# add topic
+send_message.send_keys "Hello #World"
+send_message.send_keys :return
+
+# click topic button
+# topic_button = driver.find_element(:xpath, "//button[@class='btn btn-primary topics']")
+# topic_button.click
+
+# check newly added topic
+# puts(driver.find_element(:xpath, "//button[@data-bb-handler='World']"))
+# newly_added_topic = wait.until {driver.find_element(:xpath, "//button[@data-bb-handler='World']")}
+# newly_added_topic.click
+
 # Check follow button
-follow_button = driver.find_element(:xpath, "//button[2]")
+follow_button = driver.find_element(:xpath, "//button[@class='btn btn-primary follow']")
 follow_text = follow_button.text
 follow_button.click
 # assert {follow_text != follow_button.text}
-# if (follow_text != follow_button.text)
-# 	p "True"
+
+# if (follow_text == follow_button.text)
+# 	abort("Follow button check failed")
 # end
 
 # check favorites page
@@ -84,4 +112,4 @@ driver.find_element(:xpath, "//a[@href='/users/sign_out']").click
 
 puts "All tests passed!"
 
-# driver.quit
+driver.quit
