@@ -67,24 +67,25 @@ driver.find_element(:xpath, "//img[@src='/assets/smile.png']")
 send_message.send_keys "Hello #World"
 send_message.send_keys :return
 
-# # click topic button
-# topic_button = driver.find_element(:xpath, "//button[@class='btn btn-primary topics']")
-# topic_button.click
-
+# click topic button
+topic_button = driver.find_element(:xpath, "//button[@class='btn btn-primary topics']")
+topic_button.click
+sleep(5)
 # # check newly added topic
 # newly_added_topic = wait.until {driver.find_element(:xpath, "//button[@data-bb-handler='World']")}
-# newly_added_topic = wait.until {driver.find_element(:xpath, "//button[text()='#World']")}
-# newly_added_topic.click
+newly_added_topic = wait.until {driver.find_element(:xpath, "//button[text()='#World']")}
+newly_added_topic.click
 
 # Check follow button
 follow_button = driver.find_element(:xpath, "//button[@class='btn btn-primary follow']")
 follow_text = follow_button.text
 follow_button.click
 # assert {follow_text != follow_button.text}
+sleep(5)
 
-# if (follow_text == follow_button.text)
-# 	abort("Follow button check failed")
-# end
+if (follow_text == follow_button.text)
+	abort("Follow button check failed")
+end
 
 # check favorites page
 driver.find_element(:xpath, "//a[@href='/mychannels']").click
