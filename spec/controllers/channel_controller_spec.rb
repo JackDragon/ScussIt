@@ -170,6 +170,16 @@ describe ChannelController do
   #   end
   # end
 
+  # Topics #
+  it 'should create message by default has a topic id' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    post :post, {body: "test", id: c.id, channel_id: c.id, uid: u.id}
+    # Message.create!(user_id: u.id, channel_id: c.id, body: 'huh, does this work?')
+    expect(Message.where(channel_id: c.id)).to_not be_empty
+  end
 
 
 end

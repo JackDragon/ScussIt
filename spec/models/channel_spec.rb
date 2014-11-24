@@ -117,7 +117,30 @@ describe Channel do
       u.skip_confirmation!
       u.save!
       Message.create!(user_id: u.id, channel_id: c.id, body: 'huh, does this work?')
-      expect(Channel.get_messages(c.id)).to eq [{user: 'joe', body: 'huh, does this work?'}]
+      expect(Channel.get_messages(c.id)).to eq [{user: 'joe', body: 'huh, does this work?' }]
     end
+  end
+
+  ### Topics ###
+  it 'should create main topic by default works' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    expect(Topic.find_by(channel_id: c.id, name: "Main")).to_not be(nil)
+  end
+  
+  it 'should create new topic works' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+  end
+
+  it 'should create new topic and message and they both link with each other' do
+    c = Channel.create(:name => "Seinfeld", :image_url => "google.com", :network => "NBC", :api_id => 35)
+    t = c.topics.create(:name => "awesome")
+    expect(Topic.find_by(channel_id: c.id, name: "awesome")).to_not be(nil)
+    u = User.new(:email => "q@q.com", :password => "password", username: 'joe')
+    u.skip_confirmation!
+    u.save!
+    m = Message.create!(user_id: u.id, channel_id: c.id, body: '#awesome does this work?', topic_id: t.id)
+    expect(m.topic.name).to eq("awesome")
   end
 end

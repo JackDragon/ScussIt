@@ -81,23 +81,26 @@ class ChannelController < ApplicationController
   # Get details of a show from MovieDB
   def details
     themoviedb = ApplicationHelper::themoviedb
-    paramaters = {'api_key'=> themoviedb[:api_key]}
-    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:tv]+params["id"],paramaters)
+    parameters = {'api_key'=> themoviedb[:api_key]}
+    data = ApplicationHelper.get(themoviedb[:endpoint]+themoviedb[:tv]+params["id"],parameters)
     show = JSON.parse data
     new_json = Channel.parse_detail(show)
     render :json => new_json
   end
 
   def post
-    if user_signed_in?
+    if params.has_key?(:uid)
+      cuser = User.find(params[:uid])
+      @message = cuser.messages.create!(message_params)
+    elsif user_signed_in?
       @message = current_user.messages.create!(message_params)
     else
       @message = Message.create!(message_params)
     end
 
-    tags = message_params[:body].scan(/#\S+/)    
+    tags = message_params[:body].scan(/#\S+/)
     if !tags.empty?
-      p "*" * 80 
+      p "*" * 80
 
       cid = message_params[:channel_id]
       p cid
@@ -266,7 +269,7 @@ private
     return $total_page
   end
   def message_params
-    params.permit(:body, :channel_id, :topic_name)
+    params.permit(:body, :channel_id)
   end
 
   def channel_params
