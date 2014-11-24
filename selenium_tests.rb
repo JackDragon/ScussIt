@@ -35,6 +35,12 @@ pass_input.submit
 first_channel = wait.until {driver.find_element(:xpath, "//img[1]")}
 first_channel.click
 
+# check presence in user list
+user_name = wait.until {driver.find_element(:xpath, "//div[@id='userbox']//p[1]")}.text
+if user_name != "qqq"
+	abort("User not present")
+end
+
 # type a message
 send_message = wait.until {driver.find_element(:id, "message_input")}
 send_message.send_keys "Test Sentence, Please Ignore."
@@ -61,13 +67,13 @@ driver.find_element(:xpath, "//img[@src='/assets/smile.png']")
 send_message.send_keys "Hello #World"
 send_message.send_keys :return
 
-# click topic button
+# # click topic button
 # topic_button = driver.find_element(:xpath, "//button[@class='btn btn-primary topics']")
 # topic_button.click
 
-# check newly added topic
-# puts(driver.find_element(:xpath, "//button[@data-bb-handler='World']"))
+# # check newly added topic
 # newly_added_topic = wait.until {driver.find_element(:xpath, "//button[@data-bb-handler='World']")}
+# newly_added_topic = wait.until {driver.find_element(:xpath, "//button[text()='#World']")}
 # newly_added_topic.click
 
 # Check follow button
