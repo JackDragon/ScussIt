@@ -73,9 +73,9 @@ class Channel < ActiveRecord::Base
     end
   end
 
-  def get_users
-    self.users.all
-  end
+  # def get_users(id)
+  #   return Favorite.where(:channel_id => id)
+  # end
 
   def check_in(uid)
     #TODO: Check if user is in it first
