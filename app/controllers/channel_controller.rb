@@ -95,9 +95,7 @@ class ChannelController < ApplicationController
       @message = Message.create!(message_params)
     end
 
-    tags = message_params[:body].scan(/#\S+/)
-    
-    
+    tags = message_params[:body].scan(/#\S+/)    
     if !tags.empty?
       p "*" * 80 
 
@@ -106,6 +104,9 @@ class ChannelController < ApplicationController
       p tags[0][1..-1]
       topic = Topic.find_or_create_by(name: tags[0][1..-1], channel_id: cid)
       @message.update(topic_id: topic.id)
+    else
+      main_id = Topic.find_or_create_by(channel_id: cid, name: "Main").id
+      @message.update(topic_id: main_id)
     end
     render :json => {success: 1}
     

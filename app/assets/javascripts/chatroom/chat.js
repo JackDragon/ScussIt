@@ -41,8 +41,8 @@ function topic_listener(cid){
     };
     console.log(btTopics)
     bootbox.dialog({
-      message: "Topics",
-      title: "Topics",
+      message: "See what's trending!",
+      title: "#Topics",
       buttons: btTopics
     });
 
