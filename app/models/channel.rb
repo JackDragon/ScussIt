@@ -37,7 +37,7 @@ class Channel < ActiveRecord::Base
 
   def self.get_messages(id)
     h = []
-    Message.where(channel_id: id).each do |m|
+    Message.where(channel_id: id).last(50).each do |m|
       h+= [{user: m.user.username, body: m.body, id: m.id}]
     end
     return h
@@ -46,7 +46,7 @@ class Channel < ActiveRecord::Base
   def self.get_messages_for_topic(id, topic)
     topic = Topic.find_by(channel_id: id, name: topic)
     h = []
-    topic.messages.each do |m|
+    topic.messages.last(50).each do |m|
       h+= [{user: m.user.username, body: m.body, id: m.id}]
     end
     return h
