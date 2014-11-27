@@ -258,7 +258,6 @@ function get_messages(cid, name) {
 }
 
 function setDataView(data){
-  alert(1)
   var old_height = $('#chatbox').prop('scrollHeight');
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
