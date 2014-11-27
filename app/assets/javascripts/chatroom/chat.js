@@ -241,10 +241,8 @@ function get_messages(cid, name) {
   
   data = JSON.parse(data)
   msgs = data['messages']
-  // console.log()
-  
-  
-  if(lastMessageID != msgs[msgs.length-1]['id']){
+
+  if(msgs.length != 0 && lastMessageID != msgs[msgs.length-1]['id']){
     console.log("re-render")
     setDataView(data)
     
