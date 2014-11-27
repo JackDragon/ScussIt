@@ -182,7 +182,7 @@ function emotify(message) {
   emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"35px\" height=\"35px\" title=\"8-}\">')
   emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"35px\" height=\"35px\" title=\"=^..^=\">')
   emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"35px\" height=\"35px\" title=\":3-]\">')
-  emo_message = emo_message.replace(/<3/g, '<img src=\"/assets/heart.png\" width=\"35px\" height=\"35px\" title=\"<3\">')
+  emo_message = emo_message.replace(/<3/g, '<img src=\"/assets/Heart.png\" width=\"35px\" height=\"35px\" title=\"<3\">')
   emo_message = emo_message.replace(/:P/g, '<img src=\"/assets/tongue.png\" width=\"35px\" height=\"35px\" title=\":P\">')
   emo_message = emo_message.replace(/:\*/g, '<img src=\"/assets/kiss.png\" width=\"35px\" height=\"35px\" title=\":\*\">')
   emo_message = emo_message.replace(/<\/3/g, '<img src=\"/assets/broken-heart.png\" width=\"35px\" height=\"35px\" title=\"<\/3\">')
