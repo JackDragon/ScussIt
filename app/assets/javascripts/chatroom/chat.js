@@ -210,11 +210,13 @@ var lastMessageID;
 
 function get_messages(cid, name) {
   
+
+  name = typeof name !== 'undefined' ? name : "Main";
+
   if (tag != name){
     lastMessageID = null;
-    name = tag
+    tag = name
   }
-  name = typeof name !== 'undefined' ? name : "Main";
   
   // update_active(cid);
   //set default value for name if its not passed
@@ -245,6 +247,7 @@ function get_messages(cid, name) {
   if(lastMessageID != msgs[msgs.length-1]['id']){
     console.log("re-render")
     setDataView(data)
+    
   }
 
   
@@ -270,6 +273,8 @@ function setDataView(data){
     $("#chatbox").animate({ scrollTop: new_height }, 'normal');
   }
   lastMessageID = msgs[msgs.length-1]['id']
+  
+
 }
 
 function post_message(cid, message){
