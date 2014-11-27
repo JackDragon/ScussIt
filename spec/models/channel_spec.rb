@@ -117,7 +117,7 @@ describe Channel do
       u.skip_confirmation!
       u.save!
       Message.create!(user_id: u.id, channel_id: c.id, body: 'huh, does this work?')
-      expect(Channel.get_messages(c.id)).to eq [{user: 'joe', body: 'huh, does this work?' }]
+      expect(Channel.get_messages(c.id)).to eq [{user: 'joe', body: 'huh, does this work?', id: 4}]
     end
   end
 
@@ -183,7 +183,7 @@ describe Channel do
     t = c.create_topic(:name => "awesome")
     u.save!
     Message.create!(user_id: u.id, channel_id: c.id, body: '#awesome yo', topic_id: t.id)
-    expect(Channel.get_messages_for_topic(c.id, "awesome")).to eq [{user: 'joe', body: '#awesome yo'}]
+    expect(Channel.get_messages_for_topic(c.id, "awesome")).to eq [{user: 'joe', body: '#awesome yo', id: 3}]
   end
 
   # it 'should get all users for channel' do
