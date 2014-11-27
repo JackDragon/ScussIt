@@ -19,7 +19,9 @@ class Channel < ActiveRecord::Base
   validates :api_id, presence: true
   validates :api_id, uniqueness: true
   validates :name, presence: true
+  before_create :set_time_to_now
   after_create :create_main
+
 
   def create_main
     self.topics.find_or_create_by!(:name => "Main") do |t|
@@ -80,6 +82,14 @@ class Channel < ActiveRecord::Base
   def check_in(uid)
     #TODO: Check if user is in it first
     self.user_channels.create(user_id: uid, timeout: DateTime.in(120))
+  end
+
+  def new_messages?(time)
+    self.last_message >= time
+  end
+
+  def set_time_to_now
+    self.last_message = DateTime.now
   end
 
   # extract values from detail json

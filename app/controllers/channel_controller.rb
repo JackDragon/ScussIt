@@ -100,19 +100,17 @@ class ChannelController < ApplicationController
 
     tags = message_params[:body].scan(/#\S+/)
     if !tags.empty?
-      p "*" * 80
-
       cid = message_params[:channel_id]
-      p cid
-      p tags[0][1..-1]
+      # p cid
+      # p tags[0][1..-1]
       topic = Topic.find_or_create_by(name: tags[0][1..-1], channel_id: cid)
       @message.update(topic_id: topic.id)
     else
       main_id = Topic.find_or_create_by(channel_id: cid, name: "Main").id
       @message.update(topic_id: main_id)
     end
+    Channel.find(params[:channel_id]).last_message = DateTime.now
     render :json => {success: 1}
-    
   end
 
   def room
@@ -127,11 +125,9 @@ class ChannelController < ApplicationController
   end
 
   def add_active
-
     if current_user != nil
       Channel.active_add(params, current_user)
     end
-
     render nothing: true
   end
 
@@ -152,8 +148,8 @@ class ChannelController < ApplicationController
 
 
   def follow
-    p "*" *80
-    p params
+    # p "*" *80
+    # p params
     Channel.follow(params, current_user, channel_params)
     render nothing: true
   end
@@ -178,9 +174,42 @@ class ChannelController < ApplicationController
     # m = Message.where(:channel_id => params[:id])
     # render json: {messages: m}
     if params.has_key?(:topic)
-      render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
+      render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic]), time: DateTime.now, new: true}
     else
-      render json: {messages: Channel.get_messages(params[:id])}
+      render json: {messages: Channel.get_messages(params[:id]), time: DateTime.now, new: true}
+    end
+  end
+
+  # def new_messages
+  #   if params.has_key?(:time)
+  #     if Channel.find(params[:id]).new_messages?(params[:time])
+  #       if params.has_key?(:topic)
+  #         render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic]), time: DateTime.now, new: true}
+  #       else
+  #         render json: {messages: Channel.get_messages(params[:id]), time: DateTime.now, new: true}
+  #       end
+  #     else
+  #       render json: {time: DateTime.now, new: false}
+  #     end
+  #   else
+  #     if params.has_key?(:topic)
+  #       render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic]), time: DateTime.now, new: true}
+  #     else
+  #       render json: {messages: Channel.get_messages(params[:id]), time: DateTime.now, new: true}
+  #     end
+  #   end
+  # end
+
+
+  def new_messages
+    if params.has_key?(:time) and !Channel.find(params[:id]).new_messages?(params[:time])
+      render json: {time: DateTime.now, new: false}
+    else
+      if params.has_key?(:topic)
+        render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic]), time: DateTime.now, new: true}
+      else
+        render json: {messages: Channel.get_messages(params[:id]), time: DateTime.now, new: true}
+      end
     end
   end
 
@@ -209,7 +238,7 @@ class ChannelController < ApplicationController
   def topics
     if params.has_key?(:id)
       @topics = Channel.get_topics(params[:id])
-      p @topics
+      # p @topics
       render json: {topics: @topics}
     end
   end
@@ -219,7 +248,7 @@ class ChannelController < ApplicationController
   end
 
   def messages_for_topic
-    p"*!" *80
+    # p"*!" *80
     render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
   end
 
