@@ -62,6 +62,7 @@ function buttonTopicsListener(cid){
 }
 function get_messsages_by_topic(name,id){
   tag = name;
+  lastMessageID = null;
 }
 
 function add_active(id){
@@ -210,13 +211,12 @@ var lastMessageID;
 
 function get_messages(cid, name) {
   
-
+  name = tag
   name = typeof name !== 'undefined' ? name : "Main";
 
-  if (tag != name){
-    lastMessageID = null;
-    tag = name
-  }
+  // console.log("last", lastMessageID)
+  // console.log("tag", tag )
+  
   
   // update_active(cid);
   //set default value for name if its not passed
@@ -285,6 +285,7 @@ function post_message(cid, message){
   })
   .done(function() {
     tag = "Main"
+    lastMessageID = null;
     
   })
   .fail(function() {
