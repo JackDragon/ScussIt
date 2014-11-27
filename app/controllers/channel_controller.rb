@@ -174,9 +174,9 @@ class ChannelController < ApplicationController
     # m = Message.where(:channel_id => params[:id])
     # render json: {messages: m}
     if params.has_key?(:topic)
-      render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic]), time: DateTime.now, new: true}
+      render json: {messages: Channel.get_messages_for_topic(params[:id], params[:topic])}
     else
-      render json: {messages: Channel.get_messages(params[:id]), time: DateTime.now, new: true}
+      render json: {messages: Channel.get_messages(params[:id])}
     end
   end
 

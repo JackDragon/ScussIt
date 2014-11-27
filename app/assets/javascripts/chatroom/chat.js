@@ -27,7 +27,6 @@ function topic_listener(cid){
   .done(function(data) {
     topics = data['topics']
     btTopics = {}
-    console.log(topics)
     i = 2
     for (var i = 0; i < topics.length; i++) {
       name = topics[i]['name']
@@ -39,7 +38,6 @@ function topic_listener(cid){
         id: cid,
       }
     };
-    console.log(btTopics)
     bootbox.dialog({
       message: "See what's trending!",
       title: "#Topics",
@@ -47,13 +45,13 @@ function topic_listener(cid){
     });
 
     buttonTopicsListener(cid)
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
   
 }
@@ -74,13 +72,13 @@ function add_active(id){
     async: false
   })
   .done(function() {
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
 }
 
@@ -92,13 +90,13 @@ function delete_active(id){
     async: false
   })
   .done(function() {
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
   return null;
 }
@@ -110,13 +108,13 @@ function update_active(id){
     data: {"cid": id},
   })
   .done(function() {
-    console.log("success update_active");
+
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
   return null;
 }
@@ -129,13 +127,13 @@ function follow_from_channel(id){
   })
   .done(function() {
     toggleFollowButton(true)
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
 }
 
@@ -150,7 +148,7 @@ function get_userlist(cid) {
   }).success(function(data){      
   }).responseText;
   data = JSON.parse(data)
-  console.log(data)
+  
   total = "<h3>User List</h3>"
   for (var i = 0; i < data['user_list'].length; i++) {
     username = data['user_list'][i]
@@ -208,12 +206,16 @@ function emotify(message) {
 
 var content;
 var tag; 
+var lastMessageID; 
 
 function get_messages(cid, name) {
   
-  name = tag
+  if (tag != name){
+    lastMessageID = null;
+    name = tag
+  }
   name = typeof name !== 'undefined' ? name : "Main";
-  console.log(name)
+  
   // update_active(cid);
   //set default value for name if its not passed
   url_link = "/channel/"+id+"/messages"  
@@ -222,7 +224,7 @@ function get_messages(cid, name) {
   }else{
     params = {"topic": name}
   }
-  console.log(params)
+  
   
   data = $.ajax({
     dataType: "json",
@@ -234,10 +236,18 @@ function get_messages(cid, name) {
   }).responseText;
 
   update_active(cid);
-  console.log(data)
+  
   data = JSON.parse(data)
-  setDataView(data)
+  msgs = data['messages']
+  // console.log()
+  
+  
+  if(lastMessageID != msgs[msgs.length-1]['id']){
+    console.log("re-render")
+    setDataView(data)
+  }
 
+  
   if(document.URL.indexOf('channel/'+cid) > -1)
     content = setTimeout(function(){get_messages(cid, name);}, 720); 
   else
@@ -245,6 +255,7 @@ function get_messages(cid, name) {
 }
 
 function setDataView(data){
+  alert(1)
   var old_height = $('#chatbox').prop('scrollHeight');
   total = ""
   for (var i = 0; i < data['messages'].length; i++) {
@@ -258,6 +269,7 @@ function setDataView(data){
   if(new_height > old_height){
     $("#chatbox").animate({ scrollTop: new_height }, 'normal');
   }
+  lastMessageID = msgs[msgs.length-1]['id']
 }
 
 function post_message(cid, message){
@@ -268,13 +280,13 @@ function post_message(cid, message){
   })
   .done(function() {
     tag = "Main"
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
 }
 
@@ -286,13 +298,13 @@ function post_topic(cid){
     data: {'channel_id': cid},
   })
   .done(function() {
-    console.log("success");
+    
   })
   .fail(function() {
-    console.log("error");
+    
   })
   .always(function() {
-    console.log("complete");
+    
   });
 }
 
