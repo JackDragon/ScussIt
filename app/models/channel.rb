@@ -181,6 +181,10 @@ class Channel < ActiveRecord::Base
       end
       if cid != nil
         entry = Active.find_by(channel_id: cid, user_id: current_user.id)
+        if entry == nil
+          self.active_add(params, current_user)
+          entry = Active.find_by(channel_id: cid, user_id: current_user.id)
+        end
         entry.update(updated: DateTime.now)
       end
     end
