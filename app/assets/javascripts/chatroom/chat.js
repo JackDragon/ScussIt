@@ -182,7 +182,7 @@ function get_userlist(cid) {
 */
 // emotifies symbols to emoticons
 function emotify(message) {
-<<<<<<< HEAD
+
   emo_message = message
   emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"35px\" height=\"35px\" title=\":)\">')
   emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"35px\" height=\"35px\" title=\":D\">')
@@ -215,40 +215,6 @@ function emotify(message) {
   // emo_message = emo_message.replace(/FrankerZ/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3b96527b46b1c941-40x30.png" title="FrankerZ">')
 
   return emo_message
-=======
-    emo_message = message
-    emo_message = emo_message.replace(/:\)/g, '<img src=\"/assets/smile.png\" width=\"35px\" height=\"35px\" title=\":)\">')
-    emo_message = emo_message.replace(/:D/g, '<img src=\"/assets/big-smile.png\" width=\"35px\" height=\"35px\" title=\":D\">')
-    emo_message = emo_message.replace(/\>:\(/g, '<img src=\"/assets/angry.png\" width=\"35px\" height=\"35px\">')
-    emo_message = emo_message.replace(/:\(/g, '<img src=\"/assets/sad.png\" width=\"35px\" height=\"35px\" title=\":(\">')
-    emo_message = emo_message.replace(/:'\(/g, '<img src=\"/assets/cry.png\" width=\"35px\" height=\"35px\" title=\":\'(\">')
-    emo_message = emo_message.replace(/;\)/g, '<img src=\"/assets/winking.png\" width=\"35px\" height=\"35px\" title=\";)\">')
-    emo_message = emo_message.replace(/o.O/g, '<img src=\"/assets/confused.png\" width=\"35px\" height=\"35px\" title=\"o.O\">')
-    emo_message = emo_message.replace(/=:-O/g, '<img src=\"/assets/afraid.png\" width=\"35px\" height=\"35px\" title=\"=:-O\">')
-    emo_message = emo_message.replace(/8-}/g, '<img src=\"/assets/silly.png\" width=\"35px\" height=\"35px\" title=\"8-}\">')
-    emo_message = emo_message.replace(/=\^..\^=/g, '<img src=\"/assets/cat.png\" width=\"35px\" height=\"35px\" title=\"=^..^=\">')
-    emo_message = emo_message.replace(/:3-]/g, '<img src=\"/assets/dog.png\" width=\"35px\" height=\"35px\" title=\":3-]\">')
-    emo_message = emo_message.replace(/<3/g, '<img src=\"/assets/Heart.png\" width=\"35px\" height=\"35px\" title=\"<3\">')
-    emo_message = emo_message.replace(/:P/g, '<img src=\"/assets/Tongue.png\" width=\"35px\" height=\"35px\" title=\":P\">')
-    emo_message = emo_message.replace(/:\*/g, '<img src=\"/assets/Kiss.png\" width=\"35px\" height=\"35px\" title=\":\*\">')
-    emo_message = emo_message.replace(/<\/3/g, '<img src=\"/assets/Broken-Heart.png\" width=\"35px\" height=\"35px\" title=\"<\/3\">')
-    emo_message = emo_message.replace(/.~\*/g, '<img src=\"/assets/Bomb.png\" width=\"35px\" height=\"35px\" title=\".~\*\">')
-    emo_message = emo_message.replace(/@}--\'--/g, '<img src=\"/assets/Flower.png\" width=\"35px\" height=\"35px\" title=\"@}--\'--\">')
-    emo_message = emo_message.replace(/\}:-\)/g, '<img src=\"/assets/Devil.png\" width=\"35px\" height=\"35px\" title=\"\}:-\)\">')
-    emo_message = emo_message.replace(/\{\}/g, '<img src=\"/assets/Hug.png\" width=\"35px\" height=\"35px\" title=\"\{\}\">')
-    emo_message = emo_message.replace(/\(-_-\)zzz/g, '<img src=\"/assets/sleep.png\" width=\"35px\" height=\"35px\" title=\"\(-_-\)zzz\">')
-    emo_message = emo_message.replace(/\(\'-\'\)y-~~/g, '<img src=\"/assets/Smoking.png\" width=\"35px\" height=\"35px\" title=\"\(\'ー\'\)y-~~\">')
-    emo_message = emo_message.replace(/\|-O/g, '<img src=\"/assets/Yawn.png\" width=\"35px\" height=\"35px\" title=\"\|-O\">')
-
-    // 100% more Kappa from http://static-cdn.jtvnw.net
-    // emo_message = emo_message.replace(/Kappa/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ddc6e3a8732cb50f-25x28.png" title="Kappa">')
-    // emo_message = emo_message.replace(/PJSalt/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-18be1a297459453f-36x30.png" title="PJSalt">')
-    // emo_message = emo_message.replace(/BibleThump/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f6c13c7fc0a5c93d-36x30.png" title="BibleThump">')
-    // emo_message = emo_message.replace(/BrainSlug/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-d8eee0a259b7dfaa-30x30.png" title="BrainSlug">')
-    // emo_message = emo_message.replace(/FrankerZ/g, '<img src=\"http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3b96527b46b1c941-40x30.png" title="FrankerZ">')
-
-    return emo_message
->>>>>>> c816cd67cc74ae09fd0347d7295233427baf68c4
 }
 
 
