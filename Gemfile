@@ -26,3 +26,5 @@ gem 'selenium-webdriver'
 gem 'database_cleaner'
 gem 'selenium-client'
 gem 'bootbox-rails', '~>0.4'
+
+gem 'newrelic_rpm'
