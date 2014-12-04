@@ -219,7 +219,7 @@ function emotify(message) {
 
 
 var content;
-var tag;
+var tag = "Main";
 var lastMessageID;
 
 function get_messages(cid, name) {
@@ -256,10 +256,13 @@ function get_messages(cid, name) {
     data = JSON.parse(data)
     msgs = data['messages']
 
+
     if (msgs.length != 0 && lastMessageID != msgs[msgs.length - 1]['id']) {
-        console.log("re-render")
+        console.log(lastMessageID)
         setDataView(data)
         lastMessageID = msgs[msgs.length - 1]['id']
+        console.log(lastMessageID)
+        
     }
 
 
